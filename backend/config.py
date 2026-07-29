@@ -77,9 +77,14 @@ class Completion:
     usage: dict = None
     raw: object = None
 
-
 def build_mistral(api_key):
-    from mistralai.client import Mistral
+    # The import moved between major versions: 1.x exposes Mistral at the top
+    # level, 2.x moved it under mistralai.client. Try both rather than pin the
+    # code to whichever one resolved on the day.
+    try:
+        from mistralai import Mistral
+    except ImportError:
+        from mistralai.client import Mistral
     client = Mistral(api_key=api_key)
     try:
         slow = Mistral(api_key=api_key, timeout_ms=90_000)
