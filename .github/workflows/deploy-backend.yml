@@ -1,0 +1,41 @@
+name: deploy backend
+
+# Mirrors backend/ into the Hugging Face Space. The Space is a deployment
+# target, never a place to edit: anything changed there is overwritten on the
+# next push. That is the point — the live code and the repository drifting
+# apart is how the previous version ended up with a scraper in git that had
+# not run in months.
+
+on:
+  push:
+    branches: [main]
+    paths: ["backend/**", ".github/workflows/deploy-backend.yml"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: check the target is configured
+        env:
+          SPACE: ${{ vars.HF_SPACE }}
+        run: |
+          test -n "$SPACE" || {
+            echo "Set the HF_SPACE repository variable, e.g. yourname/dscadapt-api"
+            exit 1
+          }
+
+      - name: push backend/ to the Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          SPACE: ${{ vars.HF_SPACE }}
+        run: |
+          cd backend
+          git init -q
+          git config user.name  "github-actions"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -qm "sync from ${GITHUB_SHA::7}"
+          git push -qf "https://${SPACE%%/*}:$HF_TOKEN@huggingface.co/spaces/$SPACE" HEAD:main
