@@ -1,0 +1,88 @@
+1.3. Water quality monitoring & improvement  1.3.1. Intended outcome as an adaptation to climate change
+1.3.2. Adaptation measures 1.3.3. Co-benefit of contributing to healthy ecosystems 1.3.4. Co-benefit of providing safe and clean water resources 1.3.5. Co-benefit of safe seafood supply 
+  1.3. Water quality monitoring & improvement  Water quality monitoring serves a critical role in ensuring water is safe for human use, suitable for ecological health, and compliant with environmental standards. A broad array of parameters is measured, including pH, dissolved oxygen, suspended solids, indicators of eutrophication and acidification, heavy metals such as mercury, pesticides, radioactive substances, and microbiological contaminants. 
+The EU has clear water quality objectives, established and enforced through a range of legislative instruments that address standards for drinking water, bathing water and urban wastewater.   The Water Framework Directive (WFD) sets the overarching aim of achieving "good status" for Europe’s rivers, lakes, groundwater bodies, and coastal waters. Under the WFD, Member States are required to preserve and improve water quality by reducing nutrient overloads and limiting the presence of hazardous substances. Pollutants, once introduced into aquatic systems, are often persistent and mobile, capable of traveling downstream and impacting coastal and marine environments. Accordingly, the WFD promotes an integrated approach to water management, water quality and water monitoring.   Complementary EU regulations spanning agriculture, industry, and chemical usage, also set out obligations concerning water quality standards, water monitoring, and wastewater treatment requirements. Responsibilities for maintaining water quality are distributed among Member States and economic sectors, with polluters often held accountable for the costs of advanced treatment technologies.   Emerging scientific evidence highlights additional concerns, including micropollutants, microplastics, and antimicrobial resistance, which present challenges for water quality and public health. Timely, accurate data on water quality and quantity are therefore critical to Europe’s ability to manage its water, mitigate contamination and safeguard health and ecosystem functioning.   Nevertheless, from coastal to inland bathing sites, the vast majority of Europe’s waters are considered safe for swimming. The 2024 bathing water assessments found that over 85% of monitored sites in Europe achieved the target of ‘excellent’ quality standards, while 96% met at least the minimum standards. These assessments monitor bacteria that can cause potentially serious illnesses, such as E. coli, and determine the potential for proliferation in water bodies of cyanobacteria, macroalgae and pollution potentially affecting waters and harming bathers' health.   These figures evidence marked improvements in bathing water quality across Europe in recent decades and are attributed to a reduction in organic pollutants and pathogens, a combined result of systematic monitoring and management, substantial investment in urban wastewater treatment plants, and significant upgrades to wastewater networks.
+
+1.3.1. Intended outcome as an adaptation to climate change
+ 
+Clean water is critical for nature and human health and wellbeing. It is also a key resource for many economic sectors. Over-exploitation of water resources and growing impacts of climate change are leading to increasing clean water scarcity in many parts of Europe. Simultaneously, pollution further stresses this limited resource.   Climate-related threats to water quality include: reduced rainfall and prolonged droughts can lead to low-flow episodes, leading to a higher load of contaminants and degrading water quality; heavy rainfall, storm surges, and flooding can trigger sewer overflows and exceed the capacity of wastewater treatment plants, resulting in the contamination of water sources, and the release of insufficiently treated wastewater; sea level rise drives coastal flooding, erosion and salinisation of freshwater resources, posing further risks for water quality. Broader climate impacts, such as reduced aquifer recharge, altered hydromorphological conditions, and declining soil moisture, can further diminish the resilience of freshwater systems and undermine water quality across Europe. 
+ Consequently, The EU Strategy on Adaptation to Climate Change emphasizes preserved water quality in light of increasing extreme weather events by incorporating climate change into water management risk analyses. Climate change impacts are increasingly considered in assessments of water supply systems to secure water availability and water quality, including for drinking and sanitation. Comprehensive water quality monitoring, coupled with targeted improvement measures, are essential for these efforts, helping to safeguard aquatic ecosystems, public health and ensure the sustainable use of water resources.   
+
+1.3.2. Adaptation measures 
+
+EXAMPLES  Monitoring 
+	•	Surface water monitoring (rivers, lakes, streams, reservoirs)
+	•	Groundwater monitoring (aquifers, wells, springs)
+	•	Rainwater monitoring
+	•	Drinking water monitoring (tap water, bottled water, municipal flows)
+	•	Marine and coastal water monitoring 
+	•	Municipal wastewater monitoring
+	•	Greywater monitoring (water from sinks, showers, washing machines) 
+	•	Industrial wastewater monitoring
+	•	Stormwater runoff monitoring
+	•	Agricultural runoff monitoring 
+	•	Real-time water quality monitoring 
+	•	Screening domestic water tanks 
+	•	Water quality information systems (Drinking, Bathing, etc.): Example: Spanish National Drinking Water Information System (SINAC) – this database provides information on the quality and characteristics of drinking water, detects and prevents risks of contaminated water, and facilitates water and health surveillance systems.  
+	•	Electronic monitoring/water quality sensors
+	•	Citizen science:  Harnessing region-wide ecologists to collect regular water samples for monitoring.  
+Improvement
+	•	Risk assessment: These should identify any additional water quality requirements necessary to ensure sufficient protection of the environment and of human and animal health. (See also Water reuse risk management plans) 
+	•	Stricter pollution and chemical control, particularly for agriculture and mining sectors 
+	•	Automation & Advanced Process Control: Employing smart systems, advanced control, automation and artificial intelligence technologies, such as robotics and drones, to enhance water quality treatment and monitoring 
+	•	Outlawing/restricting microplastics intentionally added to products
+	•	Upgrading domestic water storage tanks and water storage facilities: Position, tank material, design and operation of water storage tanks all contribute to the maintenance of water quality (See also 1.1. Water Storage, Distribution and Reuse)
+	•	Addition of retention basins to WWTPs: A retention basin at a wastewater treatment plant (WWTP) is a type of stormwater management facility that temporarily stores stormwater runoff, in order to meter it out to a WWTP. This can prevent overloading of the treatment plant and improves water quality. (See also Wastewater management improvements)
+	•	Decentralized wastewater treatment:  The collection and treatment of wastewater or fractions of it (e.g. black water, greywater, rainwater) at or near the point of generation using a range of treatment technologies and methods allowing for safe disposal and/or fit-for purpose water reuse at a local level. This can reduce the pressure on centralized wastewater infrastructure during extreme weather.
+	•	Protection of freshwater biodiversity: Investing in water quality monitoring and improvements is essential for protecting freshwater biodiversity, which in turn plays a vital role in maintaining and enhancing water quality through natural ecological processes—creating a reinforcing cycle of environmental resilience.
+	•	Household/domestic water purification systems 
+	•	Microplastic filtration and removal from drinking water
+	•	Increasing water quality standards and treatment requirements 
+	•	Establishing/furthering ‘polluter pays principle’ and ‘extended producer responsibility’ requirements for water quality and treatment requirements 
+	•	Optimisation of water monitoring and meteorological networks to increase vigilance and warning capacity for water quality: Measures can include information sharing, centralised databases, etc. 
+
+
+1.3.3. Co-benefit of contributing to healthy ecosystems 
+Effective water quality monitoring delivers critical information that enables the prevention and reduction of contaminant release into both water networks and the natural environment. Contaminants that affect water quality, such as fertilisers, microplastics and pathogens, threaten to disrupt ecosystems, weakening biodiversity and ecological balance.    For example, microplastics can cause bioaccumulation in the food chain, disrupting ecological balance and provoking a loss of biodiversity. Chemicals and nutrients in fertilisers can cause algal blooms in aquatic ecosystems, reducing oxygen content in water and threatening populations of aquatic species. The presence of pollutants from sewage in freshwater ecosystems increases the incidence of heavy metal toxicity in fish (and humans). Contaminated waters can degrade soil quality, triggering a consequential reduction in biodiversity among both plant and animal species and negative impacts on local ecosystems. Poorly treated effluent from WWTPs has also been evidenced to reduce microbial diversity in waters, and by consequence, poses a risk of increasing antimicrobial and antibiotic resistance.   Monitoring water quality to prevent ecosystem contamination is therefore essential for preserving ecosystem health, which in turn supports biodiversity and ecological balance. In degraded ecosystems and areas of weakened genetic and species diversity, the complexity and heterogeneity of the natural system is compromised, which makes it more vulnerable and at a heightened risk of creating new opportunities for disease emergence. Consequently, preventing ecosystem contamination and preserving ecosystem health can potentially limit the presence and spread of disease vectors.   More generally, water quality monitoring facilitates water quality improvements: improving water quality can help restore ecosystem health, further increasing biodiversity support and strengthening ecological balance. This augments the potential of a limited presence and spread of disease vectors.   Measures to monitor and improve water quality thus offer the added benefit of contributing to healthier ecosystems that can enhance resilience to infectious diseases.  1.3.4. Co-benefit of providing safe and clean water resources
+ 
+The benefits of providing and maintaining the availability of safe and clean water are self-evident. An important co-benefit of water quality monitoring and improvement is the reduced risk of infectious disease through decreased human exposure to pathogens in contaminated water.   By actively monitoring and improving water quality, we support the sustained availability of clean water for essential hygiene and public health, which in turn, helps to limit the spread of waterborne diseases. This is of particular importance during emergencies and extreme weather events that put pressure on the availability of safe and clean water.  
+
+
+
+
+ 1.3.5 Co-benefit of providing safe seafood supply  Improved monitoring of water quality, in particular in coastal and marine environments, offers significant co-benefits for improving the quality and safety of seafood for human consumption. Seafood safety is intimately tied to water quality and most transmission of zoonotic pathogens via seafood is linked to contamination of water with sewage, agricultural runoff, or wastewater. Rigorous monitoring of water quality, for example in shellfish harvesting areas, can thus detect contamination, prevent pathogen-carrying seafood from entering the market, and identify priority sites for water quality improvement measures. Beyond spillage of sewage, this also allows tracking risk predictors such as surface temperature and salinity for naturally-occurring pathogens like Vibrio spp. 
+1.3.6. Trade-off of ecological disruption  The disinfection by-products and residuals generated by water treatment processes can inadvertently foment infectious diseases by disrupting microbial balance - the balance of beneficial and harmful microbes in an ecosystem. Disrupting this balance has multiple impacts: an increased concentration of harmful microbes can favour the growth and survival of pathogens in water, augmenting the risk of waterborne diseases; conversely, a decreased concentration of beneficial microbes can weaken immune systems, thereby increasing vulnerability, more generally, to infectious diseases.   High concentrations of chlorine in treated water can also be toxic to fish and other aquatic life, leading to disruptions in aquatic ecosystems and an associated potential heightened risk of creating new opportunities for disease emergence.
+
+References
+1. https://www.eea.europa.eu/publications/92-9167-001-4/page003.html#:~:text=Basic%20variables%20(eg.,general%20characterization%20of%20water%20quality.
+2. https://www.eea.europa.eu/en/newsroom/editorial/water-quality-and-quantity
+3. https://environment.ec.europa.eu/topics/water/water-framework-directive_en
+4. https://www.eea.europa.eu/en/newsroom/editorial/water-quality-and-quantity
+5. https://environment.ec.europa.eu/topics/water/urban-wastewater_en
+6. https://www.eea.europa.eu/en/newsroom/editorial/water-quality-and-quantity
+7. https://www.eea.europa.eu/en/analysis/publications/europes-state-of-water-2024
+8. https://www.eea.europa.eu/en/analysis/publications/european-bathing-water-quality-in-2024
+9. https://www.eea.europa.eu/en/newsroom/editorial/water-quality-and-quantity
+10. European Environment Agency, 2024. European climate risk assessment, Publications Office of the European Union. p. 120. Available at: https://data.europa.eu/doi/10.2800/8671471
+11. Grizzetti, B., et al., 2017, ′Human pressures and ecological status of European rivers′, Scientific Reports 7(1), p. 205.
+12. https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52021DC0082&from=EN
+13. https://www.researchgate.net/publication/337049996_Design_and_Development_of_Real-Time_Water_Quality_Monitoring_System
+14. https://ghdx.healthdata.org/organizations/spain-national-drinking-water-information-system-sinac
+15. https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32020R0741
+16. European Environment Agency. 2021. Drivers of and pressures arising from selected key water management challenges — A European overview. Available at: https://www.eea.europa.eu/en/analysis/publications/drivers-of-and-pressures-arising
+17. https://www.sciencedirect.com/science/article/pii/S2214714424007189
+18. https://single-market-economy.ec.europa.eu/sectors/chemicals/reach/restrictions/commission-regulation-eu-20232055-restriction-microplastics-intentionally-added-products_en
+19. https://www.researchgate.net/publication/342250661_Water_quality_aspects_related_to_domestic_drinking_water_storage_tanks_and_consideration_in_current_standards_and_guidelines_throughout_the_world_-_A_review
+20. https://www.water-reuse-europe.org/event/place-decentralised-wastewater-treatment-water-reuse-europe/
+21. https://www.cbd.int/gbo/gbo4/gbo4-water-en.pdf
+22. https://pmc.ncbi.nlm.nih.gov/articles/PMC10054062/
+23. https://www.oecd.org/content/dam/oecd/en/publications/reports/2024/05/the-implementation-of-the-polluter-pays-principle-in-the-context-of-the-water-framework-directive_35a945b2/699601fc-en.pdf
+24. https://www.mdpi.com/2073-4441/13/7/888;https://www.researchgate.net/publication/361710762_Optimization_of_water_quality_monitoring_programs_by_data_mining
+25. https://www.sciencedirect.com/science/article/pii/S0006320721000628#bb0155
+26. https://www.sciencedirect.com/science/article/pii/S2950305125000063#:~:text=In%20animals%2C%20microplastics%20can%20cause,growth%2C%20and%20microbial%20health%20too.
+27. https://www.sciencedirect.com/science/article/pii/S0026265X12001105
+28. https://www.sciencedirect.com/science/article/pii/S0013935114001662
+29. https://journals.sagepub.com/doi/pdf/10.1177/00368504241253720
+30. https://www.mdpi.com/2073-4441/16/3/377
+31. https://www.who.int/publications/i/item/9789241565196
+32. https://www.who.int/publications/i/item/9789241565196

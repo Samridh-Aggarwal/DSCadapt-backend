@@ -1,0 +1,63 @@
+Summary – Pathway 2.1: Marine spatial planning
+2.1.1 Adaptation measures
+Marine Spatial Planning (MSP) is a public process used to assess and organize the spatial and temporal distribution of human activities in marine environments. Its aim is to support ecological, economic, and social objectives that have been defined through political decision-making.
+Rather than being an end goal, MSP serves as a practical tool to promote more efficient and coordinated use of marine areas. It helps manage competing demands for marine space by fostering sustainable development, protecting the environment, and ensuring that social and economic benefits are achieved through a transparent and strategic planning process. Marine spatial plans are a key approach to achieve ecosystem-based management (EBM) of marine environments and tend to do so in three major ways: through (1) advice or regulation for sharing marine space between different activities, (2) establishing priorities for space use, and (3) enhancing protection of natural capital, ecosystem services, and societal goods and benefits.
+MSP – when implemented in a climate-smart way – is thus a key tool to enhance climate adaptation and resilience in marine and coastal environments. It encompasses a range of different approaches and interventions that aim to balance environmental needs and economic use of marine ecosystems and coastal areas. 
+Internationally, the UNESCO’s Intergovernmental Oceanographic Commission (IOC) has spearheaded the mainstreaming of MSP since 2006, with its most recent detailed guidance published in 2021. By 2021, MSP had emerged as a policy approach in over 70 countries worldwide. At European level, MSP was adopted as a strategy with the Directive 2014/89/EU, establishing a framework for marine spatial planning in the EU. In 2017, the UNESCO IOC and the European Commission’s DG MARE jointly adopted a roadmap for MSP acceleration worldwide, subsequently setting up the MSPglobal initiative. MSPglobal contributes to four priority actions until 2030: 1) Transboundary MSP; 2) Sustainable Blue Economy; 3) Ecosystem-based MSP; and 4) Capacity building. 
+Within MSP, several individual policy measures and approaches are worth highlighting as they may impact on infectious disease risk in various ways: 
+	•	Zoning is the central tool of MSP and encompasses the designation of marine or coastal areas for specific purposes. This may include conservation and protection zones, or use for fisheries, recreational use, or shipping lanes. Smart zoning balances environmental needs of the ecosystem, climate resilience and adaptation with social and economic activities. 
+	•	Marine protected areas (MPAs) are areas of the ocean designated for long-term conservation efforts. They protect natural environments by limiting or prohibiting human activity, such as fishing, and are a crucial tool for maintaining and enhancing environmental health and climate resilience of marine ecosystems, preventing environmental degradation, and reducing anthropogenic stressors on marine fauna and flora. MPAs are widely considered as one of the most effective adaptation tools for marine ecosystems. Currently, 9.61% of global ocean surface is protected by over 16,000 individual MPAs. Most of these are found in national waters rather than the high seas. Global MPA coverage still lags significantly behind the Convention on Biological Diversity’s (CBD) Aichi Biodiversity target 11 under which signatory states had committed to 10% of coastal and marine areas to be protected by 2020. In addition, the level of environmental protection within MPAs and their enforcement varies widely and only less than a third of protected oceans are covered by exclusively no-take MPAs. 
+Fig. 1: Map of MPAs in Europe
+
+	•	Coastal setbacks are buffer zones that prohibit or limit development within a specified distance of the coastline. Two forms of coastal setbacks exist: lateral setbacks that establish buffers from the shoreline and guard against erosion; and elevation setbacks that specify minimum vertical distances and function as flood protection. They form a low-cost, nature-based alternative to infrastructural flood or erosion measures and serve the dual purpose of protecting both coastal environments and human developments. By spatially separating buildings from coastal hazard zones, they are an adaptation measure for rising sea levels and reduce the associated risk of property damage and human costs while safeguarding coastal ecosystems. Setbacks have been implemented globally and across Europe but vary in their proscribed distances as well as their restrictiveness. In the European Mediterranean region, for example, lateral setbacks of 100 metres have been widely introduced under the Protocol on Integrated Coastal Zone Management (ICZM) in the Mediterranean of the 2008 Barcelona Convention.
+Despite the promise and progress in MSP and its encompassing measures, major challenges to its implementation and its effectiveness as a climate adaptation tool continue to persist. These include, among others, poor policy and institutional frameworks, exclusion of relevant stakeholders, lack of monitoring and evaluation mechanisms, insufficient inclusion of social data into MSP, transboundary challenges, shifting impacts of climate change, and ensuring adequate environmental sustainability.
+
+2.1.2 Intended outcome as an adaptation to climate change
+MSP encompasses a range of intended outcomes and is often explicitly leveraged to balance competing environment, social, and economic objectives. The major intended outcomes can be categorised as follows: 
+	•	Ecosystem protection and restoration: Zoning for environmental conservation and protection, especially in the form of MPAs, aims at ensuring healthy marine ecosystems. Similarly, coastal setbacks form ecosystem-based buffer zones that restore coastal environments and limit human development within them.
+	•	Risk reduction and resilience: MSP aims at enhancing the resilience of marine and coastal ecosystems. Through measures such as lateral or elevation setbacks, it also reduces risks of flooding or erosion for human development. 
+	•	Climate-smart economic planning: MSP offers a tool for climate-smart economic planning by allowing to accommodate and balance competing socio-economic and environmental interest and utilisation of marine areas. This enables economic planning, for example for fisheries or tourism, without compromising the sustainability of the environments that underpin these. 
+	•	Dynamic and adaptive management: MSP is an inclusive and consultative process. Thereby, it aims to incorporate the interest of all relevant stakeholders and be adaptive to changing circumstances and needs.
+	•	Social equity and livelihoods protection: By adopting climate-smart spatial planning, MSP can contribute to the sustainability of marine and coastal livelihoods while also balancing competing interests and thereby enhancing equity in spatial use.
+2.1.3 Co-benefits for infectious disease
+2.1.3.1 Reduced exposure to flood water
+European coastlines are highly urbanised. 6.3% of EU surface area lies within the extended low-elevation coastal zone (E-LECZ), i.e. below 20 metres in elevation and hydrologically connected to the sea. This area accounts for 15.1% of total urban settlement in the EU, although this varies across the region. The Netherlands, Denmark, and Latvia are particularly coastal, with 83.3%, 48.6%, and 42.8% of urban areas falling within the E-LECZ. Meanwhile, sea level rise is projected to multiply the occurrence of once-in-a-century coastal floods tenfold by 2050 in many locations along the Atlantic and Mediterranean shorelines. This puts significant populations in Europe at risk of floods and showcases the urgent need for sustainable flood protection measures.
+MSP, particularly through coastal setbacks, can reduce the exposure of humans to flood water and rising sea levels, and thereby offers co-benefits for infectious disease prevention. Sea level rise is associated with an increase in brackish water in coastal areas and a heightened flood risk in these areas, both of which can in turn facilitate the spread of vector- and water-borne infectious diseases. Coastal setbacks by establishing buffer zones (either in lateral distance or in elevation) between human settlements and developments on the one hand, and coastal waters on the other, thereby reduce the exposure of coastal populations to flood water that might not only be an immediate risk to life and property, but also facilitate the spread of infectious diseases. It is estimated that adopting country-specific coastal setbacks for new developments could reduce EU urban exposure to sea level rise by 47%.
+Examples
+	•	Croatia: Under the ICZM protocol, Croatia has committed itself to establish at least 100 metre-setbacks for new coastal development. Under conservative sea level rise projections, this is expected to reduce predicted flood costs by 10% by 2100. If setbacks are expanded to apply to existing developments, which would result in a managed realignment, flood costs by 2100 could be reduced by up to 94%.
+	•	France: In response to storm Xynthia that hit the French Atlantic coast in 2010 and killed 41 people, setback zones restricting further development were implemented to guard against future flood risk. 
+	•	Spain: Coastal setbacks of at least 100 metres were mandated by Spanish law in 1988. However, given that this was preceded by significant tourism developments in the decades prior, oftentimes immediately along beaches that have since shrunk due to erosion, their practical impact on reducing flooding has been limited. 
+	•	Romania: In 2002, Romania prohibited permanent buildings within a contextually adaptable setback zone of 50-150 metres. While only partially implemented, these zones have helped preserve natural coastlines and protect against flood risks.
+
+References
+1. https://www.ioc.unesco.org/en/marine-spatial-planning
+2. https://www.nature.com/articles/s44183-025-00129-2
+3. https://www.sciencedirect.com/science/article/abs/pii/S0308597X24005037
+4. https://www.ioc.unesco.org/en/guidance-marine-spatial-planning
+5. https://www.sciencedirect.com/science/article/abs/pii/S0308597X18306213
+6. https://www.eea.europa.eu/policy-documents/directive-2014-89-eu-maritime
+7. https://www.mspglobal2030.org/about/
+8. https://wwws.law.northwestern.edu/research-faculty/clbe/workingpapers/documents/craig_makingmarinezoningadaptable.pdf
+9. https://www.mdpi.com/2071-1050/17/4/1724
+10. https://iucn.org/resources/issues-brief/marine-protected-areas-and-climate-change
+11. https://www.sciencedirect.com/science/article/pii/S2772411522000222
+12. https://www.protectedplanet.net/en/thematic-areas/marine-protected-areas
+13. https://www.cbd.int/sp/targets
+14. https://iucn.org/resources/issues-brief/marine-protected-areas-and-climate-change
+15. https://mpatlas.org/
+16. https://www.protectedplanet.net/en/thematic-areas/marine-protected-areas
+17. https://www.ctc-n.org/technologies/coastal-setbacks
+18. https://www.coastal-management.eu/measure/coastal-and-river-setbacks.html
+19. https://www.nature.com/articles/s41598-023-32059-9
+20. https://adriadapt.eu/adaptation-options/coastal-setback/
+21. https://www.unep.org/unepmap/who-we-are/contracting-parties/iczm-protocol
+22. https://www.sciencedirect.com/science/article/pii/S0308597X18306213
+23. https://www.nature.com/articles/s41598-023-32059-9
+24. https://www.eea.europa.eu/en/analysis/indicators/extreme-sea-levels-and-coastal-flooding
+25. https://www.nature.com/articles/s41467-020-15665-3.pdf
+26. https://bmcinfectdis.biomedcentral.com/articles/10.1186/1471-2334-11-18
+27. https://www.nature.com/articles/s41598-023-32059-9
+28. https://link.springer.com/article/10.1007/s10113-020-01628-3
+29. https://www.sciencedirect.com/science/article/pii/S2212096322000201
+30. https://www.sciencedirect.com/science/article/pii/S096456911100086X
+31. https://www.sciencedirect.com/science/article/pii/S096456911100086X

@@ -1,0 +1,48 @@
+Pathway 6.1: Expanding public transport
+
+6.1.1 Intended outcomes of expanding public transport as mitigation to climate change
+
+Promoting public transport can play a key role in reducing emissions from the transport sector. To achieve Europe’s aim of becoming climate-neutral by 2050, the transport system has to shift towards more sustainable transport modes. The transport sector is the second largest source of emissions in the EU, after the energy sector. About a quarter of total CO2 emissions are caused by the transport sector. In the EU, the vast majority of emissions from transport come from cars, which still mainly use oil-based fuels. In fact, more than 75% of all transport activity in Europe comes from passenger cars.  Road transport is also one of the main sources of environmental noise pollution. Public transport offers a more sustainable way compared to private modes of transport such as cars. The term ‘public transport’ includes buses, trains, trams and metros, which generally have lower emissions and consume less energy per passenger-km travelled compared to passenger cars. While energy efficiency of private vehicles has increased over the last years, it has not increased at the same pace as demand, therefore total transport emissions are still expected to increase. This makes expanding public transport one of the key strategies to cut emissions from the transport sector. 
+
+6.1.2 Mitigation measures
+
+The main strategy to expand public transport is to shift demand patterns by making public transport more convenient. There is a need for systemic infrastructure changes in the transport sector to enable behavioural changes to expand the use of more efficient transport modes. In general, expanding public transport involves a mix of measures concerning infrastructure, technology, and behaviour. Some of the measures aimed at promoting public transport include the following:
+
+	•	Improve the connectivity between different modes of transport. Effective inter-modal connectivity can reduce travel time and make public transit more convenient. Infrastructure at transfer points can improve linkages, integrated payment and subscription passes can make fare payment and transfer between modes easier and coordinated schedules can also improve connectivity.
+	•	Increase the accessibility to public transport, including connections to local services like hospitals, schools, shopping centres, etc. Accessibility depends on several factors including cost, quality and frequency of services, and state of the infrastructure. Convenience of public transit can be improved through provision of accurate timetables, easy route planning options and improving customer comfort. Ease of boarding and disembarking is also a key factor to improve accessibility especially for disabled people and those with limited mobility. 
+	•	Increase public transport routes and service frequency, including extending networks to underserved areas.  The European Commission has made access to transport for all a priority and key measures include improving public transport in low-income areas and extending services into underserved and peripheral communities.
+	•	Expansion of the rail sector, including cross-border train services.
+Investments in rail infrastructure at the local, regional, and European level supports a model shift from road to rail. In Europe, the expansion of overnight trains makes longer-distance journeys more convenient and improves sustainable mobility across the EU. 
+	•	Affordable fare policies. 
+Fare structures can encourage greater usage and improve accessibility. For example, one approach is replacing tariffs that increase with distance from the city centre with a single tariff for all destinations within a city area. Fare capping policies, where there are no additional costs after a certain number of trips, can encourage usage and increase ridership in the long term. 
+	•	Congestion charge and low-emission zones. Implementing pricing mechanisms for road transport can incentivise a shift from car use to public transit and lower traffic and pollution. Such measures also create revenue that can be reinvested into improving public transport. 
+
+Examples
+
+Many European cities have implemented congestion charges which have shown success. For example in Milan, the Ecopass scheme was introduced in 2008 to improve the air quality in the city. In 2012 it was replaced with the Area C congestion charge with similar objectives. The policy requires vehicles entering the city area between 7:30 and 19:30 to pay a charge. The measure has been found to effectively reduce urban emissions., 
+In London, the 24-hour Ultra Low Emission Zone (ULEZ) was implemented in 2019 with the aim to reduce pollution from road vehicles. Under the policy, vehicles driving in the ULEZ have to meet emission standards or pay a daily fee. The ULEZ covers passenger vehicles, motorcycles, vans, specialist vehicles and minibuses and is an addition to the Low Emission Zone (LEZ) from 2008 for large and heavy vehicles. The ULEZ proved to be effective in reducing air pollution and congestion and has been expanded to cover more areas. 
+
+Public transport has been made free of charge in several places in Europe. In Luxembourg, all buses, trams and trains have been free of charge since 2020, with the aim to reduce traffic congestion and tackle environmental issues. It was the first country implementing such a policy. Malta has also made most public transport free of charge. Tallin, the capital of Estonia has provided free public transport for residents since 2013 and Serbia’s capital Belgrade has decided to make all public transport free in 2024.
+
+Climate adaptation 
+
+While the expansion of public transport is primarily seen as a mitigation measure to lower greenhouse gas emissions, it can also positively impact climate adaptation, as public transportation infrastructure can be more robust against adverse events. Public transportation is more resilient to energy shocks as it is more energy efficient compared to private vehicles, which is an indirect co-benefit. Public transport systems also offer benefits in the face of increasing climate risks to critical infrastructure. For example, decongested roads are able to transport people faster from high risk areas during adverse climate-induced weather events. However, the public transport system is also vulnerable to disruptions due to extreme weather for example, and there is a need to anticipate and prepare for the impacts of climate change on the transport system. 
+
+
+6.1.3 Co-benefits for infectious disease
+
+6.1.3.1 Co-benefit of improved air quality
+
+Expanding public transport has the important benefits of alleviating traffic congestion and significantly improving air quality. This is especially important in cities where private vehicle ownership and use are rapidly increasing, causing traffic congestion which slows mobility and increases vehicle emissions, particularly of nitrogen oxides (NOx) and fine particulate matter (PM2.5/PM10). In Europe, 97% of the population in urban areas in 2021 was exposed to PM concentrations above the WHO guidelines. The transport sector is the largest emitter of NOx in Europe, causing 56.5% of emissions, while also being a major contributor to PM10 and PM2.5 with a share of 29.3%. By shifting travel from private cars to buses, trams, metros or other public‑transit modes, cities can reduce overall vehicle kilometres travelled, lower emissions and thus improve the air quality. Reducing air pollution in turn has important health co-benefits as exposure to ambient air pollution is linked to respiratory illnesses, impaired lung function, and greater susceptibility to infectious diseases., Overall, better air quality therefore can support population health and reduce the vulnerability to infectious diseases. 
+
+6.1.3.2 Co-benefit of mitigating climate change
+
+The expansion of public transport contributes to reducing GHG emissions and mitigating climate change, which has indirect impacts on infectious disease outcomes as many infectious diseases are sensitive to climate change. 
+
+6.1.4 Trade-offs for infectious disease
+
+6.1.4.1 Trade-off of increased contact rates and overcrowding
+
+Increased usage of public transport can increase the contact rates between individuals and affect the transmission of infectious diseases, particularly airborne diseases. Higher contact rates and crowding in enclosed spaces raise the risk of airborne transmission for example of influenza and coronaviruses. For example, a correlation was found between the use of the London Underground and the spread of influenza-like-illnesses. It is important to note that there are large differences across contexts and factors such as the level of ventilation, crowding, hygiene practices, and trip lengths play an important role. Airborne infection risk also varies by pathogen. While adequate ventilation can control moderately contagious airborne diseases like influenza or rhinovirus, it may not be sufficient alone to prevent transmission of highly infectious pathogens such as measles, adenovirus, untreated TB, and SARS-CoV-2. In those situations, the risk of transmission can be substantially reduced by wearing face masks. For example, the number of new cases of Covid-19 was found to be greatly reduced the higher the level of mask coverage of passengers. 
+
+

@@ -1,0 +1,96 @@
+{
+ "note": "Disease reference for surveillance lookup and geographic relevance. Replaces DISEASE_INFO, DISEASE_ALIASES, AUTO_GATED, AUTOCHTHONOUS and ENDEMIC_2C from app.py. Names match the ontology exactly.",
+ "groups": {
+  "1": "Group 1: present everywhere, case numbers illustrative only due to high under-reporting.",
+  "2a": "Group 2a: geographic distinctions meaningful, ECDC data reliable for relevance.",
+  "2b": "Group 2b: ECDC data partially reliable, known reporting gaps.",
+  "2c": "Group 2c: limited ECDC data, alternative sources may be needed."
+ },
+ "gating": {
+  "none": "Group rules decide. Group 1 and 2b are always relevant; 2a is checked against reported cases.",
+  "autochthonous": "Group 2a disease whose reported cases are dominated by imported travel cases, so a cases>0 test would misread travellers as local risk. Relevant only where local transmission is established.",
+  "endemic": "Not carried by the ECDC Atlas. Relevant only in the manually listed countries.",
+  "never": "No autochthonous European transmission. Never relevant to a specific country."
+ },
+ "diseases": [
+  {"name": "Campylobacteriosis", "ecdc": "Campylobacteriosis", "group": "1", "gating": "none",
+   "aliases": ["campylobacteriosis", "campylobacter"]},
+
+  {"name": "Chikungunya", "ecdc": "Chikungunya", "group": "2a", "gating": "autochthonous",
+   "countries": ["France", "Italy", "Spain"],
+   "aliases": ["chikungunya"]},
+
+  {"name": "Crimean-Congo haemorraghic fever (CCHF)", "ecdc": "CCHF", "group": "2a", "gating": "none",
+   "aliases": ["crimean-congo", "cchf"]},
+
+  {"name": "Cryptosporidiosis", "ecdc": "Cryptosporidiosis", "group": "1", "gating": "none",
+   "aliases": ["cryptosporidiosis", "cryptosporidium"]},
+
+  {"name": "Dengue fever", "ecdc": "Dengue", "group": "2a", "gating": "autochthonous",
+   "countries": ["France", "Italy", "Spain", "Croatia", "Portugal"],
+   "aliases": ["dengue fever", "dengue"]},
+
+  {"name": "E. coli infection", "ecdc": "STEC/VTEC", "group": "1", "gating": "none",
+   "aliases": ["e. coli infection", "e. coli", "stec", "vtec", "ehec"]},
+
+  {"name": "Giardiasis", "ecdc": "Giardiasis", "group": "1", "gating": "none",
+   "aliases": ["giardiasis", "giardia"]},
+
+  {"name": "Hantavirus infection", "ecdc": "Hantavirus", "group": "2a", "gating": "none",
+   "aliases": ["hantavirus"]},
+
+  {"name": "Hepatitis A", "ecdc": "Hepatitis A", "group": "1", "gating": "none",
+   "aliases": ["hepatitis a"]},
+
+  {"name": "Legionnaires' disease", "ecdc": "Legionnaires' disease", "group": "2a", "gating": "none",
+   "aliases": ["legionnaires' disease", "legionnaires disease", "legionella"]},
+
+  {"name": "Leishmaniasis", "ecdc": null, "group": "2c", "gating": "endemic",
+   "countries": ["Spain", "Portugal", "France", "Italy", "Greece", "Malta", "Cyprus", "Croatia", "Slovenia", "Bulgaria"],
+   "aliases": []},
+
+  {"name": "Leptospirosis", "ecdc": "Leptospirosis", "group": "2a", "gating": "none",
+   "aliases": ["leptospirosis", "leptospira"]},
+
+  {"name": "Listeriosis", "ecdc": "Listeriosis", "group": "1", "gating": "none",
+   "aliases": ["listeriosis"]},
+
+  {"name": "Lyme disease", "ecdc": "Lyme", "group": "2b", "gating": "none",
+   "aliases": ["lyme disease", "lyme borreliosis", "lyme"]},
+
+  {"name": "Malaria", "ecdc": "Malaria", "group": "2a", "gating": "autochthonous",
+   "countries": ["Greece"],
+   "aliases": ["malaria"]},
+
+  {"name": "Norovirus infection", "ecdc": null, "group": "1", "gating": "none",
+   "aliases": []},
+
+  {"name": "Rift Valley fever (RVF)", "ecdc": "Rift Valley fever", "group": "2c", "gating": "never",
+   "aliases": ["rift valley fever", "rvf"]},
+
+  {"name": "Salmonellosis", "ecdc": "Salmonellosis", "group": "1", "gating": "none",
+   "aliases": ["salmonellosis", "salmonella"]},
+
+  {"name": "Shigellosis", "ecdc": "Shigellosis", "group": "1", "gating": "none",
+   "aliases": ["shigellosis"]},
+
+  {"name": "Tick-borne encephalitis (TBE)", "ecdc": "TBE", "group": "2b", "gating": "none",
+   "aliases": ["tick-borne encephalitis", "tbe"]},
+
+  {"name": "Usutu virus", "ecdc": null, "group": "2c", "gating": "endemic",
+   "countries": ["Italy", "France", "Germany", "Austria", "Czechia", "Hungary", "Croatia", "Spain", "Belgium", "Netherlands"],
+   "aliases": []},
+
+  {"name": "Vibriosis", "ecdc": null, "group": "2c", "gating": "endemic",
+   "countries": ["Germany", "Denmark", "Sweden", "Finland", "Poland", "Estonia", "Latvia", "Lithuania", "Netherlands", "Spain", "Italy", "Greece"],
+   "aliases": []},
+
+  {"name": "West Nile fever", "ecdc": "West Nile", "group": "2a", "gating": "autochthonous",
+   "countries": ["Italy", "Greece", "Romania", "Hungary", "Spain", "France", "Germany", "Croatia", "Austria", "Bulgaria", "Cyprus", "Slovenia", "Czechia", "Netherlands", "Slovakia"],
+   "aliases": ["west nile fever", "west nile virus", "west nile", "wnv"]},
+
+  {"name": "Zika fever", "ecdc": "Zika", "group": "2a", "gating": "autochthonous",
+   "countries": ["France"],
+   "aliases": ["zika fever", "zika virus", "zika"]}
+ ]
+}

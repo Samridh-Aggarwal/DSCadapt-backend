@@ -1,0 +1,101 @@
+1. Water management measures    Climate change threatens water supply in Europe in multiple ways, ranging from changes in precipitation which alter seasonal and annual water availability, increased evaporation due to higher temperatures, and extreme weather events that lead to droughts and floods. Increased likelihood of floods also places our water supply at risk of contamination from sewer overflows.   Water availability is closely linked with our health, with a wide range of economic activities, and with (fresh)water dependent ecosystems. The increasing frequency and severity of extreme weather events thus pose severe risks to both human and ecosystem health and have the potential to cause extensive economic damage.   Sustainable water management is a fundamental adaptation measure, integrating both risk management and climate change considerations into water planning. European climate and water policies both prioritise the protection of freshwater sources, aiming to ensure freshwater availability by reducing water use, preserving water quality, and addressing the risks of extreme weather events such as droughts and floods on water supply.   European water regulation is far-reaching, covering areas such as river and flood management plans, regulating water reuse and water efficiency, improving water quality, advancing wastewater management, and promoting sustainable soil management and land-use practices.   The European Water Framework Directive (WFD) aims to safeguard the qualitative and quantitative health of European water supplies, focusing on both reducing and removing pollution while ensuring sufficient water to support wildlife and human needs. The WFD is the cornerstone of European legislation for water protection, applying to inland, transitional, coastal and groundwater bodies.   The 2025 European Water Resilience Strategy is the most recent regulation designed to improve water management and tackle water scarcity across Europe, as a matter of security and crisis preparedness. It underlines that guaranteeing equal access to clean and affordable water is the primary goal of sustainable water management in Europe, and that resilience and innovation in water use will strengthen Europe’s business continuity and economic competitiveness. To this end, it prioritises the restoration of the water cycle and the sustainable management of water sources. It seeks to replenish groundwater reserves and protect biodiversity, support sustainable soil management and land-use practices, promote nature-based solutions, enable effective spatial planning, develop water scarcity indicators, and modernise water infrastructure to safeguard public supply, among other measures.   Water management is a cross-sectoral and wide-ranging adaptation priority, with implications, actions and measures relevant to multiple industries. The impacts of climate change on water supply are therefore increasingly incorporated into risk assessments across sectors, focusing on water efficiency and securing water availability, especially for drinking and sanitation.
+  1.1. Water storage, distribution and reuse   1.1.1. Intended outcome as an adaptation to climate change  Safe and clean water is a primary ingredient for life on Earth. Climate change is projected to exacerbate water scarcity problems in several European regions, underscoring the critical importance of effective water management measures for human adaptation.  Sufficient water quantity and quality are essential to reduce the risk of negative impacts on our drinking water supply and ecosystems, as well as on many economic sectors and systems, including agriculture, transport, and energy.  The intended outcomes of water storage, distribution and reuse measures are to ensure the availability of safe and clean water resources. These measures aim to reduce the pressure on water resources while preserving water security for human activities and for the healthy functioning of freshwater ecosystems.   Water storage measures centre on capturing and retaining water for later use, while water distribution methods target the delivery and allocation of water resources. Water reuse measures are considered those that “reclaim wastewater from a variety of sources and treat it to a standard appropriate for a second purpose”. Some water management measures can be considered a combination of these.  
+1.1.2. Adaptation Measures  These types of water management measures will differ significantly based on the context and size of measure or intervention – whether public or private, household-level, local, regional, or national level, urban or rural, indoor or outdoor.   *Could be better placed in another section  
+
+Storage
+	•	Rainwater capture and storage 
+	•	Desalinisation plants/activities 
+	•	Aquifer Storage and Recovery (ASR):  Injecting surface water into aquifers for storage and later recovery
+	•	PES schemes for water storage
+	•	Increasing natural water storage or water permanence – i.e., increasing ecosystem’s ability to store water 
+	•	Reservoir management improvements: enhancing existing reservoirs with smart controls or sediment management 
+	•	Atmospheric water harvesting, i.e., capturing potable water from humidity in air 
+	•	Hafirs: Artificially constructed, shallow, excavated water catchment basins with a circular earthen wall that collect and store rainwater for use in irrigation, for livestock, etc.
+ Distribution
+	•	Water rationing/water resource allocation (often a local/municipal level measure and may be sector specific, e.g., agriculture)
+	•	Water permits (often a local/municipal level measure)
+	•	Sustainable irrigation policies 
+	•	Dry farming (aridiculture) 
+	•	Selection/prioritisation of drought-tolerant crops 
+	•	Water efficiency/irrigation efficiency subsidies 
+	•	Upgrading water supply system to minimise leaks
+	•	Minimising water distribution network/transport losses
+	•	Inter-basin transfer:  The moving of water from a watershed with a surplus (donor basin) to a watershed suffering from a shortage (recipient basin).
+	•	Dual piping:  A system of plumbing installations used to separate potable and reclaimed water supply. 
+
+Reuse
+	•	Rainwater purification 
+	•	Water reuse standards (e.g., EU Regulation on the creation of standards for treating and reusing urban wastewater in agriculture)
+	•	Greywater reuse systems (household scale)
+	•	Water reuse technologies (WRT) subsidies/refunds (multiple scales) 
+	•	Industrial water recycling loops 
+	•	Nature-based solutions for water reuse: Water reuse systems that combine green and blue infrastructure, such as constructed wetlands, with conventional mechanical water treatment. See case study: the Granollers’ (Spain) water reuse system, which joins a constructed wetland with a mechanical water reclamation plant and a non-potable water distribution network.  
+Combination Measures
+	•	Drought management plans (local, regional, national level measure) 
+	•	Flood management plans (local, regional, national level measure) – See 1.6.1. 
+	•	Water-saving requirements for products, services, businesses (e.g., extended producer responsibility schemes)
+	•	Water pricing and tariff reforms: economic instruments that influence consumption and investments
+	•	Water efficiency and water conservation measures 
+	•	Smart metering and water monitoring systems to detect leaks and optimise use
+	•	Johads/Percolation ponds: A traditional community-owned rainwater storage wetland, harvesting rainwater and improving percolation to recharge groundwater reserves. 
+	•	Capture and recycling of agricultural runoff: Capture and recycle systems feature a network of channels and ditches that capture runoff irrigation water from nursery beds, and divert it to basins that retain the water, which can then be pumped back onto production areas or to a storage basin. 
+  1.1.3. Co-benefits of providing safe and clean water resources  The benefits of maintaining the availability of safe and clean water are self-evident. However, there are also co-benefits of water storage, distribution and reuse measures for infectious disease risk, largely associated with a reduction in human exposure to disease. By reducing the impacts of extreme weather events, such as floods and droughts, on water availability, measures to store, filter, and reuse rainwater can help secure reliable access to clean water. This access is essential for maintaining hygiene practices and protecting public health, both of which are critical for preventing the transmission of waterborne illnesses and reducing vulnerability to infectious diseases.   Supporting this objective requires a focus on comprehensive water distribution. Research emphasises that widespread availability of safe, clean water, especially during floods, droughts, and other emergencies, is most effective in minimising the risk of waterborne diseases, as a systemic approach ensures equitable hygiene and prevents underserved communities or vulnerable populations from becoming hotspots of heightened pathogen exposure. It is thus important to prioritize accessibility and account for demographic barriers, ensuring that no specific groups or communities are left with reduced access.  Additionally, water efficiency and reuse measures can reduce pressure on freshwater sources and natural ecosystems, thus supporting and potentially improving the health of local ecosystems. By helping to support biodiversity and ecological balance, these measures can help increase resilience to infectious disease, by limiting opportunities for disease emergence.  
+  1.1.4. Trade-off of creating habitat for disease pathogens and vectors 
+Water management measures carry significant risks of creating trade-offs for infectious disease transmission, particularly if implemented poorly or without consideration of relevant risk factors. Many of these risks are linked to water storage measures; standing or stagnant water can provide ideal breeding grounds for mosquitoes, thereby increasing the likelihood of mosquito-borne diseases such as malaria, dengue fever, and West Nile virus.. Improper storage is therefore a recognized risk factor for mosquito proliferation, indirectly creating habitats for these disease vectors.  
+Improper storage and reuse of water are also linked to an increased risk of waterborne diseases. Without adequate monitoring of water quality, stored or reused water can become a habitat for disease pathogens, contaminating drinking water sources and potentially leading to outbreaks of diseases such as cholera, hepatitis A, dysentery, and other gastrointestinal infections.   To prevent storage, reuse and distribution systems from inadvertently becoming breeding grounds for pathogens or disease vectors, a wide array of interventions, listed below, must be considered. Because risks vary by infrastructure type, these interventions should be tailored to the local context and the specific water technologies being utilised.
+ 
+	•	Upgrading water catchment, storage, treatment and distribution systems to sustain extreme weather events
+	•	Upgrading water storage systems to avoid creating breeding grounds: - Seal off all potential entry points to water storage systems where possible - Screen all potential entry points to water storage systems  - Ensure routine maintenance of water storage systems  - Ensure storage tanks are impervious to light to minimise algal growth
+	•	Household water purification systems
+	•	Reducing open water-filled containers (such as bird baths) and empty the water once a week to prevent immature mosquitoes from developing
+	•	Protecting critical storage infrastructure from floods, storms and sea level rise
+	•	Drinking water catchment management
+	•	Pond sides should be smooth and without pockets that could collect stagnant water
+	•	Upgrade water distribution systems to avoid collection of stagnant water, e.g., drains should have sufficient gradient to allow for flow of water, gutters should be cleared of blocking leaves
+	•	Community-based participation in water harvesting and storage*
+	•	Elimination of vector breeding sites in the vicinity of populations* 
+	•	Consider avoiding storing water outside in areas of heavy shade
+	•	Water storage and reuse education and awareness raising
+
+References
+1. European Environment Agency, 2024. European climate risk assessment, Publications Office of the European Union. Available at: https://data.europa.eu/doi/10.2800/8671471
+2. European Environment Agency. 2024. Responding to climate change impacts on human health in Europe: focus on floods, droughts and water quality. European Environment Agency.
+3. Water management, ClimateADAPT. Available online at: https://climate-adapt.eea.europa.eu/en/eu-adaptation-policy/sector-policies/water-management
+4. https://environment.ec.europa.eu/topics/water/water-framework-directive_en
+5. https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A52025DC0280&qid=1750857768458
+6. Robinson, E.J.Z., et al. 2024. D2.2 Scoping review of key climate policy and health impact pathways, pp. 8.
+7. European Environment Agency, 2024. European climate risk assessment, Publications Office of the European Union. Available online at: https://data.europa.eu/doi/10.2800/8671471
+8. Water management, ClimateADAPT. Available online at: https://climate-adapt.eea.europa.eu/en/eu-adaptation-policy/sector-policies/water-management
+9. Water management, ClimateADAPT. Available online at: https://climate-adapt.eea.europa.eu/en/eu-adaptation-policy/sector-policies/water-management
+10. Water reuse, ClimateADAPT. Available online at: https://climate-adapt.eea.europa.eu/en/metadata/adaptation-options/water-recycling
+11. See European example of an off-grid water desalination system powered by renewable energy: https://cordis.europa.eu/project/id/873854
+12. NB. There are environmental controversies surrounding this practice, primarily as it has been employed in the USA. See this case study from the Netherlands for the European context: https://mp.watereurope.eu/d/technology/1035
+13. There are both high and low tech examples of water capture from air, each in different development stages. See The SunAir Foundation solution: https://solarimpulse.com/solutions-explorer/the-sunair-fountain-r
+14. https://www.echocommunity.org/en/resources/3ece3533-d7f3-42d3-b8bb-f59e4d9a29e3
+15. See Water restrictions and water rationing, ClimateADAPT. Available online at: https://climate-adapt.eea.europa.eu/en/metadata/adaptation-options/water-restrictions-and-consumption-cuts
+16. NB. Another controversial practice. See Inter-basin transfers, UNEP. Available online at: https://www.ctc-n.org/technologies/inter-basin-transfers#:~:text=Inter%2Dbasin%20transfer%20is%20the,complex%20pipeline%20and%20canal%20systems.
+17. https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32020R0741&from=EN
+18. See this case study from the Netherlands: Rainwater saving and use in households, Bremen. ClimateADAPT. Available online at: https://climate-adapt.eea.europa.eu/en/metadata/case-studies/rainwater-saving-and-use-in-households-bremen
+19. See Saving water through a closed-loop system for garment finishing for a European example. Available online at: https://environment.ec.europa.eu/news/saving-water-through-closed-loop-system-garment-finishing-2024-08-29_en
+20. https://www.sciencedirect.com/science/article/pii/S0925857422003378
+21. See EPR obligations in revised EU UWT Directive: New EU Wastewater Treatment Fees on Producers of Pharmaceutical and Cosmetic Products, 2024. Available online at: https://www.insideenergyandenvironment.com/2024/04/new-eu-wastewater-treatment-fees-on-producers-of-pharmaceutical-and-cosmetic-products/?_gl=1*12vevmp*_ga*MTk3ODgzNDUzNS4xNjkzODE1MTg3*_ga_KSNMJSN08X*MTczMzk5NTUzNS43NC4wLjE3MzM5OTU1MzUuMC4wLjA.
+22. https://www.ecotippingpoints.org/our-stories/indepth/india-rajasthan-rainwater-harvest-restoration-groundwater-johad.html
+23. https://www.researchgate.net/publication/341621949_The_Agricultural_Water_Pollution_and_Its_Minimization_Strategies_-_A_Review
+24. European Environment Agency. 2024. Responding to climate change impacts on human health in Europe: focus on floods, droughts and water quality. Publications Office of the European Union.
+25. https://www.nature.com/articles/s41586-024-07380-6
+26. Kibret, S., 2018, ‘Time to revisit how dams are affecting malaria transmission’, The LancetPlanetary Health 2(9), pp. e378-e379.
+27. European Centre for Disease Prevention and Control. 2012. Guidelines for the surveillance of invasive mosquitoes in Europe, p. 27.Stockholm: ECDC.
+28. ECDC, 2021. Risk of infectious diseases in flood-affected areas from the European Union, European Centre for Disease Prevention and Control. Available at https://www.ecdc.europa.eu/en/news-events/risk-infectious-diseases-flood-affected-areas-european-union; Alcalde Sanz, L., and Gawlik, B. 2014. Water Reuse in Europe. Relevant guidelines, needs for and barriers to innovation. Publications Office of the European Union. Available at: https://publications.jrc.ec.europa.eu/repository/handle/JRC92582
+29. Semenza, J.C., and Paz, S. 2021. Climate change and infectious disease in Europe: Impact, projection and adaptation. The Lancet Regional Health - Europe, 9.
+30. https://content.ces.ncsu.edu/mosquito-control-for-rainwater-harvesting-systems
+31. National Environment Agency, Singapore. 2011. Guidelines on Mosquito Prevention in Domestic Rainwater Collection System for Non-Potable Uses. Available at: https://www.nea.gov.sg/docs/default-source/resource/guidelines-on-mosquito-prevention-in-domestic-rainwater-collection-system-for-non-potable-uses.pdf?sfvrsn=53470553_2
+32. Semenza, J.C., and Paz, S. 2021. Climate change and infectious disease in Europe: Impact, projection and adaptation. The Lancet Regional Health - Europe, 9.
+33. Stronger reference needed: https://theconversation.com/you-can-leave-water-out-for-wildlife-without-attracting-mosquitoes-if-you-take-a-few-precautions-128631
+34. Semenza, J.C., and Paz, S. 2021. Climate change and infectious disease in Europe: Impact, projection and adaptation. The Lancet Regional Health - Europe, 9.
+35. Semenza, J.C., and Paz, S. 2021. Climate change and infectious disease in Europe: Impact, projection and adaptation. The Lancet Regional Health - Europe, 9.
+36. National Environment Agency, Singapore. 2011. Guidelines on Mosquito Prevention in Domestic Rainwater Collection System for Non-Potable Uses. Available at: https://www.nea.gov.sg/docs/default-source/resource/guidelines-on-mosquito-prevention-in-domestic-rainwater-collection-system-for-non-potable-uses.pdf?sfvrsn=53470553_2
+37. National Environment Agency, Singapore. 2011. Guidelines on Mosquito Prevention in Domestic Rainwater Collection System for Non-Potable Uses. Available at: https://www.nea.gov.sg/docs/default-source/resource/guidelines-on-mosquito-prevention-in-domestic-rainwater-collection-system-for-non-potable-uses.pdf?sfvrsn=53470553_2
+38. Semenza, J.C., and Paz, S. 2021. Climate change and infectious disease in Europe: Impact, projection and adaptation. The Lancet Regional Health - Europe, 9.
+39. Semenza, J.C., and Paz, S. 2021. Climate change and infectious disease in Europe: Impact, projection and adaptation. The Lancet Regional Health - Europe, 9.
+40. “In a study in Italy, catch basins in private and public areas were found to be the most productive breeding sites for Ae. albopictus among the 10 types checked (catch basins, plant saucers, drums, buckets, tarpaulins, tyres, bathtubs, and assorted containers of three different volumes). The highest number per premise was found in poorly maintained premises, most often in combination with heavy shade.” European Centre for Disease Prevention and Control. 2012. Guidelines for the surveillance of invasive mosquitoes in Europe, p. 27.Stockholm: ECDC.
+41. Semenza, J. C., et al., 2022. ‘Climate Change and Cascading Risks from Infectious Disease’,Infectious Diseases and Therapy 11(4): pp. 1371-1390.

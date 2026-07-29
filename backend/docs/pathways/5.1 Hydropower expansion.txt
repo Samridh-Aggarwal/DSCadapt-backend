@@ -1,0 +1,55 @@
+Pathway 5.1: Expansion of hydropower for renewable energy generation
+ 
+5.1.1 Intended outcomes of hydropower expansion as mitigation to climate change
+
+Hydropower development is contributing to the expansion of renewable energy, lowering emissions from the energy sector and providing reliable electricity at relatively low costs. The technology is expected to play a major role in the transition to low-carbon energy systems, especially because the technology is mature, economically competitive and it can contribute to ensuring reliable electricity generation with low GHG emissions. Storage hydropower plants are highly flexible and can quickly adjust to fluctuations in electricity demand, providing essential services for electric power systems. Hydropower also helps balance supply and demand and smooth out the challenges of integrating variable renewable energy sources like wind, solar and wave power. The IPCC report noted the crucial role that hydropower can play, particularly as the importance of energy storage is high in net zero systems with highly variable renewable energy sources.
+
+Globally, hydropower is the largest renewable source of electricity, accounting for more than half of global renewable electricity production and 14.3% of total electricity generation., In the EU, about 15% of electricity is generated from hydropower. Some countries already rely heavily on hydroelectric power as a clean source of energy. In Iceland, hydropower generates almost three-quarters of its electricity, and in Norway it contributes 90% to its electricity.
+
+5.1.2 Mitigation measures
+
+Hydropower is a renewable energy source deriving power from the energy of moving water. Hydroelectric power systems convert the kinetic energy in flowing water into electric power using turbines. Hydropower plants are often classified based on their installed capacity into small (≤ 10 MW) and large hydro (>10 MW).
+
+The main types of hydropower plants for river systems are run-of-river, storage (reservoir), and pumped storage. 
+
+	•	Run-of-river (ROR) hydropower schemes do not rely on water storage and instead use channel obstructions to regulate water levels, diverting parts of the flow to a turbine for electricity generation, after which the flow is returned to the main channel. These systems can be used to balance variation in electricity demand.
+
+	•	Storage hydropower plants include a dam and a reservoir where river water is stored. When electricity demand is high, water is released from the reservoir and flows through a turbine to produce electricity. By producing electricity on demand, it is a highly flexible system which can be used to balance variable demand and supply. They are often built for multiple purposes besides electricity generation, such as flood control, water supply, and irrigation. 
+
+	•	Pumped storage hydropower stores energy by pumping water from lower elevations to a reservoir at a higher elevation and releasing it to produce electricity when needed. They can therefore absorb surplus energy when demand is low and store it for later use. 
+
+
+5.1.3 Co-benefits for infectious disease
+
+5.1.3.1 Climate change
+
+Hydropower can contribute to lowering CO2 emissions from the energy sector, thereby helping to slow down climate change in the long-term. This can impact infectious disease indirectly, as many infectious diseases are climate-sensitive, responding to changes in temperature and precipitation as well as climate extreme events (see general impacts).
+
+
+5.1.4 Trade-offs for infectious disease
+
+The impacts of hydropower projects on society and the environment depends on the type and size of the project as well as the local conditions. The IPCC states that the mitigation potential of hydropower is dependent on efforts to minimise social and environmental consequences. 
+Regarding infectious disease, the potential trade-offs mainly arise through the creation of reservoirs and the impact of hydropower plants on ecosystems.  
+
+5.1.4.1 Habitat for disease pathogens and vectors 
+
+In order to control the water flow to generate electricity, hydropower plants rely on dams or diversion structures. These interventions alter the natural hydrological regimes of rivers and surrounding ecosystems, often resulting in substantial environmental changes. The development of storage and pumped storage hydropower plants in particular can have important consequences for infectious diseases as it involves the creation of dam reservoirs. These reservoirs, which are often characterized by large areas of stagnant or slow-moving water, can significantly modify local ecological conditions. This can impact vector abundance, the species composition, and in the end may affect the transmission of pathogens. The creation of dam reservoirs can lead to an expansion of habitats for disease vectors, for example offering a breeding ground for mosquitos. These conditions can support larger and more stable mosquito populations by providing ideal larval habitats. Hydropower developments  can thus worsen existing mosquito-related issues by expanding, creating, or altering habitats in ways that allow previously limited mosquito populations to grow rapidly. This can then lead to changes in frequency and transmission dynamics of infectious diseases, as more abundant vector populations may increase the likelihood of pathogen transmission to humans and other hosts. Therefore, hydropower plants can impact infectious diseases as mosquitos are important vectors for diseases such as West Nile virus, dengue, malaria, and chikungunya. 
+
+5.1.4.2 Ecological disruption 
+
+Potential negative consequences of hydropower plants include biodiversity loss, flow regime changes, changes in water quality and barriers to fish migration, which can translate into impacts on infectious disease. Freshwater habitat alteration, the degradation of water quality and land use affect aquatic and terrestrial biodiversity. Habitat destruction is one of the main stressors next to land use and eutrophication leading to declining biodiversity in freshwater ecosystems. Hydropower dam construction can damage ecosystems, leading to a decrease in species richness, blocking migration routes and fragmenting habitat. Fish species are particularly impacted by hydropower dams because the dams become barriers for fish that segregate the populations. Hydropower dams also alter the stream’s flow, slowing down the flow velocity, which leads to changes in sedimentation rates, temperature, and oxygen depletion. Many species cannot tolerate these changes and thus it results in habitat loss, changes in species abundance and diversity. Flow alterations through dams or diversion structures can change flow regimes both upstream and downstream. Hydropower plants often flood extensive areas upstream, which also affects ecosystems and fragments habitats. While run-of-river systems are typically smaller than storage systems, they also alter natural ecosystems, potentially impacting physical and ecological processes such as the transport of sediment and fish migration.
+
+Storage hydropower plants often require significant land use and the operation of hydropower reservoirs has been shown to have further biodiversity impacts through land occupation and water consumption as well. Water consumption from hydroelectric generation arises because of evaporation from the open water surface created by the dam. Reservoir creation has been found to increase evaporation compared to previous terrestrial landscapes. Evaporation from water reservoirs affects the river flow, leading to lower discharge downstream of the reservoir. Flow alterations are associated with ecological change because they lead to disturbances of freshwater ecosystems. 
+
+In Europe, most freshwater surface bodies are affected by ecological degradation, with only 37% being classified as having a good or high ecological status. The EEA lists dams as a major pressure, affecting the natural flow of surface water bodies. The expansion of renewable energy may create additional pressure on rivers, with almost 9,000 new hydropower-related barriers and dams being planned or under construction in Europe.
+
+Changes to river flows have an impact on water quality, flow velocity and stagnation of water, which in turn affects vector habitat, particularly those of mosquitoes, which are especially important in the transmission of infectious diseases. Furthermore, the presence of hydropower plants can reduce populations of species acting as biological control agents of mosquitos. For example, many fish species prey on mosquito larvae and help regulate their populations. Other natural predators, such as dragonflies and aquatic bugs, can also be affected by alterations in river flow and habitat caused by dams. A decline in these predator populations may lead to increased mosquito abundance and increase the risk for infectious disease transmission to humans.  
+
+
+
+
+
+
+
+
+

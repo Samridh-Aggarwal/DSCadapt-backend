@@ -1,0 +1,33 @@
+Pathway 6.2: Expand electromobility
+
+6.2.1 Intended outcomes of electrifying transport as mitigation to climate change
+
+Expanding electromobility has the potential to reduce greenhouse gas (GHG) emissions from the transport sector. Electrifying transport refers to replacing internal-combustion-engine (ICE) vehicles with electric vehicles. This concerns private cars as well as buses and other road vehicles. Battery electric vehicles have lower greenhouse gas emissions compared to ICE vehicles if they are charged with electricity from low-carbon sources. Electromobility has benefited from an increase in battery production in recent years and the commercial availability of lithium-ion batteries. Cars are expected to continue to play a major role in personal transportation, thus, improving the efficiency and reducing the emissions from cars is an important strategy. Electrification of the transport sector is therefore crucial for reducing emissions. It is important to note that how much less GHG is emitted by electric vehicles compared to ICE ones crucially depends on the electricity source and how “clean” the electricity is. Electricity from renewable energy production such as from solar, wind, and hydropower are low carbon sources, while if electricity generation is carbon-intensive, emissions at upstream power plants still occur and benefits for decarbonization are more limited. Battery electric vehicles (BEVs) still have substantial advantages over ICE vehicles concerning GHG emissions, even if powered by average grid electricity.
+
+6.2.2 Mitigation measures
+
+Approaches to expand electrification include measures addressing infrastructure, financial incentives, and regulation. In general, these policies are often aimed at overcoming the potential barriers to electromobility adoption, which include costs, range anxiety, and charging infrastructure availability. 
+
+Charging infrastructure
+Expanding the availability of charging infrastructure is crucial for promoting electromobility. Range anxiety (the fear of insufficient battery charge for a trip) is a significant hurdle, hindering the adoption of electromobility; a robust and flexible network of charging infrastructure can mitigate this concern and encourage adoption of EVs. Infrastructure expansion can include residential and workplace charging as well as public fast-charging stations.  
+Financial incentives
+Financial support can play a key role in incentivising the adoption of electromobility and increasing accessibility. Measures include direct purchasing incentives, tax benefits, and indirect mechanisms. Many European countries have introduced financial incentives for EVs, with policies varying widely in each country.  
+21 out of 27 EU member states provided purchase incentives for EVs in 2022. For instance, Croatia offered substantial grants of up to €9,333 for battery electric vehicles (BEVs) and €5,333 for plug-in hybrid electric vehicles (PHEVs), while Finland provided household subsidies of €2,000 until 2023 and extended incentives ranging from €2,000–€50,000 for electric vans and trucks between 2022 and 2025. 
+Tax benefits are also a widely used policy to support the adoption of EVs, making EVs more affordable. Different tapes of measures are available including tax credits, tax deductions, and exemptions from certain taxes. Some countries like Austria and Hungary offer VAT deductions and tax exemption for zero-emission cars. Other countries, such as Croatia, exempt EVs from excise duties and environmental taxes, whereas Finland, Latvia, and Lithuania waive registration taxes. 
+Several European countries, including Belgium, France, the Netherlands, Norway, and Sweden, have also adopted feebate systems, which combine penalties for high-emission vehicles with rebates for low-emission or electric vehicles. France’s “Bonus–Malus” system, introduced in 2008, is one of the earliest examples of such a policy, incentivizing low-carbon vehicle purchases.
+
+Regulatory measures
+Regulatory frameworks play a key role in accelerating the transition to electromobility. These measures establish standards, restrictions, and privileges that directly influence consumer and industry behavior. Measures range from granting parking privileges or reduced parking fees for EVs to low-emission zones, emission standards on new vehicles and efficiency standards. Within the EU, CO₂ standards for passenger cars and vans are aligned with the Fit for 55 package, which targets a 55% reduction in net greenhouse gas emissions by 2030 compared to 1990 levels. These regulations are designed to push manufacturers toward fast electrification and continuous improvements in vehicle efficiency.
+
+6.2.3 Co-benefits for infectious disease
+
+Expanding electromobility predominantly influences infectious disease outcomes via its indirect effects on air quality and the associated health benefits. 
+
+6.2.3.1 Co-benefit of improved indoor and outdoor air quality
+
+A shift to electromobility can help reduce air pollution. In Europe, 97% of the population in urban areas in 2021 was exposed to PM concentrations above the WHO guidelines. The transport sector is the largest emitter of NOx in Europe, causing 56.5% of emissions, while also being a major contributor to PM10 and PM2.5 with a share of 29.3%. By shifting travel away from motorized vehicles, cities can lower emissions and thus improve the air quality. Reducing air pollution in turn has important health co-benefits as exposure to ambient air pollution is linked to respiratory illnesses, impaired lung function, and greater susceptibility to infectious diseases., Overall, better air quality can therefore support population health and reduce vulnerability to infectious diseases. It should be noted that while electric vehicles generally have lower emissions of pollutants and contribute less to air pollution, there are some non-tailpipe emissions, such as from tires and brakes, that still produce PM.
+
+6.2.3.2 Co-benefit of mitigating climate change
+
+The expansion of electromobility contributes to reducing GHG emissions and mitigating climate change, which has indirect impacts on infectious disease outcomes as many infectious diseases are sensitive to climate change. 
+

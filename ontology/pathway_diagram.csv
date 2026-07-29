@@ -1,0 +1,215 @@
+Pathway diagram table,,
+From,To,Type of link
+Climate policy sector --> Type of measure,,
+Water management,"Water storage, distribution & reuse",
+Water management,Wastewater management,
+Water management,Water quality monitoring & improvement,
+Water management,Awareness raising & information sharing,
+Water management,Early warning system for flood risk,
+Water management,Flood protection,
+"Coastal, marine & fisheries",Marine spatial planning,
+"Coastal, marine & fisheries",Ocean acidification reduction,
+"Coastal, marine & fisheries",Fishing rules & improve fish health,
+"Agriculture & food, biodiversity & forestry",Sustainable farming strategies,
+"Agriculture & food, biodiversity & forestry",Irrigation systems,
+"Agriculture & food, biodiversity & forestry","Protect and restore biodiversity, habitats & natural resources",
+"Agriculture & food, biodiversity & forestry",Expand forested and natural areas,
+"Agriculture & food, biodiversity & forestry",Improved food safety systems and regulations,
+"Agriculture & food, biodiversity & forestry",Food safety education and outreach,
+"Agriculture & food, biodiversity & forestry",Promote plant-based diets,
+Buildings & urban,Increase green & blue spaces,
+Buildings & urban,Building standards and regulations,
+Buildings & urban,Retrofit and insulate buildings,
+Energy,Expand hydropower,
+Transport,Expand public transport,
+Transport,Expand electrification,
+Transport,Promote active mobility,
+Tourism,Expand tourism seasons,
+Tourism,Expand tourism in new locations,
+Tourism,Improve infrastructures & resources for tourists,
+Types of measure --> Co-benefits / Trade-offs,,
+"Water storage, distribution & reuse",Safe/clean water resources,Co-benefit
+"Water storage, distribution & reuse",Safe seafood supply,Co-benefit
+"Water storage, distribution & reuse",Habitat for disease pathogens & vectors,Trade-off
+Wastewater management,Reduced exposure to flood water,Co-benefit
+Wastewater management,Healthy ecosystems,Co-benefit
+Wastewater management,Safe seafood supply,Co-benefit
+Water quality monitoring & improvement,Healthy ecosystems,Co-benefit
+Water quality monitoring & improvement,Safe/clean water resources,Co-benefit
+Water quality monitoring & improvement,Safe seafood supply,Co-benefit
+Water quality monitoring & improvement,Ecological disruption,Trade-off
+Awareness raising & information sharing,Safe/clean water resources,Co-benefit
+Early warning system for flood risk,Reduced exposure to flood water,Co-benefit
+Flood protection,Reduced exposure to flood water,Co-benefit
+Flood protection,Healthy ecosystems,Co-benefit
+Flood protection,Improved food safety,Co-benefit
+Flood protection,Safe seafood supply,Co-benefit
+Flood protection,Habitat for disease pathogens & vectors,Trade-off
+Flood protection,Ecological disruption,Trade-off
+Flood protection,"Social unrest, displacement & mental health risks",Trade-off
+Marine spatial planning,Reduced exposure to flood water,Co-benefit
+Marine spatial planning,Healthy ecosystems,Co-benefit
+Marine spatial planning,Reduced human presence in natural areas,Co-benefit
+Marine spatial planning,Safe seafood supply,Co-benefit
+Marine spatial planning,"Social unrest, displacement & mental health risks",Trade-off
+Ocean acidification reduction,Safe seafood supply,Co-benefit
+Fishing rules & improve fish health,Healthy ecosystems,Co-benefit
+Fishing rules & improve fish health,Safe seafood supply,Co-benefit
+Fishing rules & improve fish health,Ecological disruption,Trade-off
+Sustainable farming strategies,Healthy ecosystems,Co-benefit
+Sustainable farming strategies,Safe/clean water resources,Co-benefit
+Sustainable farming strategies,Reduced antibiotics and pesticides use,Co-benefit
+Sustainable farming strategies,Improved food safety,Co-benefit
+Sustainable farming strategies,Habitat for disease pathogens & vectors,Trade-off
+Irrigation systems,Safe/clean water resources,Co-benefit
+Irrigation systems,Ecological disruption,Trade-off
+"Protect and restore biodiversity, habitats & natural resources",Healthy ecosystems,Co-benefit
+"Protect and restore biodiversity, habitats & natural resources",Safe/clean water resources,Co-benefit
+"Protect and restore biodiversity, habitats & natural resources",Enhanced mental health & physical activity,Co-benefit
+"Protect and restore biodiversity, habitats & natural resources",Increased human presence in natural areas,Trade-off
+"Protect and restore biodiversity, habitats & natural resources",Ecological disruption,Trade-off
+"Protect and restore biodiversity, habitats & natural resources",Land use conflict,Trade-off
+Expand forested and natural areas,Healthy ecosystems,Co-benefit
+Expand forested and natural areas,Safe/clean water resources,Co-benefit
+Expand forested and natural areas,Heat management,Co-benefit
+Expand forested and natural areas,Enhanced mental health & physical activity,Co-benefit
+Expand forested and natural areas,Increased human presence in natural areas,Trade-off
+Expand forested and natural areas,Ecological disruption,Trade-off
+Expand forested and natural areas,Land use conflict,Trade-off
+Improved food safety systems and regulations,Improved food safety,Co-benefit
+Food safety education and outreach,Improved food safety,Co-benefit
+Promote plant-based diets,Healthy ecosystems,Co-benefit
+Promote plant-based diets,Reduced antibiotics and pesticides use,Co-benefit
+Promote plant-based diets,Reduced animal protein consumption,Co-benefit
+Promote plant-based diets,Improved nutrition & health,Co-benefit
+Increase green & blue spaces,Reduced exposure to flood water,Co-benefit
+Increase green & blue spaces,Healthy ecosystems,Co-benefit
+Increase green & blue spaces,Safe/clean water resources,Co-benefit
+Increase green & blue spaces,Heat management,Co-benefit
+Increase green & blue spaces,Improved indoor & outdoor air quality,Co-benefit
+Increase green & blue spaces,Enhanced mental health & physical activity,Co-benefit
+Increase green & blue spaces,Habitat for disease pathogens & vectors,Trade-off
+Increase green & blue spaces,Allergies & respiratory issues,Trade-off
+Building standards and regulations,Safe/clean water resources,Co-benefit
+Building standards and regulations,Heat management,Co-benefit
+Building standards and regulations,Improved indoor & outdoor air quality,Co-benefit
+Retrofit and insulate buildings,Improved indoor & outdoor air quality,Co-benefit
+Retrofit and insulate buildings,Allergies & respiratory issues,Trade-off
+Retrofit and insulate buildings,Overheating,Trade-off
+Expand hydropower,Habitat for disease pathogens & vectors,Trade-off
+Expand hydropower,Ecological disruption,Trade-off
+Expand public transport,Improved indoor & outdoor air quality,Co-benefit
+Expand public transport,Increased contact rates & overcrowding,Trade-off
+Expand electrification,Improved indoor & outdoor air quality,Co-benefit
+Promote active mobility,Improved indoor & outdoor air quality,Co-benefit
+Promote active mobility,Enhanced mental health & physical activity,Co-benefit
+Expand tourism seasons,Healthy ecosystems,Co-benefit
+Expand tourism seasons,Improved economic stability & reduced short-term migration,Co-benefit
+Expand tourism seasons,Reduced overcrowding,Co-benefit
+Expand tourism seasons,Reduced pressure on health services,Co-benefit
+Expand tourism seasons,Shift in disease patterns,Trade-off
+Expand tourism seasons,Difficulty in detecting diseases in returning travelers,Trade-off
+Expand tourism seasons,"Social unrest, displacement & mental health risks",Trade-off
+Expand tourism in new locations,Reduced overcrowding,Co-benefit
+Expand tourism in new locations,Ecological disruption,Trade-off
+Expand tourism in new locations,Shift in disease patterns,Trade-off
+Expand tourism in new locations,Limited capacity of healthcare system,Trade-off
+Expand tourism in new locations,Difficulty in detecting diseases in returning travelers,Trade-off
+Expand tourism in new locations,"Social unrest, displacement & mental health risks",Trade-off
+Improve infrastructures & resources for tourists,Healthy ecosystems,Co-benefit
+Improve infrastructures & resources for tourists,Reduced pressure on health services,Co-benefit
+Improve infrastructures & resources for tourists,Ecological disruption,Trade-off
+Improve infrastructures & resources for tourists,"Social unrest, displacement & mental health risks",Trade-off
+Co-benefits / Trade-offs --> Infectious disease hazard & exposure / Vulnerability to infectious disease,,
+Reduced exposure to flood water,Water-borne diseases,Co-benefit
+Reduced exposure to flood water,Food-borne diseases,Co-benefit
+Healthy ecosystems,Vector-borne diseases,Co-benefit
+Healthy ecosystems,Animal contact (direct or indirect),Co-benefit
+Safe/clean water resources,Water-borne diseases,Co-benefit
+Safe/clean water resources,Food-borne diseases,Co-benefit
+Reduced antibiotics and pesticides use,Anti-microbial resistance,Co-benefit
+Reduced human presence in natural areas,Vector-borne diseases,Co-benefit
+Reduced human presence in natural areas,Animal contact (direct or indirect),Co-benefit
+Improved food safety,Food-borne diseases,Co-benefit
+Safe seafood supply,Food-borne diseases,Co-benefit
+Reduced animal protein consumption,Food-borne diseases,Co-benefit
+Heat management,Human susceptibility to infectious disease,Co-benefit
+Improved indoor & outdoor air quality,Air-borne diseases,Co-benefit
+Improved indoor & outdoor air quality,Human susceptibility to infectious disease,Co-benefit
+Enhanced mental health & physical activity,Human susceptibility to infectious disease,Co-benefit
+Improved nutrition & health,Human susceptibility to infectious disease,Co-benefit
+Improved economic stability & reduced short-term migration,Human susceptibility to infectious disease,Co-benefit
+Reduced overcrowding,Air-borne diseases,Co-benefit
+Reduced pressure on health services,Human susceptibility to infectious disease,Co-benefit
+Increased human presence in natural areas,Vector-borne diseases,Trade-off
+Increased human presence in natural areas,Animal contact (direct or indirect),Trade-off
+Increased contact rates & overcrowding,Air-borne diseases,Trade-off
+Habitat for disease pathogens & vectors,Vector-borne diseases,Trade-off
+Habitat for disease pathogens & vectors,Animal contact (direct or indirect),Trade-off
+Ecological disruption,Vector-borne diseases,Trade-off
+Ecological disruption,Animal contact (direct or indirect),Trade-off
+Land use conflict,Human susceptibility to infectious disease,Trade-off
+Allergies & respiratory issues,Air-borne diseases,Trade-off
+Allergies & respiratory issues,Human susceptibility to infectious disease,Trade-off
+Shift in disease patterns,Vector-borne diseases,Trade-off
+Shift in disease patterns,Water-borne diseases,Trade-off
+Shift in disease patterns,Food-borne diseases,Trade-off
+Shift in disease patterns,Animal contact (direct or indirect),Trade-off
+Shift in disease patterns,Air-borne diseases,Trade-off
+Limited capacity of healthcare system,Human susceptibility to infectious disease,Trade-off
+Difficulty in detecting diseases in returning travelers,Vector-borne diseases,Trade-off
+Difficulty in detecting diseases in returning travelers,Water-borne diseases,Trade-off
+Difficulty in detecting diseases in returning travelers,Food-borne diseases,Trade-off
+Difficulty in detecting diseases in returning travelers,Animal contact (direct or indirect),Trade-off
+Difficulty in detecting diseases in returning travelers,Air-borne diseases,Trade-off
+"Social unrest, displacement & mental health risks",Human susceptibility to infectious disease,Trade-off
+Overheating,Human susceptibility to infectious disease,Trade-off
+Infectious disease hazard & exposure,,
+Vector-borne diseases,Mosquito-borne diseases,
+Vector-borne diseases,Tick-borne diseases,
+Vector-borne diseases,Other vector-borne diseases,
+Infectious disease hazard & exposure / Vulnerability to infectious disease --> Diseases,,
+Mosquito-borne diseases,Chikungunya,
+Mosquito-borne diseases,Dengue fever,
+Mosquito-borne diseases,Malaria,
+Mosquito-borne diseases,Rift Valley fever (RVF),
+Mosquito-borne diseases,Usutu virus,
+Mosquito-borne diseases,West Nile fever,
+Mosquito-borne diseases,Zika fever,
+Tick-borne diseases,Crimean-Congo haemorraghic fever (CCHF),
+Tick-borne diseases,Lyme disease,
+Tick-borne diseases,Tick-borne encephalitis (TBE),
+Other vector-borne diseases,Leishmaniasis,
+Water-borne diseases,Cryptosporidiosis,
+Water-borne diseases,E. coli infection,
+Water-borne diseases,Giardiasis,
+Water-borne diseases,Hepatitis A,
+Water-borne diseases,Legionnaires' disease,
+Water-borne diseases,Norovirus infection,
+Water-borne diseases,Shigellosis,
+Water-borne diseases,Vibriosis,
+Food-borne diseases,Rift Valley fever (RVF),
+Food-borne diseases,Crimean-Congo haemorraghic fever (CCHF),
+Food-borne diseases,Tick-borne encephalitis (TBE),
+Food-borne diseases,Campylobacteriosis,
+Food-borne diseases,Cryptosporidiosis,
+Food-borne diseases,E. coli infection,
+Food-borne diseases,Giardiasis,
+Food-borne diseases,Hepatitis A,
+Food-borne diseases,Listeriosis,
+Food-borne diseases,Norovirus infection,
+Food-borne diseases,Salmonellosis,
+Food-borne diseases,Shigellosis,
+Food-borne diseases,Vibriosis,
+Animal contact (direct or indirect),Rift Valley fever (RVF),
+Animal contact (direct or indirect),Giardiasis,
+Animal contact (direct or indirect),Hantavirus infection,
+Animal contact (direct or indirect),Leptospirosis,
+Air-borne diseases,Hantavirus infection,
+Anti-microbial resistance,Malaria,
+Anti-microbial resistance,Campylobacteriosis,
+Anti-microbial resistance,E. coli infection,
+Anti-microbial resistance,Listeriosis,
+Anti-microbial resistance,Salmonellosis,
+Anti-microbial resistance,Shigellosis,
+Anti-microbial resistance,Vibriosis,

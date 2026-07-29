@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>IDAlert Session Briefing</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4;
+    margin: 15mm 20mm 22mm 20mm;
+    @bottom-left { content: "IDAlert · Climate-Health Decision Support Tool"; font-family: "IBM Plex Sans", sans-serif; font-size: 7.5pt; color: #8A9694; }
+    @bottom-right { content: "Page " counter(page) " of " counter(pages); font-family: "IBM Plex Sans", sans-serif; font-size: 7.5pt; color: #8A9694; }
+  }
+  * { box-sizing: border-box; }
+  body { font-family: "IBM Plex Sans", sans-serif; color: #1B2A2E; font-size: 10.5pt; line-height: 1.55; margin: 0; }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid #0E5249; padding-bottom: 3mm; margin-bottom: 9mm; }
+  .wordmark { font-family: "IBM Plex Serif", serif; font-weight: 600; font-size: 19pt; color: #0E5249; letter-spacing: -0.3px; }
+  .wordmark .alert { color: #C8742B; }
+  .masthead .tagline { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 1.6px; color: #6E7B7A; }
+
+  .doc-title { font-family: "IBM Plex Serif", serif; font-weight: 600; font-size: 22pt; color: #15302E; margin: 0 0 4mm 0; }
+  .doc-meta { font-size: 8.5pt; color: #6E7B7A; padding-bottom: 5mm; border-bottom: 1px solid #D8E0DE; margin-bottom: 7mm; }
+  .doc-meta .sep { color: #C2CCCA; padding: 0 6px; }
+
+  .section-h { font-size: 8pt; font-weight: 600; text-transform: uppercase; letter-spacing: 1.4px; color: #0E5249; margin: 7mm 0 2.5mm 0; padding-bottom: 1.5mm; border-bottom: 1px solid #E3EAE8; break-after: avoid; }
+  .section-body p { margin: 0 0 3mm 0; }
+  .section-body p:last-child { margin-bottom: 0; }
+
+  .q-list { margin: 0; padding-left: 5mm; }
+  .q-list li { margin-bottom: 1.8mm; color: #15302E; }
+
+  .src-group { margin-bottom: 4mm; break-inside: avoid; }
+  .src-label { font-size: 8pt; font-weight: 600; color: #15302E; margin-bottom: 1.5mm; }
+  .src-item { font-size: 9pt; color: #3A4A48; margin-bottom: 1mm; padding-left: 3mm; }
+  .src-origin { color: #8A9694; }
+
+  .disclaimer { margin-top: 9mm; padding-top: 4mm; border-top: 1px solid #D8E0DE; font-size: 8pt; font-style: italic; line-height: 1.5; color: #8A9694; }
+</style>
+</head>
+<body>
+  <div class="masthead">
+    <div class="wordmark">ID<span class="alert">Alert</span></div>
+    <div class="tagline">Climate-Health Decision Support Tool</div>
+  </div>
+
+  <div class="doc-title">Session Briefing</div>
+  <div class="doc-meta">{{META}}</div>
+
+  <div class="section-h">Questions addressed in this session</div>
+  <div class="section-body">{{QUESTIONS}}</div>
+
+  <div class="section-h">Summary</div>
+  <div class="section-body">{{SUMMARY}}</div>
+
+  <div class="section-h">Co-benefits identified</div>
+  <div class="section-body">{{COBENEFITS}}</div>
+
+  <div class="section-h">Trade-offs identified</div>
+  <div class="section-body">{{TRADEOFFS}}</div>
+
+  <div class="section-h">Uncertainties and gaps</div>
+  <div class="section-body">{{UNCERTAINTIES}}</div>
+
+  <div class="section-h">Sources consulted</div>
+  <div class="section-body">{{SOURCES}}</div>
+
+  <div class="disclaimer">
+    This briefing is a record of a decision-support session conducted with the IDAlert climate-health tool (Horizon Europe). It summarises the evidence and considerations discussed and presents co-benefits and trade-offs without endorsing any course of action or recommending specific policy choices. It is not a policy recommendation. Grantham Research Institute on Climate Change and the Environment, London School of Economics and Political Science.
+  </div>
+</body>
+</html>

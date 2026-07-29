@@ -1,0 +1,52 @@
+Pathway 6.3: Promote active mobility
+
+6.3.1 Intended outcomes of promoting active mobility as mitigation to climate change
+
+Active transport modes are affordable and equitable means of transport, including walking and cycling. An increased uptake of active mobility compared to motorized transport helps to reduce GHG emissions, thereby playing an important role in the decarbonization of the transport sector. Walking and cycling are clean, quiet, cheap and healthy ways of travelling and many cities around the world have recognized these benefits and implemented measures to promote active mobility. Active mobility, including walking and cycling, leads to reduced GHG emissions from transportation.,, Compared to driving a car, cyclists have more than 80% lower CO2 emissions from all daily travel. While electrifying vehicles is an important step to cut GHG emissions and air pollution, focusing only on electric vehicles will not slow down emissions quickly enough. Shifting to active mobility is an important and relatively low-cost way of cutting emissions while also providing health benefits to the population. While active mobility is considered the lowest carbon mode of moving from one place to another, the reductions in GHG emissions from promoting walking or cycling depend on the extent to which active travel can substitute motorized travel. Research has found that even in European cities with already high walking and cycling activity, active travel decreases CO2 emissions significantly. This suggests that active mobility is not only used for additional travel but actually substitutes motorized transport.    
+
+6.3.2 Mitigation measures
+
+Promoting active mobility involves policy-making at different levels of government, and targeting local infrastructure as well as higher level policies. Measures aimed at increasing uptake of active mobility modes in general address key factors of travel behavior including availability, access, cost, convenience, attractiveness and safety. These can include a combination of infrastructure, economic, and educational measures.
+
+Infrastructure and environment
+Improving the accessibility, safety and attractiveness of active mobility can encourage shifts toward cycling and walking.
+
+	•	Bicycle sharing schemes have been popular in many cities. Expanding the availability and introducing E-bike technology can extend the travel range and can encourage more frequent use. 
+	•	Dedicated cycling infrastructure: Reallocating space for cycling lanes, expanding bike lanes and ensuring connectivity between road segments can improve accessibility and make cycling safer. For example, many cities in Europe have started building additional bike lanes. Road design impacts how safe and comfortable travelling by bicycle is and can promote active travel. For example, separating bike lanes are safer than typical roads. Providing parking spaces for bicycles can also encourage cycling. 
+	•	Road safety measures: Speed limits and pedestrian priority zones improve safety and comfort. In Brussels for example, the whole inner-city area gives priority to pedestrians and cyclists and a 20km/h speed limit is in place. 
+
+
+Economic incentives Financial incentives can motivate a shift to choose more active modes of transport.
+	•	Subsidies, such cash-back programmes: Several European countries have implemented such measures, offering subsidies for purchasing a bicycle or e-bike. 
+
+Education and awareness Soft measures such as education, training, and awareness can help to shift behaviours and embed active mobility in daily routines.
+
+	•	Safety training in schools: Early education on how to ride a bike can provide an opportunity for children to form a habit of cycling early on. 
+	•	Communication campaigns: Promoting awareness about the health, environmental and social benefits of active mobility. 
+
+
+Examples
+In Barcelona, so-called “Superblocks” have been implemented, limiting car traffic and reserving space for active travel. Using the grid structure of the city, superblocks are defined as connecting different blocks and diverting the traffic to the outer streets while closing the inner streets to through traffic. Creating those car-free areas encourages cyclists, pedestrians and residents to engage in outdoor activities.  
+
+In 2024, the first pan-European Master Plan on Walking was developed. The plan laid out policies that encourage walking, enhance safety of pedestrians and extend infrastructure. It emphasizes the numerous benefits of walking for health, the environment, and social inclusiveness. 
+
+A study in New Zealand showed that city-wide infrastructure changes such as improved walkways and cycle lanes and behavioural interventions including promotional campaigns lead to an increase in active travel of 30%. 
+
+6.3.3 Co-benefits for infectious disease
+
+Active transport predominantly influences infectious disease outcomes via its effects on air quality and physical activity, which have associated health benefits. 
+
+6.3.3.1 Co-benefit of enhanced mental health and physical activity
+
+Active mobility can improve both physical activity and mental health, reducing human vulnerability to infectious diseases. Transport policies promoting active mobility can improve population health and are therefore considered public health policies. There are numerous health benefits of an increase in active mobility. Increased physical activity can improve overall health, including reducing the risk for cardiovascular disease, cancer, diabetes, dementia and mental health issues like depression. Increased physical activity strengthens immune function and reduces risk of severe outcomes for infections.
+
+6.1.3.2 Co-benefit of improved indoor and outdoor air quality
+
+A shift from motorized transport such as cars to active mobility can help reduce air pollution. In Europe, 97% of the population in urban areas in 2021 was exposed to PM concentrations above the WHO guidelines. The transport sector is the largest emitter of NOx in Europe, causing 56.5% of emissions, while also being a major contributor to PM10 and PM2.5 with a share of 29.3%. By shifting travel away from motorized vehicles, cities can lower emissions and thus improve the air quality. Reducing air pollution in turn has important health co-benefits as exposure to ambient air pollution is linked to respiratory illnesses, impaired lung function, and greater susceptibility to infectious diseases., Overall, better air quality therefore can support population health and reduce the vulnerability to infectious diseases. 
+
+It should be noted that active transport, especially cycling, can sometimes increase exposure to outdoor air pollution. This is mainly due to the increased ventilation rate during physical activity and the potential for being more exposed to air pollution when passing through areas of higher pollution. However, the long-term benefits of increased physical activity far outweigh those possible harms. 
+
+6.3.3.3 Co-benefit of mitigating climate change
+
+The promotion of active mobility contributes to reducing GHG emissions and mitigating climate change, which has indirect impacts on infectious disease outcomes as many infectious diseases are sensitive to climate change. 
+

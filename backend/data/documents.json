@@ -1,0 +1,169 @@
+{
+ "note": "What each corpus file is and how to read it. Replaces doc_files, SOURCE_MEASURE, the 'Barcelona' filename check and the D22_FILE / PAPERS_FILE constants from app.py. Adding a document is an edit here, not a code change.",
+ "types": {
+  "pathway": "Numbered pathway summary. Split on its own section headers.",
+  "case_study": "Prose case study, no section numbering. Chunked on paragraphs.",
+  "glossary": "Term/definition reference. One chunk per term.",
+  "scoping_review": "D2.2. Split on its numbered headings, references and appendices dropped.",
+  "publications": "Project outputs list. One entry per record, matched separately from the pathway corpus."
+ },
+ "documents": [
+  {
+   "file": "pathways/1.1. Water storage, distrubution and reuse.docx.txt",
+   "type": "pathway",
+   "measure": "Water storage, distribution & reuse"
+  },
+  {
+   "file": "pathways/1.2. Wastewater management.docx.txt",
+   "type": "pathway",
+   "measure": "Wastewater management"
+  },
+  {
+   "file": "pathways/1.3. Water quality monitoring.docx.txt",
+   "type": "pathway",
+   "measure": "Water quality monitoring & improvement"
+  },
+  {
+   "file": "pathways/1.4. Awareness raising and information sharing.docx.txt",
+   "type": "pathway",
+   "measure": "Awareness raising & information sharing"
+  },
+  {
+   "file": "pathways/1.5. Early Warning Systems for Flood Risk.docx.txt",
+   "type": "pathway",
+   "measure": "Early warning system for flood risk"
+  },
+  {
+   "file": "pathways/1.6. Flood Protection.docx.txt",
+   "type": "pathway",
+   "measure": "Flood protection"
+  },
+  {
+   "file": "pathways/Co-benefit summary 1.4 safe seafood supply.docx.txt",
+   "type": "pathway",
+   "measure": null,
+   "note": "Cross-cutting co-benefit summary rather than a measure. Retrievable, but the reviewer has no measure to attach a comment to."
+  },
+  {
+   "file": "pathways/Pathway summary 2.1 marine spatial planning.docx.txt",
+   "type": "pathway",
+   "measure": "Marine spatial planning"
+  },
+  {
+   "file": "pathways/Pathway summary 2.2 reduce ocean acidification.docx.txt",
+   "type": "pathway",
+   "measure": "Ocean acidification reduction"
+  },
+  {
+   "file": "pathways/Pathway summary 2.3 fishing rules & improve fish health.docx.txt",
+   "type": "pathway",
+   "measure": "Fishing rules & improve fish health"
+  },
+  {
+   "file": "pathways/3.1 Sustainable farming strategies.docx.txt",
+   "type": "pathway",
+   "measure": "Sustainable farming strategies"
+  },
+  {
+   "file": "pathways/3.2. Irrigation Systems.docx.txt",
+   "type": "pathway",
+   "measure": "Irrigation systems"
+  },
+  {
+   "file": "pathways/3.3. Protect biodiversity and natural resources.docx.txt",
+   "type": "pathway",
+   "measure": "Protect and restore biodiversity, habitats & natural resources"
+  },
+  {
+   "file": "pathways/3.4. Expand forested and natural areas.docx.txt",
+   "type": "pathway",
+   "measure": "Expand forested and natural areas"
+  },
+  {
+   "file": "pathways/3.5 Plant-based diets.txt",
+   "type": "pathway",
+   "measure": "Promote plant-based diets"
+  },
+  {
+   "file": "pathways/3.6. Improved food safety systems and regulations.docx.txt",
+   "type": "pathway",
+   "measure": "Improved food safety systems and regulations"
+  },
+  {
+   "file": "pathways/3.7. Food safety education and outreach.docx.txt",
+   "type": "pathway",
+   "measure": "Food safety education and outreach"
+  },
+  {
+   "file": "pathways/4.1. Increasing green and blue spaces.docx.txt",
+   "type": "pathway",
+   "measure": "Increase green & blue spaces"
+  },
+  {
+   "file": "pathways/4.2. Building standards and regulations.docx.txt",
+   "type": "pathway",
+   "measure": "Building standards and regulations"
+  },
+  {
+   "file": "pathways/4.3. Retrofitting and Insulation.docx.txt",
+   "type": "pathway",
+   "measure": "Retrofit and insulate buildings"
+  },
+  {
+   "file": "pathways/5.1. Expand tourism seasons.docx.txt",
+   "type": "pathway",
+   "measure": "Expand tourism seasons"
+  },
+  {
+   "file": "pathways/5.2. Expand tourism in new locations.docx.txt",
+   "type": "pathway",
+   "measure": "Expand tourism in new locations"
+  },
+  {
+   "file": "pathways/5.3. Improvements in infrastructure and resources for tourists.docx.txt",
+   "type": "pathway",
+   "measure": "Improve infrastructures & resources for tourists"
+  },
+  {
+   "file": "pathways/6.1 Expand public transportation.txt",
+   "type": "pathway",
+   "measure": "Expand public transport"
+  },
+  {
+   "file": "pathways/6.2 Expand electrification.txt",
+   "type": "pathway",
+   "measure": "Expand electrification"
+  },
+  {
+   "file": "pathways/6.3 Promote active mobility.txt",
+   "type": "pathway",
+   "measure": "Promote active mobility"
+  },
+  {
+   "file": "pathways/5.1 Hydropower expansion.txt",
+   "type": "pathway",
+   "measure": "Expand hydropower",
+   "note": "Numbered 5.1 in the source file but sector 7 in the diagram, which is why two documents share the number 5.1. Rename to 7.1 when the corpus is cleaned; nothing keys off the number."
+  },
+  {
+   "file": "case_studies/Barcelona - Mosquito proofing storm drains.docx.txt",
+   "type": "case_study",
+   "measure": "Flood protection"
+  },
+  {
+   "file": "reference/DST_disease_summaries.docx.txt",
+   "type": "glossary",
+   "measure": null
+  },
+  {
+   "file": "reference/d2-2-scoping-review-policy-health-impacts.txt",
+   "type": "scoping_review",
+   "measure": null
+  },
+  {
+   "file": "reference/IDAlert_outputs_overview_may2026.docx.txt",
+   "type": "publications",
+   "measure": null
+  }
+ ]
+}

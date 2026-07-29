@@ -1,0 +1,320 @@
+﻿Climate-Sensitive Infectious Diseases in Europe
+Section 1 — Glossary
+Diseases
+Term
+	Definition
+	Campylobacteriosis
+	A foodborne bacterial gastrointestinal infection (caused by Campylobacter), most often acquired from undercooked poultry, with a clear summer peak amplified by warmer temperatures.
+	Chikungunya
+	A viral disease causing fever and prolonged joint pain, transmitted by Aedes mosquitoes and increasingly causing local outbreaks in southern Europe as the climate warms.
+	Crimean-Congo haemorrhagic fever (CCHF)
+	A severe tick-borne viral haemorrhagic fever spread by Hyalomma ticks, expanding northwards in Europe as warmer conditions enlarge tick habitat.
+	Cryptosporidiosis
+	A waterborne parasitic gastrointestinal infection resistant to standard chlorination, with risk amplified by heavy rainfall, flooding and drought.
+	Dengue fever
+	A viral illness causing fever and severe musculoskeletal pain, transmitted by Aedes mosquitoes and now causing locally acquired outbreaks in southern Europe.
+	E. coli infection (STEC)
+	A foodborne and waterborne infection by toxin-producing E. coli that can cause serious kidney complications, with risk amplified by heatwaves and flooding.
+	Giardiasis
+	A waterborne parasitic intestinal infection causing prolonged diarrhoea, with transmission amplified by heavy rainfall and strained sanitation infrastructure.
+	Hantavirus infection
+	A rodent-borne viral disease transmitted via aerosolised rodent excreta, with outbreak cycles driven by climate-sensitive rodent population dynamics.
+	Hepatitis A
+	A vaccine-preventable viral liver infection spread via contaminated food and water, with risk amplified by flooding and warming coastal waters affecting shellfish.
+	Legionnaires' disease
+	A severe pneumonia caused by Legionella bacteria from aerosolised contaminated water, one of Europe's most lethal climate-sensitive bacterial diseases.
+	Leishmaniasis
+	A parasitic disease transmitted by sandfly bites, expanding into central Europe as warmer conditions extend the sandfly season.
+	Leptospirosis
+	A bacterial disease acquired through contact with water contaminated by animal urine, with risk sharply amplified by heavy rainfall and flooding.
+	Listeriosis
+	A foodborne bacterial infection (caused by Listeria) that grows even at refrigeration temperatures and is particularly dangerous in pregnancy, the elderly and the immunocompromised.
+	Lyme disease
+	The most common tick-borne disease in Europe, caused by Borrelia bacteria spread by Ixodes ticks whose range and active season are expanding under climate change.
+	Malaria
+	A parasitic disease transmitted by Anopheles mosquitoes, mostly travel-associated in Europe but with a slowly widening window for local transmission as the climate warms.
+	Norovirus infection
+	The leading global cause of acute viral gastroenteritis, spread via contaminated food, water and surfaces, with risk amplified by flooding and ocean warming.
+	Rift Valley fever (RVF)
+	A mosquito-borne viral zoonosis of livestock and humans, currently endemic in Africa but flagged as an emerging risk for southern Europe.
+	Salmonellosis
+	A common foodborne bacterial gastrointestinal infection, with risk significantly amplified by warmer temperatures along the food chain.
+	Shigellosis
+	An acute bacterial dysentery transmitted via contaminated food, water and person-to-person contact, with risk amplified by heat, heavy rainfall and flooding.
+	Tick-borne encephalitis (TBE)
+	A vaccine-preventable tick-borne viral infection of the central nervous system, expanding into new European regions and altitudes as the climate warms.
+	Usutu virus disease
+	A mosquito-borne viral infection circulating in birds and humans across much of Europe, often co-circulating with West Nile virus.
+	Vibriosis
+	Infections caused by warm-water Vibrio bacteria, acquired from raw shellfish or seawater exposure, with risk rising sharply as European seas warm.
+	West Nile fever
+	A mosquito-borne viral disease that can cause severe brain inflammation, expanding northwards and westwards across Europe as the climate warms.
+	Zika fever
+	A mostly mild Aedes-borne viral illness, but a serious risk in pregnancy due to severe birth defects, with vector range expanding across southern Europe.
+	Pathogens
+Term
+	Definition
+	Borrelia spp.
+	A group of bacteria. The Borrelia burgdorferi group causes Lyme disease in humans and is spread by tick bites.
+	Campylobacter spp.
+	A group of bacteria — the most common cause of foodborne stomach illness in Europe — usually picked up from undercooked poultry or unpasteurised milk.
+	CCHF virus
+	Crimean-Congo haemorrhagic fever virus — a tick-borne virus that causes a severe illness involving high fever and bleeding.
+	Chikungunya virus (CHIKV)
+	A virus spread by Aedes mosquitoes that causes fever and prolonged joint pain.
+	Cryptosporidium spp.
+	Microscopic parasites spread through contaminated water and food; cause cryptosporidiosis. They are unusually resistant to chlorination.
+	Dengue virus (DENV)
+	A virus with four closely related types (DENV-1 to DENV-4), spread by Aedes mosquitoes; cause of dengue fever.
+	Giardia duodenalis
+	A microscopic parasite (also called Giardia intestinalis or G. lamblia) spread through contaminated water and food; cause of giardiasis.
+	Hantaviruses (PUUV, DOBV)
+	Viruses carried by wild rodents. In Europe, Puumala virus (PUUV) causes a milder form of disease and Dobrava-Belgrade virus (DOBV) a more severe form.
+	Hepatitis A virus (HAV)
+	A virus spread through contaminated food, water and close contact with an infected person; causes acute liver inflammation.
+	Legionella spp.
+	Bacteria that thrive in warm freshwater systems (cooling towers, hot-water plumbing, spa pools). Inhaled in contaminated water droplets, they are the principal cause of Legionnaires' disease.
+	Leishmania spp.
+	Microscopic parasites spread by sandfly bites; can cause skin sores or, in the most serious form, a life-threatening illness affecting internal organs.
+	Leptospira spp.
+	Bacteria shed in the urine of infected animals (rats, dogs, livestock) and spread through contaminated water, mud or soil; cause of leptospirosis.
+	Listeria monocytogenes
+	A foodborne bacterium that can grow even at fridge temperatures, making cold-chain failures particularly dangerous; especially serious in pregnancy and for older or immunocompromised people.
+	Norovirus
+	An extremely contagious virus and the leading global cause of sudden-onset stomach illness, spread through contaminated food, water, surfaces and person-to-person contact.
+	Plasmodium spp.
+	Microscopic parasites spread by Anopheles mosquito bites; cause of malaria. Plasmodium falciparum is the most dangerous type.
+	Rift Valley fever virus (RVFV)
+	A virus that primarily affects livestock but can spread to people through mosquito bites or contact with infected animal blood or tissues.
+	Salmonella spp. (non-typhoidal)
+	Foodborne bacteria that cause salmonellosis (typically from eggs, poultry, pork or dairy); growing antibiotic resistance is a concern.
+	Shiga toxin-producing / verocytotoxin-producing E. coli (STEC / VTEC)
+	Strains of E. coli that produce harmful toxins (called Shiga toxins or, equivalently, verocytotoxins — hence the alternative names STEC and VTEC for the same group). Spread through food, water and animal contact, they can cause a serious kidney complication called haemolytic uraemic syndrome.
+	Shigella spp.
+	Bacteria that cause bacillary dysentery (shigellosis), notable for being highly contagious — only a few bacteria are needed to cause illness.
+	TBE virus
+	Tick-borne encephalitis virus — spread by tick bites and, rarely, by drinking unpasteurised milk; causes inflammation of the brain and spinal cord.
+	Usutu virus (USUV)
+	A mosquito-borne virus closely related to West Nile virus; circulates between birds and Culex mosquitoes and can occasionally cause severe illness in people.
+	Vibrio spp. (non-cholerae)
+	Bacteria naturally present in warm, slightly salty coastal waters (mainly Vibrio parahaemolyticus and V. vulnificus); cause vibriosis through raw shellfish or seawater contact with cuts or wounds.
+	West Nile virus (WNV)
+	A virus spread between birds and Culex mosquitoes; people and horses can be infected by mosquito bites but do not pass the virus on. Severe cases can affect the brain and spinal cord.
+	Zika virus (ZIKV)
+	A virus spread mainly by Aedes mosquitoes, but also through sexual contact and from a pregnant woman to her baby; can cause severe birth defects when contracted in pregnancy.
+	Vectors and animal reservoirs
+Term
+	Definition
+	Aedes mosquitoes
+	Day-biting mosquitoes that spread chikungunya, dengue and Zika. The invasive tiger mosquito (Aedes albopictus) is now established across much of southern and central Europe.
+	Anopheles mosquitoes
+	Mosquitoes that spread malaria. Several species capable of carrying the parasite are present in Europe, allowing for occasional local transmission.
+	Culex mosquitoes
+	Mosquitoes that spread West Nile virus and Usutu virus. The common house mosquito (Culex pipiens) is the main carrier in Europe.
+	Ixodes ticks
+	Hard ticks that spread Lyme disease and tick-borne encephalitis. The castor bean tick (Ixodes ricinus) is the main carrier across most of Europe.
+	Hyalomma ticks
+	Hard ticks that spread Crimean-Congo haemorrhagic fever, currently expanding northwards into new areas of Spain, France and the Balkans as the climate warms.
+	Phlebotomine sandflies
+	Small biting flies that spread Leishmania parasites. In the Mediterranean they are active from late April to early November, with peak activity in July–September.
+	Bank vole
+	A small forest rodent that is the natural carrier of Puumala virus (PUUV) in Europe; people can be infected by inhaling dust contaminated with rodent urine or droppings.
+	Yellow-necked mouse
+	A woodland mouse that is the natural carrier of Dobrava-Belgrade virus (DOBV), which causes a more severe form of hantavirus disease than Puumala virus (PUUV).
+	Transmission types
+Term
+	Definition
+	Food-borne
+	Transmission through consumption of contaminated food. Climate sensitivity comes from accelerated pathogen growth in warm conditions, contamination of produce and irrigation water by floods, and cold-chain failures during heatwaves.
+	Water-borne
+	Transmission through ingestion of, or contact with, contaminated drinking or recreational water. Strongly amplified by heavy rainfall, flooding, drought (which concentrates pathogens) and strain on sanitation infrastructure.
+	Vector-borne
+	Transmission via the bite of an infected arthropod (mosquito, tick, sandfly). Climate sensitivity is high because vector survival, geographic range, seasonal activity and pathogen development inside the vector are all temperature- and moisture-dependent.
+	Animal contact (zoonotic)
+	Transmission through direct contact with infected animals, their tissues, or environments contaminated by them (e.g. urine, saliva, droppings). Climate affects host populations and the persistence of pathogens in the environment.
+	Airborne
+	Transmission via inhalation of contaminated aerosols, applying primarily to Legionnaires' disease (water-system aerosols) and hantavirus infection (rodent excreta dust).
+	Faecal–oral
+	A specific route within food- and water-borne transmission, in which pathogens shed in faeces are ingested via contaminated food, water, surfaces or hands. Risk rises sharply where sanitation is overwhelmed by flooding.
+	________________
+
+
+Section 2 — Full definitions
+1. Campylobacteriosis
+Campylobacteriosis is a gastrointestinal infection caused by Campylobacter bacteria (mainly C. jejuni and C. coli) and is the most commonly reported foodborne zoonosis in the EU/EEA. Transmission occurs primarily through consumption of undercooked poultry, unpasteurised milk and contaminated water. Symptoms include diarrhoea (sometimes bloody), abdominal pain, fever and vomiting, usually resolving within a week, though in rare cases it can trigger reactive arthritis or Guillain–Barré syndrome (a serious neurological disorder). The disease is climate-sensitive: higher ambient temperatures accelerate pathogen replication along the food chain, and heavy precipitation can contaminate water and produce — driving a pronounced summer peak across Europe. Rising antimicrobial resistance in Campylobacter isolates adds a further concern for food-safety and climate adaptation policy.
+Sources:
+* ECDC — Campylobacteriosis factsheet
+* EFSA & ECDC — European Union One Health Zoonoses Report
+* WHO — Campylobacter fact sheet
+
+
+2. Chikungunya
+Chikungunya is a viral disease caused by the chikungunya virus (CHIKV) and transmitted by Aedes mosquitoes, principally the invasive tiger mosquito (Aedes albopictus), which is now established across much of southern and central Europe. Clinical features include sudden-onset high fever, severe and often debilitating joint pain, rash, headache and muscle aches; joint pain can persist for months or years. European cases have historically been almost entirely travel-associated, but locally acquired outbreaks have now been recorded in Italy, France and Spain. Higher temperatures, heavy precipitation creating breeding sites, and an extended warm season are expanding the vector's geographic range and the seasonal window for local transmission. ECDC, the EEA's European Climate Risk Assessment (EUCRA) and the 2024 Lancet Countdown in Europe all rank chikungunya as a priority climate-sensitive arbovirus for the continent.
+Sources:
+* ECDC — Chikungunya virus disease
+* WHO — Chikungunya fact sheet
+* Lancet Countdown in Europe (2024)
+* EEA — European Climate Risk Assessment (EUCRA)
+
+
+3. Crimean-Congo haemorrhagic fever (CCHF)
+Crimean-Congo haemorrhagic fever (CCHF) is a severe viral haemorrhagic fever caused by the CCHF virus (family Nairoviridae), transmitted mainly by bites from Hyalomma ticks — with H. marginatum the principal European vector — and through contact with the blood or tissues of infected livestock; rare foodborne transmission occurs via unpasteurised milk or raw meat. After a 1–13 day incubation, patients typically develop sudden fever, muscle pain, headache and gastrointestinal symptoms, progressing in severe cases to bruising, haemorrhage and multi-organ failure, with case-fatality ratios of 10–40%. Human cases in Europe remain rare, but Hyalomma marginatum is expanding northwards and establishing in new areas of Spain, France and the Balkans as higher temperatures and extended warm seasons reshape tick ecology. ECDC has flagged CCHF as an emerging climate-sensitive threat for Europe.
+Sources:
+* ECDC — Crimean-Congo haemorrhagic fever
+* WHO — Crimean-Congo haemorrhagic fever fact sheet
+* EEA — European Climate Risk Assessment (EUCRA)
+
+
+4. Cryptosporidiosis
+Cryptosporidiosis is a waterborne and foodborne gastrointestinal infection caused by the protozoan parasite Cryptosporidium (principally C. parvum and C. hominis). Transmission occurs through ingestion of oocysts (the parasite's resilient environmental form) in contaminated drinking or recreational water, food including fresh produce, or through direct contact with infected humans or livestock; oocysts are highly resistant to standard chlorination, making treated water systems vulnerable. The illness presents as profuse watery diarrhoea, abdominal cramps, dehydration and weight loss, and can be severe or chronic in immunocompromised patients. Climate sensitivity is high: heavy rainfall and flooding mobilise oocysts from agricultural land into surface and drinking water, drought concentrates pathogens in shrinking water bodies, and higher temperatures can extend transmission seasons — producing the observed bimodal European pattern with spring and autumn peaks.
+Sources:
+* ECDC — Cryptosporidiosis
+* WHO — Guidelines for Drinking-water Quality
+
+
+5. Dengue fever
+Dengue is a viral disease caused by four serotypes of dengue virus (DENV-1 to DENV-4) and transmitted by Aedes mosquitoes, principally the invasive tiger mosquito (Aedes albopictus), which has established breeding populations across much of southern Europe. Most infections are asymptomatic or mild, but classic dengue causes high fever, severe headache, pain behind the eyes, muscle and joint pain, and a rash; a small proportion progress to severe dengue, which can involve plasma leakage, haemorrhage and shock and requires urgent hospital care. Locally acquired cases have been reported in recent years in Italy, France and Spain. Higher temperatures, heavy precipitation, an extended warm season and urbanisation are both expanding the vector's range and shortening the time the virus needs to mature inside the mosquito. ECDC, the EEA (EUCRA) and the Lancet Countdown Europe all rank dengue among the most pressing climate-driven infectious disease threats for the continent.
+Sources:
+* ECDC — Dengue
+* WHO — Dengue and severe dengue fact sheet
+* Lancet Countdown in Europe (2024)
+* EEA — European Climate Risk Assessment (EUCRA)
+
+
+6. E. coli infection (STEC)
+Shiga toxin-producing Escherichia coli (STEC) infection is a foodborne and waterborne zoonotic disease caused by E. coli strains producing Shiga toxins (notably O157:H7 and a growing number of non-O157 serogroups). Transmission occurs through consumption of undercooked beef, unpasteurised dairy, contaminated leafy greens and sprouts, recreational or drinking water contaminated with ruminant faeces, and direct contact with animals. Illness ranges from watery or bloody diarrhoea and abdominal cramps to life-threatening haemolytic uraemic syndrome (HUS), a serious kidney complication particularly affecting children and the elderly. Heatwaves accelerate pathogen proliferation in the food chain and faecal bacteria persist longer in warm soils and pastures, while flooding and heavy rainfall contaminate produce, irrigation water and bathing sites — making STEC a climate-sensitive disease with a strong summer peak and an additional antimicrobial resistance dimension of concern for European food-safety and water-quality policy.
+Sources:
+* ECDC — Escherichia coli (E. coli)
+* EFSA & ECDC — European Union One Health Zoonoses Report
+
+
+7. Giardiasis
+Giardiasis is an intestinal infection caused by the protozoan parasite Giardia duodenalis (also known as G. intestinalis or G. lamblia). Transmission is faecal–oral, through ingestion of cysts in contaminated drinking or recreational water or food, or via direct person-to-person or animal-to-human contact; the cysts are environmentally resilient and resistant to standard chlorination. Symptoms include prolonged watery diarrhoea, bloating, abdominal cramps, excess gas, malabsorption and weight loss, and chronic or asymptomatic carriage is common. Higher temperatures, heavy precipitation and flooding mobilise cysts into surface and drinking-water supplies — particularly where sewage and agricultural runoff enter catchments — producing the characteristic late-summer and September peaks seen in European data, and making water-system resilience a key adaptation lever.
+Sources:
+* ECDC — Giardiasis
+* WHO — Guidelines for Drinking-water Quality
+
+
+8. Hantavirus infection
+Hantavirus infection is a rodent-borne zoonotic disease caused by viruses of the Hantaviridae family. In Europe the two principal species are Puumala virus (PUUV), carried by the bank vole (Myodes glareolus) and causing a milder form known as haemorrhagic fever with renal syndrome, and Dobrava-Belgrade virus (DOBV), carried by the yellow-necked mouse (Apodemus flavicollis) and associated with more severe disease. Transmission is primarily airborne, through inhalation of aerosolised rodent urine, droppings or saliva — typically in rural, forested or peri-domestic settings — or, less commonly, through bites or contaminated food. Clinical features include abrupt fever, headache, muscle and back pain, acute kidney injury and, in severe cases, haemorrhagic manifestations. Disease incidence is strongly shaped by climate-driven rodent population dynamics: warm winters and abundant beech and oak mast years increase vole and mouse densities, driving multi-year outbreak cycles that are expected to intensify under continued warming.
+Sources:
+* ECDC — Hantavirus infection
+* WHO – Hantavirus
+
+
+9. Hepatitis A
+Hepatitis A is an acute liver infection caused by the hepatitis A virus (HAV) and transmitted primarily via the faecal–oral route — through consumption of contaminated food (notably shellfish, berries and fresh produce) or water, and through close person-to-person contact. Following a 15–50 day incubation, infection causes fatigue, nausea, abdominal discomfort, fever and jaundice (yellowing of the skin and eyes); most cases resolve without specific treatment and confer lifelong immunity, but severity and mortality rise sharply with age and in people with chronic liver disease. Climate change affects HAV risk primarily through flooding, which overwhelms sanitation systems and contaminates drinking and irrigation water, and through warming coastal waters that concentrate the virus in bivalve shellfish. A safe and effective vaccine is available and is central to outbreak control and adaptation.
+Sources:
+* ECDC — Hepatitis A
+* WHO — Hepatitis A fact sheet
+
+
+10. Legionnaires' disease
+Legionnaires' disease is a severe pneumonia caused by Legionella bacteria (most commonly L. pneumophila serogroup 1) and is one of the most lethal routinely notifiable climate-sensitive bacterial diseases in Europe, with a case-fatality rate of around 8–10%. Transmission is waterborne and airborne: the bacteria proliferate in warm, stagnant freshwater systems — cooling towers, hot-water plumbing, spa pools, decorative fountains and evaporative condensers — and infect humans through inhalation of contaminated aerosols. Symptoms resemble other pneumonias: high fever, cough, shortness of breath, confusion and gastrointestinal upset. Higher ambient temperatures, heatwaves, heavy precipitation (which can disturb water systems), extended warm seasons and drought all promote Legionella growth and aerosol generation. European incidence has risen markedly over the past decade, with summer and autumn peaks becoming more pronounced.
+Sources:
+* ECDC — Legionnaires' disease
+* ECDC — European Legionnaires' Disease Surveillance Network (ELDSNet)
+
+
+11. Leishmaniasis
+Leishmaniasis is a parasitic disease caused by Leishmania protozoa (principally L. infantum in Europe) and transmitted by the bites of infected female sandflies (subfamily Phlebotominae); dogs are the main reservoir in the Mediterranean zoonotic cycle. Disease forms range from localised cutaneous ulcers to destructive mucocutaneous lesions affecting the nose, mouth and throat, and visceral leishmaniasis (kala-azar) — the most serious form — which affects the bone marrow, liver and spleen and is fatal without treatment. Higher temperatures are extending the active season of sandflies (late April to early November in the Mediterranean, peaking July–September) and enabling both vectors and parasites to establish in previously unaffected northern areas, including parts of central Europe. Leishmaniasis is classified as essential for European climate-health adaptation by IDAlert, EpiOutlook, the Lancet Countdown Europe and EUCRA.
+Sources:
+* ECDC — Phlebotomine sandflies factsheet
+* WHO — Leishmaniasis fact sheet
+
+
+12. Leptospirosis
+Leptospirosis is a zoonotic bacterial disease caused by pathogenic spirochaetes of the genus Leptospira, shed in the urine of infected animals (rats, dogs, pigs, cattle and wildlife) and transmitted to humans through direct contact with animals or via exposure to contaminated water, mud or soil; the bacteria enter through skin abrasions, mucous membranes or ingestion. Clinical presentation ranges from a self-limiting flu-like illness to severe Weil's disease, involving jaundice, acute kidney injury, haemorrhage and pulmonary complications, with case-fatality rates of 5–15% in severe forms. Leptospirosis is a paradigm climate-sensitive disease: heavy rainfall, flooding and higher temperatures sharply increase transmission by mobilising contaminated water across agricultural, urban and recreational environments — driving the July–November European peak, with maxima in August. ECDC and IDAlert flag it as essential for climate adaptation, particularly for flood-exposed populations, outdoor workers and water-sport users.
+Sources:
+* ECDC — Leptospirosis
+* WHO — Leptospirosis
+
+
+13. Listeriosis
+Listeriosis is a foodborne bacterial infection caused by Listeria monocytogenes and, although relatively rare, has one of the highest case-fatality rates of any notifiable foodborne disease in Europe (around 15%). Transmission occurs through consumption of contaminated ready-to-eat foods such as soft cheeses, deli meats, smoked fish, pâté and pre-cut produce; the bacterium can grow at refrigeration temperatures, making cold-chain breaches particularly dangerous. In healthy adults it typically causes mild gastroenteritis, but in pregnant women, neonates, older people and the immunocompromised it can cause septicaemia (blood infection), meningitis, encephalitis (brain inflammation), miscarriage and stillbirth. Warmer ambient and food-storage temperatures, heatwaves and cold-chain disruptions enhance bacterial proliferation along the food production and distribution chain, and rising antimicrobial resistance adds a further dimension to the public health burden.
+Sources:
+* ECDC — Listeriosis
+* EFSA & ECDC — European Union One Health Zoonoses Report
+
+
+14. Lyme disease
+Lyme borreliosis is the most common tick-borne disease in Europe, caused by spirochaete bacteria of the Borrelia burgdorferi sensu lato complex (notably B. afzelii, B. garinii and B. burgdorferi s.s.) and transmitted by hard ticks of the genus Ixodes, with I. ricinus the principal European vector and I. persulcatus extending the range into the east. Early disease presents as erythema migrans — a characteristic expanding rash, often described as a bullseye — together with flu-like symptoms; if untreated, the infection can progress to neurological (neuroborreliosis), cardiac and chronic arthritic manifestations. Higher temperatures and extended warm seasons are lengthening tick questing periods (now typically June to November, with a July peak), allowing Ixodes ticks to colonise higher altitudes and latitudes across Scandinavia, the Alps and the UK. Lyme disease is classified as essential across all major European climate-health assessments.
+Sources:
+* ECDC — Borreliosis (Lyme disease)
+* ECDC — Ixodes ricinus factsheet
+* Lancet Countdown in Europe (2024)
+
+
+15. Malaria
+Malaria is a parasitic disease caused by Plasmodium species (P. falciparum, P. vivax, P. ovale, P. malariae and P. knowlesi) and transmitted by the bites of infected female Anopheles mosquitoes; An. atroparvus, An. labranchiae and An. sacharovi are historical European vectors and remain present. The great majority of European cases are currently travel-associated, though small numbers of locally acquired and airport-associated cases continue to occur across several member states. Symptoms include cyclical fever and chills, headache, muscle aches and anaemia; P. falciparum can rapidly progress to severe or cerebral malaria, which can be fatal without prompt treatment. Climate change is progressively extending the geographical and seasonal window for potential local transmission in Europe — higher temperatures, heavy precipitation and longer warm seasons shorten the parasite's development time inside the mosquito and expand mosquito habitat. ECDC-led environmental risk modelling has shown that low-lying, irrigated agricultural areas are particularly suitable. Together with rising antimalarial resistance, this makes malaria an essential disease for European preparedness.
+Sources:
+* ECDC — Malaria
+* WHO — World Malaria Report
+* Sudre et al. (2013) — Mapping environmental suitability for malaria transmission in Greece
+
+
+16. Norovirus infection
+Norovirus infection is the leading cause of acute viral gastroenteritis worldwide, caused by small RNA viruses of the family Caliciviridae; the pathogen is highly infectious, with as few as 10–100 viral particles capable of causing illness. Transmission is primarily faecal–oral — via contaminated food (notably bivalve shellfish and raw frozen berries), drinking or recreational water, surfaces and person-to-person contact — and norovirus is responsible for most gastroenteritis outbreaks in healthcare and institutional settings. Symptoms include abrupt onset of vomiting, watery diarrhoea, abdominal cramps and low-grade fever, usually resolving within 48–72 hours, though dehydration can be serious in the elderly and young children. The European seasonality is predominantly winter (October–March, peaking December–February), but climate drivers affect risk through flooding and heavy rainfall that contaminate shellfish beds and water systems, and through ocean warming and changing shellfish production patterns.
+Sources:
+* ECDC — Norovirus infection
+* WHO — Norovirus
+
+
+17. Rift Valley fever (RVF)
+Rift Valley fever (RVF) is a viral zoonosis caused by the RVF virus (family Phenuiviridae) affecting domestic ruminants and humans, transmitted principally by the bites of infected mosquitoes (notably Aedes and Culex species) and through direct contact with the blood, tissues or aborted material of infected animals. No locally acquired human cases have been reported in the EU/EEA to date, but the virus is endemic in Africa and the Arabian Peninsula and represents an emerging risk to southern Europe given the presence of competent mosquito vectors and livestock trade links. In humans most infections are mild and flu-like, but 1–3% of cases progress to severe forms including haemorrhagic fever, retinitis (eye inflammation that can cause permanent vision loss), or encephalitis. Heavy rainfall and flooding in endemic regions trigger mass hatching of infected mosquito eggs and drive explosive epizootics and human outbreaks; shifting precipitation regimes and warming temperatures are extending areas of potential vector competence, and EFSA/ECDC list RVF among the priority emerging threats for European preparedness.
+Sources:
+* ECDC — Rift Valley fever
+* WHO — Rift Valley fever fact sheet
+* EFSA — Scientific opinion on Rift Valley fever
+
+
+18. Salmonellosis
+Salmonellosis is a foodborne bacterial infection caused by non-typhoidal Salmonella serovars (mainly S. Enteritidis and S. Typhimurium) and is one of the most commonly reported zoonoses in the EU/EEA. Transmission occurs through consumption of contaminated food — typically eggs, poultry, pork, dairy and increasingly fresh produce — as well as through contaminated water and contact with animals, particularly reptiles and poultry. Symptoms appear 6–72 hours after exposure and include diarrhoea, fever, abdominal cramps and vomiting, usually resolving within a week; invasive bloodstream infections and reactive arthritis are rarer but serious complications. Higher ambient temperatures significantly increase Salmonella multiplication along the food chain and shorten the lag between contamination and illness, producing the pronounced August–September peaks seen in European data. Rising antimicrobial resistance — including to critically important fluoroquinolone and cephalosporin classes — compounds the public health challenge under a warming climate.
+Sources:
+* ECDC — Salmonellosis
+* EFSA & ECDC — European Union One Health Zoonoses Report
+
+
+19. Shigellosis
+Shigellosis (bacillary dysentery) is an acute enteric infection caused by bacteria of the genus Shigella (principally S. sonnei and S. flexneri in Europe). Transmission is faecal–oral, via contaminated food and water or through direct person-to-person contact, facilitated by a very low infectious dose (as few as 10–200 organisms). Illness begins 1–3 days after exposure with watery or bloody diarrhoea, fever, abdominal cramps and painful urges to pass stool; complications include dehydration, haemolytic uraemic syndrome (a serious kidney condition) and reactive arthritis. Climate change is increasing risk through higher temperatures, heavy precipitation and flooding that contaminate drinking and recreational water, particularly where sanitation infrastructure is strained — contributing to the observed late-summer and early-autumn European peaks. Multidrug-resistant Shigella strains, including those resistant to fluoroquinolones and azithromycin, are a fast-growing antimicrobial resistance concern flagged by ECDC.
+Sources:
+* ECDC — Shigellosis
+* WHO — Diarrhoeal disease fact sheet
+
+
+20. Tick-borne encephalitis (TBE)
+Tick-borne encephalitis (TBE) is a viral infection of the central nervous system caused by the TBE virus (with European, Siberian and Far-Eastern subtypes) and transmitted through bites from infected Ixodes ticks (I. ricinus is the principal European vector, with I. persulcatus important further east); rare transmission occurs through consumption of unpasteurised milk or dairy from infected livestock. ECDC estimates a case-fatality ratio of around 0.5%, with long-term neurological sequelae in up to a third of symptomatic patients. The disease classically has a biphasic course: a flu-like first phase followed, after a brief remission, by meningitis, encephalitis or meningoencephalitis (inflammation of the brain and/or spinal cord). Higher temperatures, heavy precipitation and an extended warm season are lengthening the tick activity period (June–November, peaking in July) and pushing TBE into higher altitudes and new regions across central, northern and western Europe. IDAlert, EpiOutlook, Lancet Countdown Europe and EUCRA all classify it as essential. Vaccination is the cornerstone of prevention in endemic countries.
+Sources:
+* ECDC — Tick-borne encephalitis
+* ECDC — Ixodes ricinus factsheet
+* Lancet Countdown in Europe (2024)
+
+
+21. Usutu virus disease
+Usutu virus disease is caused by the Usutu virus (USUV), a flavivirus closely related to West Nile virus, and transmitted by Culex mosquitoes (primarily Cx. pipiens, the common house mosquito) in an enzootic cycle involving wild birds — notably blackbirds, which experience mass mortality during outbreaks and often serve as a sentinel warning. Most human infections are asymptomatic or cause a mild, self-limiting illness with fever, rash and headache, but severe neuroinvasive disease (meningoencephalitis) has been documented, particularly in immunocompromised individuals. Transfusion-associated transmission has prompted blood-safety measures in several countries. USUV is strongly climate-sensitive: higher temperatures, heavy precipitation, extended warm seasons and drought-driven urban water stagnation all favour Culex proliferation and viral amplification. The virus is now established across much of central, southern and western Europe, frequently co-circulating with West Nile virus and serving as an important sentinel for climate-driven arbovirus emergence.
+Sources:
+* ECDC — Epidemiological update: West Nile virus and Usutu virus
+* Clé et al. (2019) — Usutu virus: A new threat?
+
+
+22. Vibriosis
+Vibriosis is a group of infections caused by non-cholera Vibrio species — primarily Vibrio parahaemolyticus, V. vulnificus and non-toxigenic V. cholerae — which are naturally present in warm, low-salinity coastal and estuarine waters. Transmission occurs through consumption of raw or undercooked shellfish (causing gastroenteritis) and through skin, ear or wound exposure to contaminated seawater or brackish water (causing wound infections, otitis, and in the case of V. vulnificus rapidly progressive necrotising fasciitis — flesh-eating infection — or septicaemia, with case-fatality above 30%, particularly in people with chronic liver disease or weakened immune systems). Vibrio bacteria thrive in warm, low-salinity waters, and climate change is driving rising sea-surface temperatures and more frequent marine heatwaves across all European seas, with the Baltic, North and Black Seas and major river estuaries showing the fastest increases in suitable conditions. ECDC operates a Vibrio Map Viewer providing daily environmental suitability forecasts, and antimicrobial resistance in some Vibrio isolates adds a further concern — making vibriosis an essential climate-sensitive disease for northern European coastal adaptation.
+Sources:
+* ECDC — Vibrio Map Viewer
+* Lancet Countdown in Europe (van Daalen et al., 2024)
+* Climate-ADAPT — ECDC Vibrio suitability model
+
+
+23. West Nile fever
+West Nile fever is caused by West Nile virus (WNV), a flavivirus maintained in an enzootic cycle between wild birds and Culex mosquitoes (principally Cx. pipiens, Cx. modestus and Cx. perexiguus in Europe), with humans and horses as incidental dead-end hosts (i.e. they do not pass the virus on). Around 80% of human infections are asymptomatic; most symptomatic cases present as West Nile fever with fever, headache, muscle aches and rash, while fewer than 1% develop severe neuroinvasive disease (meningitis, encephalitis or acute flaccid paralysis), with case-fatality rates up to 10% in neuroinvasive forms. Higher temperatures, heavy precipitation, an extended warm season and drought (which concentrates birds and mosquitoes around shrinking water bodies) have driven a pronounced northward and westward expansion of WNV circulation in Europe over the past decade, with locally acquired cases now regularly reported in Germany, the Netherlands and France in addition to traditionally affected southern countries. WNV is classified as essential across all major European climate-health assessments.
+Sources:
+* ECDC — West Nile virus infection
+* Lancet Countdown in Europe (2024)
+* EEA — European Climate Risk Assessment (EUCRA)
+
+
+24. Zika fever
+Zika fever is a viral disease caused by the Zika virus (ZIKV) and transmitted primarily by bites of infected Aedes mosquitoes (mainly Aedes aegypti globally and the invasive tiger mosquito Aedes albopictus in Europe), with additional sexual and mother-to-child routes of transmission. European cases are predominantly travel-associated, though the first locally acquired cases were reported in France in 2019. Around 80% of infections are asymptomatic; symptomatic cases typically involve mild fever, rash, conjunctivitis, joint pain and headache, but infection during pregnancy can cause congenital Zika syndrome, including microcephaly (abnormally small head size) and other severe neurological abnormalities in the baby. Zika is also associated with Guillain–Barré syndrome, a rare neurological disorder, in adults. Climate drivers — higher temperatures, an extended warm season and urban conditions favouring Aedes — are expanding the vector's range across southern Europe, with seasonal risk peaking in July and August. Together with dengue and chikungunya, Zika is tracked as an essential Aedes-borne disease by IDAlert, EpiOutlook and the Lancet Countdown Europe.
+Sources:
+* ECDC — Zika virus disease
+* WHO — Zika virus fact sheet
