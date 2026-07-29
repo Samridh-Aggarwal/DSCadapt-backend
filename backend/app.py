@@ -29,7 +29,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, File, Header, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from pydantic import BaseModel
 
 import attribution
@@ -40,6 +40,7 @@ import logger as logging_
 import pipeline
 import prompts
 import render
+import report
 import review
 import translate
 
@@ -322,6 +323,20 @@ def create_app(services=None):
                 f"This is {len(text):,} characters and the reviewer takes about "
                 f"{review.MAX_CHARS:,}. Paste the relevant section instead.")
         return result
+
+    # -- traces ---------------------------------------------------------------
+
+    @api.get("/logs", response_class=HTMLResponse)
+    def logs(limit: int = 200, x_api_key: str = Header(None)):
+        """The readable version of the traces.
+
+        Rendered when somebody opens it, rather than rebuilt inside every
+        request the way the original was — which is why the original could not
+        be asked to record more than it did.
+        """
+        if api_key and x_api_key != api_key:
+            raise HTTPException(401, "Missing or invalid API key.")
+        return report.render(report.read(svc().settings.logs_dir, limit=limit))
 
     # -- debug ---------------------------------------------------------------
 
