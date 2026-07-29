@@ -103,7 +103,8 @@ class HuggingFaceSink:
         HfApi(token=self.token).upload_file(
             path_or_fileobj=str(path),
             path_in_repo=f"{self.prefix}/{path.parent.name}/{path.name}",
-            repo_id=self.repo_id, repo_type="dataset")
+            repo_id=self.repo_id, repo_type="dataset",
+            commit_message=f"traces {path.parent.name}")
 
 
 class Logger:
@@ -136,6 +137,33 @@ class Logger:
         day = self.directory / datetime.now(timezone.utc).strftime("%Y-%m-%d")
         day.mkdir(parents=True, exist_ok=True)
         return day / f"{self.boot}.jsonl"
+
+    @property
+    def readable_path(self):
+        """The same records, indented, for reading in a browser.
+
+        One line per query is right for appending and wrong for reading — the
+        whole trace arrives as a single enormous line. This is written from the
+        JSONL at flush time, on the background thread, so a person gets a file
+        they can actually open without any of it happening inside a request.
+
+        One file per process rather than one growing file. The original was a
+        single all_logs.json that reached 3.25 MB, at which point the Hub
+        stopped rendering it at all.
+        """
+        return self.path.with_suffix(".json")
+
+    def _write_readable(self):
+        try:
+            records = [json.loads(line) for line in
+                       self.path.read_text(encoding="utf-8").splitlines() if line.strip()]
+            self.readable_path.write_text(
+                json.dumps(records, indent=2, ensure_ascii=False, default=str),
+                encoding="utf-8")
+            return self.readable_path
+        except Exception as err:
+            print(f"[LOGGER] could not write the readable copy: {err}")
+            return None
 
     def record(self, entry):
         """Append one trace. Never raises — a logging problem is not a user's problem."""
@@ -171,7 +199,10 @@ class Logger:
                 return
             path, self._pending, self._last_flush = self.path, 0, time.time()
         try:
+            readable = self._write_readable()
             self.sink.send(path)
+            if readable:
+                self.sink.send(readable)
         except Exception as err:
             self.failures += 1
             try:
