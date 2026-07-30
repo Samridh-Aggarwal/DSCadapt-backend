@@ -96,8 +96,7 @@ class Answer:
         return bool(self.ecdc_block)
 
 
-# --- router ------------------------------------------------------------------
-
+# router
 def parse_router(raw, fallback):
     """Three lines. Returns the result and whether it actually parsed.
 
@@ -147,8 +146,7 @@ def clean_history(history, limit=None):
     return out[-limit:] if limit else out
 
 
-# --- context -----------------------------------------------------------------
-
+# context
 def build_context(hits, references, web_text="", ecdc_block="", publications=None,
                   scoping=None, web_failed=False, thin_coverage=False):
     """Assemble what the model reads.
@@ -222,8 +220,7 @@ def author_key(short_citation):
     return name.lower()
 
 
-# --- the pipeline ------------------------------------------------------------
-
+# the pipeline
 class Pipeline:
     """Everything wired together. app.py builds one at startup."""
 
@@ -238,8 +235,7 @@ class Pipeline:
         self.publications = publications
         self.scoping = scoping
 
-    # -- stages ---------------------------------------------------------------
-
+    # stages
     def route(self, message, history, country, answer):
         context = ""
         if history:
@@ -331,8 +327,7 @@ class Pipeline:
         answer.usage["generation"] = completion.usage
         return completion
 
-    # -- the whole thing ------------------------------------------------------
-
+    # the whole thing
     def respond(self, message, history=None, audience="Policymaker",
                 country="All Europe", length="Standard"):
         started = time.time()
@@ -357,7 +352,12 @@ class Pipeline:
         # itself, the log recorded route: domain with a passage count and a word
         # count, indistinguishable from a real answer, so refusals could not be
         # counted.
-        if not answer.in_scope and answer.route != "meta":
+        # in_scope: no wins whatever the route says. The meta route used to be
+        # exempt, so anything the router mislabelled as meta escaped the scope
+        # check entirely and went straight to generation with no context. A
+        # genuine meta turn — "thanks", "what did you just say" — comes back
+        # in_scope: yes, so nothing legitimate is caught by this.
+        if not answer.in_scope:
             answer.route = "redirect"
             answer.text = prompts.REDIRECT
             answer.timing["total"] = round(time.time() - started, 2)
