@@ -8,17 +8,11 @@ quietly, and there was no way to tell which one had gone.
 About half were deterministic — checkable by a regex, not a judgement. Those
 moved to postprocess.py, where they cannot fail:
 
-    rule                              now enforced by
-    ---------------------------------------------------------------
-    no markdown syntax                postprocess.strip_markdown
-    no banned words                   postprocess.check
-    no opening filler                 postprocess.strip_filler
-    response length                   max_tokens, and reported
-    no section numbers in the body    postprocess.strip_section_refs
-    no inline (Author, 2024)          postprocess.check
-    (English output stays in the prompt: translate.py translates *from* English
-     and cannot make the model write it. postprocess only detects.)
-    no web-sourced regulation numbers web.strip_law_numbers
+Markdown syntax, banned words, opening filler, response length, bracketed
+section numbers, inline citations and web-sourced regulation numbers are all
+handled in postprocess.py now. English-only could not move: translate.py
+renders from English, it cannot make the model write it, so the instruction
+stays here and postprocess only detects a breach.
 
 Two structural changes beyond that.
 
@@ -41,9 +35,7 @@ budget, which is code's job, so the prompt now describes proportion instead of
 counting.
 """
 
-# ============================================================
-# ROUTER
-# ============================================================
+# router
 
 # Blocklist, not allowlist. An allowlist always has holes, and the hole here
 # was the category header itself: "climate change and infectious disease" is
@@ -66,10 +58,20 @@ Answer in_scope: yes for anything touching climate adaptation, resilience, envir
 Answer in_scope: no only when one of these is clearly true:
 - the subject is unrelated to climate, environment, health or adaptation — cooking, sport, entertainment, celebrities, personal finance, general software, pure mathematics, relationship advice
 - the setting is fictional or invented rather than a real place
-- the location asked about is outside Europe. Europe here includes EU and EEA states, the UK, Switzerland, and candidate and neighbourhood countries such as Albania, Serbia, Türkiye and Ukraine
 - the point of the message is to retrieve a legal identifier or enumerate legislation: a regulation, directive or decree number, an article number, an exact official title or enactment date, or a list of which laws exist on a topic. Asking what a place is doing, what surveillance or policy is in place, or how a measure affects disease risk stays in scope even though those touch on policy.
 
-When you are genuinely unsure, answer yes.
+On topic, when you are genuinely unsure, answer yes.
+
+GEOGRAPHY — this overrides everything above
+This tool covers Europe only. Its evidence base, its surveillance data and its policy context are all European, so a question about anywhere else cannot be answered from anything it holds.
+
+If the message names a place outside Europe, answer in_scope: no, REGARDLESS OF TOPIC. A perfectly framed climate-adaptation question about a non-European city is still out of scope. Do not answer yes because the subject matter fits — the subject matter always fits, that is what makes this the easy one to get wrong.
+
+Out of scope, every time: Manhattan, New York, Boston, Miami, Vancouver, Toronto, Montreal, Mexico City, São Paulo, Buenos Aires, Lagos, Nairobi, Cairo, Cape Town, Mumbai, Delhi, Singapore, Bangkok, Jakarta, Tokyo, Seoul, Beijing, Shanghai, Sydney, Melbourne, Auckland — and any other city, region, state or country outside Europe, whether or not it appears in this list.
+
+In scope: EU and EEA states, the UK, Switzerland, and candidate and neighbourhood countries such as Albania, Serbia, Türkiye and Ukraine. A question naming no place at all is also in scope.
+
+The unsure-answer-yes rule above does not apply here. On geography, if you are unsure whether a place is in Europe, answer no.
 
 STEP 3 — ROUTE
 - domain: answerable from the evidence base on adaptation and disease
@@ -86,6 +88,8 @@ EXAMPLES
 "Thanks, that's helpful" -> yes, meta
 "How do I cook pasta?" -> no, domain
 "River restoration risks in Vancouver?" -> no, domain
+"Wetland and green-space expansion in Manhattan, assess West Nile risk" -> no, domain
+"What does ECDC show for West Nile in Vancouver?" -> no, domain
 "Urban greenlands in the movie Wall-E?" -> no, domain
 
 Reply in exactly this format, three lines, nothing else:
@@ -99,9 +103,7 @@ REDIRECT = ("That's outside what I cover — I focus on how climate adaptation m
             "trade-offs, or related policy in a European context, I can help with that.")
 
 
-# ============================================================
-# GENERATION
-# ============================================================
+# generation
 
 BASE = """You are DSCAdapt, a decision-support tool developed under the IDAlert project (Horizon Europe) at the London School of Economics. You help people understand how climate adaptation measures affect infectious disease risk, both positively as co-benefits and negatively as trade-offs.
 
@@ -244,15 +246,16 @@ Do these things, which the policymaker mode does not:
 Discuss transmission at the mechanism level — vector competence, environmental persistence, dose-response — where the evidence supports it.
 Name the evidence gaps. Where is the literature thin, what has not been studied, what is being assumed.
 Say when sources disagree, and why.
-Refer to pathway sections by number, so the underlying framework can be found.
+Name the pathway document or the measure the evidence comes from, so the framework can be found. Never its section number.
 Comment on data quality where surveillance is present: reporting completeness, what the under-reporting figure implies, whether a trend is meaningful or noise.
 Separate established causal pathways from plausible but unconfirmed ones."""
 
 AUDIENCES = {"Policymaker": POLICYMAKER, "Researcher": RESEARCHER}
 
-# Only the Researcher mode may cite section numbers; for the Policymaker they are
-# internal identifiers, and postprocess strips any that slip through.
-SECTION_NUMBERS_ALLOWED = {"Researcher"}
+# Nobody cites section numbers. They are internal identifiers a reader cannot
+# resolve, in either mode. postprocess strips any that slip through, and the
+# sources panel already links to the document itself.
+SECTION_NUMBERS_ALLOWED = set()
 
 
 def system_prompt(audience="Policymaker", country=None, length=None):
@@ -283,9 +286,7 @@ def system_prompt(audience="Policymaker", country=None, length=None):
     return "\n".join(parts)
 
 
-# ============================================================
-# CONTEXT NOTICES
-# ============================================================
+# context notices
 
 # Injected when a web search was routed and came back with nothing. Without it
 # the model has no way to tell "nothing found" from "nothing needed", and fills
@@ -309,9 +310,7 @@ THIN_COVERAGE = (
     "answering from general knowledge.]")
 
 
-# ============================================================
-# SESSION BRIEFING
-# ============================================================
+# session briefing
 
 BRIEFING_SYNTHESIS = """You are producing a Session Briefing: a faithful, structured record of one decision-support session that has already happened with the IDAlert climate-health tool. Below is the session — the questions asked and the answers given. Consolidate what was discussed. You are not adding analysis, evidence or advice.
 
@@ -371,9 +370,7 @@ Return only the corrected briefing, in exactly this format, with nothing before 
 ..."""
 
 
-# ============================================================
-# DOCUMENT REVIEWER
-# ============================================================
+# document reviewer
 
 REVIEW_SCOPE = """You are classifying a document for a tool that reviews climate-adaptation and policy documents for overlooked infectious-disease risks. You will see the opening of a document. Decide whether it belongs to that world.
 
