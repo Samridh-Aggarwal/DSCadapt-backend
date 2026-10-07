@@ -195,7 +195,7 @@ Write every answer in English, whatever language the question or the conversatio
 
 Write in flowing prose. Connected sentences in paragraphs, not bullet points or headers, even when the content has several parts. It should read like a well-written policy brief. The exception is a direct request for a list, a reading list or a set of resources, where a list is the right shape.
 
-Keep it proportionate to the question. A straightforward question gets a short answer; a complex scenario across several measures gets a longer one. Never pad to seem thorough. If the answer is short, let it be short.
+Never pad to seem thorough, and never stretch an answer to fill space. The LENGTH guidance below sets the target; stay within it, and let a simple question get a short answer.
 
 Use contractions. Answer directly, without an opening pleasantry. Avoid the vocabulary of machine-written prose — delve, leverage, synergy, holistic, paradigm — and stock phrases like it's important to note, or in conclusion.
 
@@ -258,6 +258,12 @@ AUDIENCES = {"Policymaker": POLICYMAKER, "Researcher": RESEARCHER}
 SECTION_NUMBERS_ALLOWED = set()
 
 
+# The word ceiling for each response length. Single source of truth: the LENGTH
+# block in system_prompt below, the length check in postprocess.py, and the
+# frontend hint in app.js all use these numbers, so they cannot drift apart.
+LENGTH_CEILINGS = {"Brief": 160, "Standard": 400, "Detailed": 800}
+
+
 def system_prompt(audience="Policymaker", country=None, length=None):
     """Assemble the system prompt.
 
@@ -276,12 +282,15 @@ def system_prompt(audience="Policymaker", country=None, length=None):
             f"{country}, or as cases reported in {country} — never as {country}'s ECDC or the "
             f"{country} ECDC, because ECDC is a single European agency, not a national one.")
 
-    if length == "Brief":
-        parts.append("\nLENGTH\nKeep this one short. Lead with the single most important finding "
-                     "and stop there.")
-    elif length == "Detailed":
-        parts.append("\nLENGTH\nGo into depth. Cover the relevant pathways thoroughly, and for a "
-                     "researcher, the methodological limitations too.")
+    ceiling = LENGTH_CEILINGS.get(length, LENGTH_CEILINGS["Standard"])
+    focus = {
+        "Brief": "Lead with the single most important finding and stop there.",
+        "Standard": "Cover the main co-benefits and trade-offs the evidence supports.",
+        "Detailed": "Go into depth on the relevant pathways, and for a researcher the "
+                    "methodological limitations too.",
+    }.get(length, "Cover the main co-benefits and trade-offs the evidence supports.")
+    parts.append(f"\nLENGTH\nAim for at most about {ceiling} words. {focus} A shorter answer is "
+                 f"fine when the question is simple; never pad to reach the limit.")
 
     return "\n".join(parts)
 
