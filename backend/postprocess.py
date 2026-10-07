@@ -113,16 +113,16 @@ def strip_markdown(text):
     text.replace("*", "") — which also removed asterisks that were doing
     something, and left the syntax it had not thought of.
     """
-    text = re.sub(r"(?m)^[ \t]{0,3}#{1,6}[ \t]*", "", text)          # ## heading
-    text = re.sub(r"\*\*\*([^*\n]+?)\*\*\*", r"\1", text)            # ***both***
-    text = re.sub(r"\*\*([^*\n]+?)\*\*", r"\1", text)                # **bold**
-    text = re.sub(r"__([^_\n]+?)__", r"\1", text)                    # __bold__
-    text = re.sub(r"(?<!\w)\*([^*\n]+?)\*(?!\w)", r"\1", text)       # *italic*
-    text = re.sub(r"(?<!\w)_([^_\n]+?)_(?!\w)", r"\1", text)         # _italic_
-    text = re.sub(r"`([^`\n]+?)`", r"\1", text)                      # `code`
-    text = re.sub(r"\[([^\]]+?)\]\(([^)\s]+?)\)", r"\1 (\2)", text)  # [text](url)
-    text = re.sub(r"(?m)^[ \t]*([-*_])(?:[ \t]*\1){2,}[ \t]*$", "", text)  # --- rule
-    text = re.sub(r"(?m)^[ \t]*>[ \t]?", "", text)                   # > quote
+    text = re.sub(r"(?m)^[ \t]{0,3}#{1,6}[ \t]*", "", text)           
+    text = re.sub(r"\*\*\*([^*\n]+?)\*\*\*", r"\1", text)           
+    text = re.sub(r"\*\*([^*\n]+?)\*\*", r"\1", text)                 
+    text = re.sub(r"__([^_\n]+?)__", r"\1", text)                     
+    text = re.sub(r"(?<!\w)\*([^*\n]+?)\*(?!\w)", r"\1", text)        
+    text = re.sub(r"(?<!\w)_([^_\n]+?)_(?!\w)", r"\1", text)         
+    text = re.sub(r"`([^`\n]+?)`", r"\1", text)                       
+    text = re.sub(r"\[([^\]]+?)\]\(([^)\s]+?)\)", r"\1 (\2)", text)   
+    text = re.sub(r"(?m)^[ \t]*([-*_])(?:[ \t]*\1){2,}[ \t]*$", "", text)   
+    text = re.sub(r"(?m)^[ \t]*>[ \t]?", "", text)                   
     # An asterisk touching a word on one side only is leftover syntax. One with
     # space on both sides is arithmetic or a footnote marker, and stays — the
     # original removed every asterisk in the answer, including those.
@@ -156,6 +156,27 @@ def clean(text, audience="Policymaker"):
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
 
+# A model will sometimes wrap a title in quotes, add a full stop, or run on.
+# These are unambiguous to fix, so they are fixed here rather than trusted to
+# the prompt — the same split clean() makes above.
+QUOTE_WRAP = re.compile(r"""^["'`]+|["'`]+$""")
+TITLE_MAX_WORDS = 8
+
+
+def clean_title(text, max_words=TITLE_MAX_WORDS):
+    """Reduce a model's title to one tidy line.
+
+    Returns "" when nothing usable is left, which is the caller's signal to keep
+    its own fallback.
+    """
+    if not text:
+        return ""
+    text = strip_markdown(text).replace("\n", " ")
+    text = QUOTE_WRAP.sub("", text.strip())
+    text = re.sub(r"\s+", " ", text).strip()
+    text = re.sub(r"[\s.,;:!?\u2013\u2014-]+$", "", text).strip()
+    words = text.split()
+    return " ".join(words[:max_words]) if words else ""
 
 # --- the reports -------------------------------------------------------------
 
