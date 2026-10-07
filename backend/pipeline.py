@@ -220,6 +220,25 @@ def author_key(short_citation):
     return name.lower()
 
 
+def title(chat, question, language="English"):
+    """A short session title from the first question. Cheap model, temperature 0.
+
+    Raises on a model failure, like generate() does, so the route can turn it
+    into a 502. Returns "" only when the model succeeded but produced nothing
+    usable after cleaning, which the caller treats as "keep the placeholder". A
+    title is cosmetic and must never quietly become part of an answer.
+    """
+    question = (question or "").strip()
+    if not question:
+        return ""
+    completion = chat(
+        model=ROUTER_MODEL,
+        messages=[{"role": "system", "content": prompts.title_prompt(language)},
+                  {"role": "user", "content": f"<q>{question}</q>"}],
+        temperature=0, max_tokens=24)
+    return postprocess.clean_title(completion.text)
+
+
 # the pipeline
 class Pipeline:
     """Everything wired together. app.py builds one at startup."""
