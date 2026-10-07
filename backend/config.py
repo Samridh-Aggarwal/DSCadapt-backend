@@ -75,6 +75,7 @@ class Completion:
     """What every chat call returns, whichever provider made it."""
     text: str
     usage: dict = None
+    finish: str = None
     raw: object = None
 
 def build_mistral(api_key):
@@ -97,7 +98,8 @@ def make_chat(client):
     """A callable the pipeline can hold without knowing about Mistral."""
     def chat(model, messages, **kwargs):
         response = client.chat.complete(model=model, messages=messages, **kwargs)
-        return Completion(text=_text_of(response), usage=_usage_of(response), raw=response)
+        return Completion(text=_text_of(response), usage=_usage_of(response),
+                          finish=_finish_of(response), raw=response)
     return chat
 
 
@@ -121,8 +123,24 @@ def _usage_of(response):
     usage = getattr(response, "usage", None)
     if not usage:
         return None
-    return {"input": getattr(usage, "prompt_tokens", 0) or 0,
-            "output": getattr(usage, "completion_tokens", 0) or 0}
+    out = {"input": getattr(usage, "prompt_tokens", 0) or 0,
+           "output": getattr(usage, "completion_tokens", 0) or 0}
+    # On a reasoning model the thinking tokens are counted inside the output
+    # total; surface them separately when the provider breaks them out, so a
+    # trace shows how much of the budget the thinking ate.
+    details = getattr(usage, "completion_tokens_details", None)
+    reasoning = getattr(details, "reasoning_tokens", 0) if details else 0
+    if reasoning:
+        out["reasoning"] = reasoning
+    return out
+
+
+def _finish_of(response):
+    """Why generation stopped. 'length' means it hit the token cap (truncated)."""
+    try:
+        return response.choices[0].finish_reason
+    except (AttributeError, IndexError, TypeError):
+        return None
 
 
 WEB_INSTRUCTIONS = (
