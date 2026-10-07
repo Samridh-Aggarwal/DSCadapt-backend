@@ -65,13 +65,17 @@ class DocumentRequest(BaseModel):
     country: str = "All Europe"
     language: str = "English"
 
-
 class EvaluateRequest(BaseModel):
     text: str
     country: str = "All Europe"
     top_per_chunk: int = 3
     shortlist_n: int = 6
     min_score: float = 0.70
+
+
+class TitleRequest(BaseModel):
+    question: str
+    language: str = "English"
 
 
 # --- optional gatekeeping ----------------------------------------------------
@@ -212,6 +216,21 @@ def create_app(services=None):
                 "rewritten": answer.rewritten,
             },
         }
+
+    @api.post("/title")
+    def session_title(req: TitleRequest, request: Request, x_api_key: str = Header(None)):
+        """A short name for a saved session, from its first question.
+
+        Cosmetic, so it is deliberately thin: no translation sandwich, no
+        attribution, no trace. A failure returns 502 and the frontend keeps the
+        placeholder it already shows.
+        """
+        guard(request, x_api_key)
+        try:
+            return {"title": pipeline.title(svc().chat, req.question, req.language)}
+        except Exception as err:
+            print(f"[TITLE] {err}")
+            raise HTTPException(502, "Could not generate a title.")
 
     # -- documents -----------------------------------------------------------
 
