@@ -18,8 +18,11 @@ The disease scan reads the web results as well. It only ever saw the query and
 the retrieved chunks, and web results are full of disease names — that is what
 they are for.
 
-Everything else here is deliberately unchanged. Same models, same temperatures,
-same top-k, same context ordering, same scoring. Those all need the eval set.
+The generation budget changed here on purpose. Reasoning and the answer share
+one token cap on the hosted API, so the cap is now generous and fixed, and
+length is set by a per-level word target in the prompt rather than by whatever
+the thinking leaves behind. Temperature, top-k, context ordering and scoring
+are unchanged, and still want the eval set.
 """
 
 import re
@@ -36,8 +39,13 @@ ROUTER_MODEL = "ministral-8b-latest"
 
 TOP_K_DOMAIN = 10        # route=domain: no web results competing for context
 TOP_K_BOTH = 7           # route=both: leave room for the web block
-REASONING_HEADROOM = 3000
-LENGTH_TOKENS = {"Brief": 500, "Standard": 1200, "Detailed": 2400}
+
+# One generous cap for every length. Reasoning (effort=high) and the answer
+# share this pool on the hosted API, so it is sized to hold a full Detailed
+# answer plus a long think with room to spare — the cap is a safety net, not
+# the length lever. Length is set by the per-level word target in the prompt.
+# (Small 4's output ceiling is 16,384.)
+GENERATION_MAX_TOKENS = 8000
 
 # Below this, the corpus does not really cover the question. Set by eye and
 # unvalidated — it wants calibrating against the golden set before it is
@@ -334,16 +342,20 @@ class Pipeline:
         messages.append({"role": "user",
                          "content": f"{context}\n\nQUESTION: {message}" if context else message})
 
-        budget = LENGTH_TOKENS.get(length, LENGTH_TOKENS["Standard"]) + REASONING_HEADROOM
         started = time.time()
         try:
             completion = self.chat(model=GENERATION_MODEL, messages=messages,
-                                   temperature=0.3, max_tokens=budget,
+                                   temperature=0.3, max_tokens=GENERATION_MAX_TOKENS,
                                    reasoning_effort="high")
         except Exception as err:
             raise PipelineError(f"generation failed: {err}") from err
         answer.timing["generation"] = round(time.time() - started, 2)
         answer.usage["generation"] = completion.usage
+        if completion.finish == "length":
+            # Thinking plus answer hit the cap. We cannot cap thinking on the
+            # hosted API, so the honest move is to flag it rather than let a
+            # cut-off answer pass as whole. The generous cap makes this rare.
+            print("[GENERATION] hit the token cap (finish_reason=length); answer may be truncated")
         return completion
 
     # the whole thing
