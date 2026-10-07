@@ -76,8 +76,6 @@ LAW_NUMBER = re.compile(
 
 REFERENCES_SPLIT = re.compile(r"(?i)\n\s*references?\s*\n")
 
-LENGTH_BANDS = {"Brief": (0, 220), "Standard": (140, 480), "Detailed": (320, 10_000)}
-
 # English prose runs at roughly a quarter to a third function words. Another
 # European language runs at nearly zero against this list. The check is the
 # ratio rather than the presence of any particular word, because a short
@@ -191,7 +189,7 @@ def check(text, audience="Policymaker", length="Standard", had_context=True):
     Returns violations rather than raising. In production these are logged; in
     the constraint suite they are the assertions.
     """
-    from prompts import SECTION_NUMBERS_ALLOWED
+    from prompts import SECTION_NUMBERS_ALLOWED, LENGTH_CEILINGS
     out = []
     if not text:
         return [Violation("empty", "no answer text")]
@@ -257,7 +255,8 @@ def check(text, audience="Policymaker", length="Standard", had_context=True):
                     f"only {ratio:.0%} function words; this does not look like English, "
                     f"and the translation step expects it"))
 
-    low_bound, high_bound = LENGTH_BANDS.get(length, LENGTH_BANDS["Standard"])
+    ceiling = LENGTH_CEILINGS.get(length, LENGTH_CEILINGS["Standard"])
+    low_bound, high_bound = round(ceiling * 0.3), round(ceiling * 1.25)
     if not low_bound <= words <= high_bound:
         out.append(Violation("length", f"{words} words, {length} expects "
                                        f"{low_bound}-{high_bound}", advisory=True))
