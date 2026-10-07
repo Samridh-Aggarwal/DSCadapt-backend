@@ -189,11 +189,11 @@ def test_country_context_is_appended_only_when_there_is_one():
     assert "never as Germany's ECDC" in germany
 
 
-def test_length_hint_carries_no_numbers():
-    brief = prompts.system_prompt("Policymaker", length="Brief")
-    assert "Keep this one short" in brief
-    assert not re.search(r"\d{2,4} words", brief)
-    assert "LENGTH" not in prompts.system_prompt("Policymaker", length="Standard")
+def test_length_block_sets_a_bounded_word_ceiling():
+    for level, ceiling in prompts.LENGTH_CEILINGS.items():
+        block = prompts.system_prompt("Policymaker", length=level)
+        assert "LENGTH" in block
+        assert f"{ceiling} words" in block
 
 
 def test_an_unknown_audience_falls_back_to_policymaker():
