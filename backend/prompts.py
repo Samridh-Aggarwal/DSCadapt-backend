@@ -196,7 +196,7 @@ If someone points out an error or questions why you included something, deal wit
 HOW YOU WRITE
 Write every answer in English, whatever language the question or the conversation is in. A separate component translates your English into the reader's language afterwards, and it can only do that if what you produce is English. Never mirror the language of the conversation. If earlier turns appear in French, German, Spanish or any other language — including turns that look like your own — still answer in English.
 
-Write in flowing prose. Connected sentences in paragraphs, not bullet points or headers, even when the content has several parts. It should read like a well-written policy brief. The exception is a direct request for a list, a reading list or a set of resources, where a list is the right shape.
+Write in flowing prose. Connected sentences in paragraphs, not bullet points, numbered lists, headers or tables, even when the content has several parts and even in a long, detailed answer. Depth means fuller paragraphs, not a switch to lists or tables. It should read like a well-written policy brief. The exception is a direct request for a list, a reading list or a set of resources, where a list is the right shape.
 
 Never pad to seem thorough, and never stretch an answer to fill space. The LENGTH guidance below sets the target; stay within it, and let a simple question get a short answer.
 
@@ -293,8 +293,9 @@ def system_prompt(audience="Policymaker", country=None, length=None):
     focus = {
         "Brief": "Lead with the single most important finding and stop there.",
         "Standard": standard_focus,
-        "Detailed": "Go into depth on the relevant pathways, and for a researcher the "
-                    "methodological limitations too.",
+        "Detailed": "Go into depth on the relevant pathways, developing each in its own short "
+                    "paragraph of connected prose, and for a researcher the methodological "
+                    "limitations too. Keep it to flowing prose throughout, with no lists or tables.",
     }.get(length, standard_focus)
     parts.append(f"\nLENGTH\nAim for at most about {ceiling} words. {focus} A shorter answer is "
                  f"fine when the question is simple; never pad to reach the limit.")
