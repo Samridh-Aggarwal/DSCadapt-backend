@@ -345,7 +345,7 @@ class Pipeline:
         started = time.time()
         try:
             completion = self.chat(model=GENERATION_MODEL, messages=messages,
-                                   temperature=0.3, max_tokens=GENERATION_MAX_TOKENS,
+                                   temperature=0.1, max_tokens=GENERATION_MAX_TOKENS,
                                    reasoning_effort="high")
         except Exception as err:
             raise PipelineError(f"generation failed: {err}") from err
