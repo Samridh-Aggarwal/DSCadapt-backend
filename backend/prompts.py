@@ -286,12 +286,16 @@ def system_prompt(audience="Policymaker", country=None, length=None):
             f"{country} ECDC, because ECDC is a single European agency, not a national one.")
 
     ceiling = LENGTH_CEILINGS.get(length, LENGTH_CEILINGS["Standard"])
+    standard_focus = ("Pick the two or three most important co-benefits and trade-offs across the "
+                      "measures and cover only those. Do not work through every measure in turn, "
+                      "and do not give each co-benefit and trade-off its own paragraph; group the "
+                      "related points and keep it brief.")
     focus = {
         "Brief": "Lead with the single most important finding and stop there.",
-        "Standard": "Cover the main co-benefits and trade-offs the evidence supports.",
+        "Standard": standard_focus,
         "Detailed": "Go into depth on the relevant pathways, and for a researcher the "
                     "methodological limitations too.",
-    }.get(length, "Cover the main co-benefits and trade-offs the evidence supports.")
+    }.get(length, standard_focus)
     parts.append(f"\nLENGTH\nAim for at most about {ceiling} words. {focus} A shorter answer is "
                  f"fine when the question is simple; never pad to reach the limit.")
 
