@@ -261,7 +261,7 @@ SECTION_NUMBERS_ALLOWED = set()
 # The word ceiling for each response length. Single source of truth: the LENGTH
 # block in system_prompt below, the length check in postprocess.py, and the
 # frontend hint in app.js all use these numbers, so they cannot drift apart.
-LENGTH_CEILINGS = {"Brief": 160, "Standard": 400, "Detailed": 800}
+LENGTH_CEILINGS = {"Brief": 150, "Standard": 300, "Detailed": 600}
 
 
 def system_prompt(audience="Policymaker", country=None, length=None):
