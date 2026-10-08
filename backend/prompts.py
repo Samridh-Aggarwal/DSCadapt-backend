@@ -8,9 +8,9 @@ quietly, and there was no way to tell which one had gone.
 About half were deterministic — checkable by a regex, not a judgement. Those
 moved to postprocess.py, where they cannot fail:
 
-Markdown syntax, banned words, opening filler, response length, bracketed
-section numbers, inline citations and web-sourced regulation numbers are all
-handled in postprocess.py now. English-only could not move: translate.py
+Markdown syntax, banned words, opening filler, bracketed section numbers,
+inline citations and web-sourced regulation numbers are all handled in
+postprocess.py now. English-only could not move: translate.py
 renders from English, it cannot make the model write it, so the instruction
 stays here and postprocess only detects a breach.
 
@@ -28,11 +28,14 @@ The content filter — no allergies, no asthma, no mental health — stays in th
 prompt. That is a different job: it operates inside an answer that is already
 in scope.
 
-And no word counts anywhere. There were three sets and they disagreed with
-each other: the base prompt asked for 200-300 or 400-500, the policymaker mode
-for 200-300 or 350-450, the researcher mode for 300-500. Length is a token
-budget, which is code's job, so the prompt now describes proportion instead of
-counting.
+And one bounded word ceiling per length, from a single source. There used to be
+three sets of exact counts that disagreed with each other: the base prompt asked
+for 200-300 or 400-500, the policymaker mode for 200-300 or 350-450, the
+researcher mode for 300-500. The rest was left to a shared token budget that the
+reasoning pass could eat, so length was neither consistent nor controllable. Now
+LENGTH_CEILINGS holds one "at most" target per level, read by the LENGTH block
+and the postprocess check, and backed by a generous fixed cap in pipeline.py. A
+bounded ceiling is followed far more reliably than an exact count.
 """
 
 # router
