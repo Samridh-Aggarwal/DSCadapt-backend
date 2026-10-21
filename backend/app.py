@@ -452,15 +452,41 @@ def build_sources(answer, country):
 
 
 def extract_pdf(data):
+    # A tighter space tolerance than pdfplumber's default recovers the spaces
+    # that justified PDFs otherwise drop, which was turning extracted text into
+    # one long run of joined words.
     import pdfplumber
     with pdfplumber.open(io.BytesIO(data)) as pdf:
-        pages = [(page.extract_text() or "").strip() for page in pdf.pages]
+        pages = [(page.extract_text(x_tolerance=1.5) or "").strip() for page in pdf.pages]
     return "\n\n".join(p for p in pages if p).strip()
 
 
 def extract_docx(data):
     import docx
     document = docx.Document(io.BytesIO(data))
+    # Read paragraphs and tables in document order. The simple approach below
+    # (all paragraphs, then all tables) moved every table to the end, which
+    # scrambled documents that interleave text and tables.
+    try:
+        from docx.oxml.ns import qn
+        from docx.table import Table
+        from docx.text.paragraph import Paragraph
+        ordered = []
+        for child in document.element.body.iterchildren():
+            if child.tag == qn("w:p"):
+                line = Paragraph(child, document).text.strip()
+                if line:
+                    ordered.append(line)
+            elif child.tag == qn("w:tbl"):
+                for row in Table(child, document).rows:
+                    cells = [c.text.strip() for c in row.cells if c.text.strip()]
+                    if cells:
+                        ordered.append(" | ".join(cells))
+        text = "\n\n".join(ordered).strip()
+        if text:
+            return text
+    except Exception:
+        pass
     parts = [p.text.strip() for p in document.paragraphs if p.text.strip()]
     for table in document.tables:
         for row in table.rows:
