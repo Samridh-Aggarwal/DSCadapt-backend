@@ -432,8 +432,8 @@ Work through the measures one at a time. For each:
 Write each comment in exactly this form and nothing else:
 
 PASSAGE: <a short phrase quoted word for word from the document>
-CONSIDERATION: <the risk in conditional language — can, may, could — naming one disease from that measure's list, and noting the document does not appear to address it>
+CONSIDERATION: <two or three short sentences, written as a margin note. First name the action or feature the passage describes. Then explain, in conditional language such as can, may or could, how it can raise infectious-disease risk through the mechanism shown in HOW IT CAN RAISE RISK, naming the single disease from that measure's list that the evidence best supports. Close by noting the document does not appear to address it. Give the mechanism and the reasoning; do not recommend a fix and do not forecast a scenario.>
 
-At most one comment per measure. Exactly one disease per comment, only from that measure's list. Never write you should, never suggest a fix, never rank one risk above another. Plain, direct language.
+At most one comment per measure. Exactly one disease per comment, only from that measure's list. Never write you should, never suggest a fix, never rank one risk above another. Two or three sentences per comment, explanatory and plain, never prescriptive.
 
 If no measure warrants a comment, output exactly: NO GROUNDED CONSIDERATIONS"""
