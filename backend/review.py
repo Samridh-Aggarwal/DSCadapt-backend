@@ -29,6 +29,7 @@ Three things fixed:
 
 import hashlib
 import re
+import unicodedata
 from dataclasses import dataclass, field
 
 import numpy as np
@@ -165,8 +166,16 @@ def passage_grounded(comment, document):
     passage = passage.strip().strip("\"'\u201c\u201d\u2018\u2019").strip()
     if len(passage) < 8:
         return False
-    squash = lambda s: re.sub(r"\s+", " ", s).lower()
-    return squash(passage) in squash(document)
+    # Compare letters and digits only. Models quietly tidy punctuation when they
+    # quote (curly to straight apostrophes, en-dash to hyphen), and PDF text
+    # carries line-break hyphens, ligatures and odd spaces, so a strict match was
+    # silently dropping correct, well-grounded comments.
+    def squash(s):
+        s = unicodedata.normalize("NFKC", s).replace("\u00ad", "")
+        return re.sub(r"[\W_]+", "", s.casefold())
+
+    needle = squash(passage)
+    return len(needle) >= 8 and needle in squash(document)
 
 
 # --- the reviewer ------------------------------------------------------------
