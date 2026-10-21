@@ -78,8 +78,64 @@ class Completion:
     finish: str = None
     raw: object = None
 
-def build_mistral(api_key):
-    # The import moved between major versions: 1.x exposes Mistral at the top
+import threading as _threading
+import time as _time
+
+# --- the bouncer -------------------------------------------------------------
+# Every model call passes through make_chat/make_embed below, so one limiter
+# here governs the whole backend. Two parts: a token bucket that caps calls per
+# second (under Mistral's ceiling), and a retry that waits out a 429 instead of
+# failing the answer. Tune MAX_CALLS_PER_SEC to Mistral tier.
+
+MAX_CALLS_PER_SEC = 3
+MAX_RETRIES = 4
+BACKOFF_BASE = 1.5          # seconds: 1.5, 3, 4.5... between 429 retries
+
+
+class _TokenBucket:
+    """Allow MAX_CALLS_PER_SEC across all threads; make the rest wait their turn."""
+
+    def __init__(self, rate):
+        self.rate = max(1, rate)
+        self._lock = _threading.Lock()
+        self._allowance = self.rate
+        self._last = _time.monotonic()
+
+    def take(self):
+        while True:
+            with self._lock:
+                now = _time.monotonic()
+                self._allowance = min(self.rate, self._allowance + (now - self._last) * self.rate)
+                self._last = now
+                if self._allowance >= 1:
+                    self._allowance -= 1
+                    return
+                wait = (1 - self._allowance) / self.rate
+            _time.sleep(wait)
+
+
+_bucket = _TokenBucket(MAX_CALLS_PER_SEC)
+
+
+def _is_rate_limit(err):
+    s = str(err).lower()
+    return "429" in s or "rate limit" in s or "too many requests" in s
+
+
+def _with_limit(call):
+    """Rate-limit a model call, and wait out a 429 rather than fail."""
+    for attempt in range(MAX_RETRIES):
+        _bucket.take()
+        try:
+            return call()
+        except Exception as err:
+            if _is_rate_limit(err) and attempt < MAX_RETRIES - 1:
+                _time.sleep(BACKOFF_BASE * (attempt + 1))
+                continue
+            raise
+
+
+def build_mistral(api_key):    # The import moved between major versions: 1.x exposes Mistral at the top
     # level, 2.x moved it under mistralai.client. Try both rather than pin the
     # code to whichever one resolved on the day.
     try:
@@ -97,7 +153,7 @@ def build_mistral(api_key):
 def make_chat(client):
     """A callable the pipeline can hold without knowing about Mistral."""
     def chat(model, messages, **kwargs):
-        response = client.chat.complete(model=model, messages=messages, **kwargs)
+        response = _with_limit(lambda: client.chat.complete(model=model, messages=messages, **kwargs))
         return Completion(text=_text_of(response), usage=_usage_of(response),
                           finish=_finish_of(response), raw=response)
     return chat
@@ -105,7 +161,7 @@ def make_chat(client):
 
 def make_embed(client):
     def embed(texts):
-        response = client.embeddings.create(model="mistral-embed", inputs=texts)
+                response = _with_limit(lambda: client.embeddings.create(model="mistral-embed", inputs=texts))
         return [item.embedding for item in response.data]
     return embed
 
