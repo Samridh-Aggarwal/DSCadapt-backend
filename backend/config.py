@@ -135,7 +135,8 @@ def _with_limit(call):
             raise
 
 
-def build_mistral(api_key):    # The import moved between major versions: 1.x exposes Mistral at the top
+def build_mistral(api_key):
+    # The import moved between major versions: 1.x exposes Mistral at the top
     # level, 2.x moved it under mistralai.client. Try both rather than pin the
     # code to whichever one resolved on the day.
     try:
@@ -161,7 +162,7 @@ def make_chat(client):
 
 def make_embed(client):
     def embed(texts):
-                response = _with_limit(lambda: client.embeddings.create(model="mistral-embed", inputs=texts))
+        response = _with_limit(lambda: client.embeddings.create(model="mistral-embed", inputs=texts))
         return [item.embedding for item in response.data]
     return embed
 
