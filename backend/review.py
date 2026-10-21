@@ -150,6 +150,25 @@ def names_allowed(comment, allowed):
     return any(form in low for disease in allowed for form in surface_forms(disease))
 
 
+def passage_grounded(comment, document):
+    """A comment survives only if its PASSAGE is really a quote from the document.
+
+    The prompt asks for a passage quoted word for word, but nothing enforced it,
+    so comments on measures that are not actually in the document reached the
+    user with a placeholder such as "(No passage in the document mentions ...)".
+    This drops any comment whose quoted passage is not present in the document.
+    """
+    match = re.search(r"PASSAGE:\s*(.+)", comment, re.IGNORECASE)
+    if not match:
+        return False
+    passage = match.group(1).split("CONSIDERATION:")[0]
+    passage = passage.strip().strip("\"'\u201c\u201d\u2018\u2019").strip()
+    if len(passage) < 8:
+        return False
+    squash = lambda s: re.sub(r"\s+", " ", s).lower()
+    return squash(passage) in squash(document)
+
+
 # --- the reviewer ------------------------------------------------------------
 
 class Reviewer:
@@ -294,7 +313,8 @@ class Reviewer:
             temperature=0, random_seed=7, max_tokens=4000, reasoning_effort="high")
 
         drafted = split_comments(completion.text)
-        kept = [c for c in drafted if names_allowed(c, allowed)]
+        kept = [c for c in drafted                 
+                if names_allowed(c, allowed) and passage_grounded(c, text)]
         result.draft = "\n\n".join(drafted)
         result.dropped = [c for c in drafted if c not in kept]
         result.comments = "\n\n".join(kept) if kept else "NO GROUNDED CONSIDERATIONS"
