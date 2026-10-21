@@ -452,9 +452,31 @@ def build_sources(answer, country):
 
 
 def extract_pdf(data):
-    # A tighter space tolerance than pdfplumber's default recovers the spaces
-    # that justified PDFs otherwise drop, which was turning extracted text into
-    # one long run of joined words.
+    # pypdfium2 first. Some journal PDFs carry two overlapping text layers, and
+    # pdfplumber wove them together letter by letter, which no spacing setting
+    # can undo. pypdfium2 reads them one after the other instead. It is already
+    # installed as a pdfplumber dependency. pdfplumber stays as the fallback,
+    # with a tighter space tolerance that recovers the spaces justified PDFs
+    # otherwise drop.
+    try:
+        import pypdfium2 as pdfium
+        document = pdfium.PdfDocument(data)
+        try:
+            pages = []
+            for index in range(len(document)):
+                page = document[index]
+                textpage = page.get_textpage()
+                raw = textpage.get_text_range()
+                pages.append(raw.replace("\r\n", "\n").replace("\r", "\n").strip())
+                textpage.close()
+                page.close()
+        finally:
+            document.close()
+        text = "\n\n".join(p for p in pages if p).strip()
+        if text:
+            return text
+    except Exception:
+        pass
     import pdfplumber
     with pdfplumber.open(io.BytesIO(data)) as pdf:
         pages = [(page.extract_text(x_tolerance=1.5) or "").strip() for page in pdf.pages]
