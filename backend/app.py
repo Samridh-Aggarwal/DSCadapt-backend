@@ -46,6 +46,13 @@ import translate
 
 MAX_UPLOAD = 25 * 1024 * 1024
 
+# Same document and settings should give the same review. The model already
+# runs at temperature 0 with a fixed seed, but API responses still vary, so the
+# stable guarantee comes from caching the result. In memory, so it resets when
+# the Space restarts.
+_REVIEW_CACHE = {}
+_REVIEW_CACHE_MAX = 256
+
 
 # --- request bodies ----------------------------------------------------------
 
@@ -291,6 +298,10 @@ def create_app(services=None):
     def evaluate(req: EvaluateRequest, request: Request, x_api_key: str = Header(None)):
         guard(request, x_api_key)
         services = svc()
+        cache_key = (hash(req.text), req.country, req.top_per_chunk,
+                     req.shortlist_n, req.min_score)
+        if cache_key in _REVIEW_CACHE:
+            return _REVIEW_CACHE[cache_key]
         try:
             result = services.reviewer.review(
                 req.text, country=req.country, top_per_chunk=req.top_per_chunk,
@@ -307,8 +318,11 @@ def create_app(services=None):
         services.log.record({"kind": "review",
                              **result.log_record(req.country, req.text,
                                                  include_comments=services.settings.log_text)})
-        return {"note": result.note, "shortlist": result.shortlist,
-                "comments": result.comments, "out_of_scope": result.out_of_scope}
+        response = {"note": result.note, "shortlist": result.shortlist,
+                    "comments": result.comments, "out_of_scope": result.out_of_scope}
+        if len(_REVIEW_CACHE) < _REVIEW_CACHE_MAX:
+            _REVIEW_CACHE[cache_key] = response
+        return response
 
     # -- extraction ----------------------------------------------------------
 
