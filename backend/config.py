@@ -119,7 +119,8 @@ _bucket = _TokenBucket(MAX_CALLS_PER_SEC)
 
 def _is_rate_limit(err):
     s = str(err).lower()
-    return "429" in s or "rate limit" in s or "too many requests" in s
+    return ("429" in s or "rate limit" in s or "too many requests" in s
+            or "503" in s or "service unavailable" in s or "overloaded" in s)
 
 
 def _with_limit(call):
