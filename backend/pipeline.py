@@ -34,7 +34,7 @@ import postprocess
 import prompts
 import retrieval
 
-GENERATION_MODEL = "mistral-small-latest"
+GENERATION_MODEL = "mistral-medium-latest"
 ROUTER_MODEL = "ministral-8b-latest"
 
 TOP_K_DOMAIN = 10        # route=domain: no web results competing for context
