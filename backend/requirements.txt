@@ -13,6 +13,8 @@ mistralai[agents]==2.8.0
 deepl==1.21.0
 huggingface_hub==0.27.1
 
+jinja2==3.1.6
+markupsafe==3.0.2
 weasyprint==63.1
 pdfplumber==0.11.5
 pypdfium2==5.6.0
