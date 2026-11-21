@@ -11,6 +11,7 @@ sources. A briefing that fabricated either would be worse than no briefing,
 and the only way to be sure it cannot is not to ask.
 """
 
+import hashlib
 import html as html_
 import re
 import tempfile
@@ -18,9 +19,19 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
 
+from jinja2 import Environment, FileSystemLoader, select_autoescape
+from markupsafe import Markup, escape
+
+import labels
+import logos
 import prompts
+import translate
 
 TEMPLATE_DIR = Path(__file__).parent / "templates"
+
+# Printed in the closing band of every document. Need to change it here and both
+# documents change; there is nowhere else it is written down (except on frontend, where I added it as a placeholder at the bottom of the landing page).
+CONTACT_EMAIL = "[CONTACT EMAIL]"
 SUBSTANTIVE_ROUTES = ("domain", "both", "web")
 MIN_TURNS_FOR_BRIEFING = 2
 
@@ -243,15 +254,140 @@ def _write_pdf(html, stem, template_dir):
     return str(path)
 
 
+REFERENCE_HEADING = re.compile(
+    r"(?im)^[ \t]*#{0,4}[ \t]*\**[ \t]*references?[ \t]*:?[ \t]*\**[ \t]*$")
+
+
+def inline(text):
+    """**bold** and *italics*, and nothing else the model wrote becomes markup.
+
+    Escaped first, so the only tags in the result are the two this function
+    put there. Species names arrive from the model as *Aedes albopictus* and
+    a policy document is the one place that italic actually matters.
+    """
+    out = str(escape(text or ""))
+    out = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", out)
+    return Markup(re.sub(r"\*([^*\n]+)\*", r"<em>\1</em>", out))
+
+
+def rich(text):
+    """A model response as paragraphs and bullet lists.
+
+    A blank line starts a paragraph. A block whose every line opens with a
+    dash becomes a list, because a block with one stray dash in it is prose
+    about a range, not a list.
+    """
+    out = []
+    for block in re.split(r"\n\s*\n", (text or "").strip()):
+        lines = [line.strip() for line in block.splitlines() if line.strip()]
+        if lines and all(line.startswith(("- ", "\u2022 ")) for line in lines):
+            out.append("<ul>" + "".join(f"<li>{inline(line[2:])}</li>"
+                                        for line in lines) + "</ul>")
+        elif lines:
+            out.append(f"<p>{inline(' '.join(lines))}</p>")
+    return Markup("".join(out))
+
+
+def css_str(text):
+    """Quote a label for a CSS content: property, which the page numbers use."""
+    return Markup('"' + str(text).replace("\\", "\\\\").replace('"', '\\"') + '"')
+
+
+def _env(template_dir):
+    """Jinja for the PDF templates. Autoescaping on: the model writes this text."""
+    env = Environment(loader=FileSystemLoader(str(template_dir)),
+                      autoescape=select_autoescape(["html"]))
+    env.filters["inline"] = inline
+    env.filters["rich"] = rich
+    env.filters["css_str"] = css_str
+    return env
+
+
+def split_references(text):
+    """Separate a response from the reference list the model closed it with.
+
+    The transcript sets the two differently, so they cannot stay in one blob.
+    corpus.split_references does this for the source documents, but it is
+    tuned to their headings; this only has to recognise what prompts.py asks
+    the model for, which is a line reading References and nothing else.
+    """
+    match = REFERENCE_HEADING.search(text or "")
+    if not match:
+        return (text or "").strip(), []
+    body = text[:match.start()].strip()
+    items = [re.sub(r"^\s*(?:[-\u2022*]|\d{1,2}[.)])\s+", "", line).strip()
+             for line in text[match.end():].splitlines() if line.strip()]
+    return body, [item for item in items if item]
+
+
+def exchanges(history):
+    """Pair every question with the response that followed it.
+
+    An assistant message with nothing before it still gets an entry rather
+    than being dropped, with an empty question; the template leaves the
+    question box out when there is nothing to put in it.
+    """
+    rows, i, size = [], 0, len(history)
+    while i < size:
+        role = history[i].get("role", "")
+        content = history[i].get("content", "") or ""
+        if role == "user":
+            question = re.sub(r"\s+", " ", content).strip()
+            response = ""
+            if i + 1 < size and history[i + 1].get("role") == "assistant":
+                response = history[i + 1].get("content", "") or ""
+                i += 2
+            else:
+                i += 1
+        elif role == "assistant":
+            question, response = "", content
+            i += 1
+        else:
+            i += 1
+            continue
+        body, references = split_references(response)
+        if question or body:
+            rows.append({"question": question, "response": body,
+                         "references": references})
+    return rows
+
+
+def session_ref(history):
+    """A short stable name for one conversation.
+
+    The same conversation exported twice gets the same reference, which is
+    the point: it is what someone quotes when they come back about a document
+    weeks later. The request carries no session id to use instead.
+    """
+    joined = "\n".join(f"{m.get('role', '')}:{m.get('content', '')}"
+                       for m in history)
+    return hashlib.sha1(joined.encode("utf-8")).hexdigest()[:8].upper()
+
+
+def _lang_code(language):
+    """The html lang attribute. DeepL's codes serve once lowercased."""
+    code = translate.LANGUAGES.get(language)
+    return code.split("-")[0].lower() if code else "en"
+
+
 def transcript_html(history, audience="Policymaker", country="All Europe",
-                    language="English", template_dir=TEMPLATE_DIR):
-    turns = turns_html(history)
-    if not turns:
+                    language="English", length="Standard",
+                    template_dir=TEMPLATE_DIR):
+    rows = exchanges(history)
+    if not rows:
         return None
-    template = (Path(template_dir) / "transcript.html").read_text(encoding="utf-8")
-    return (template
-            .replace("{{META}}", meta_line(country, audience, language))
-            .replace("{{TURNS}}", turns))
+    now = datetime.now()
+    return _env(template_dir).get_template("transcript.html").render(
+        lang=_lang_code(language),
+        date=f"{now.day} {now:%B %Y}",
+        session_ref=session_ref(history),
+        contact=CONTACT_EMAIL,
+        logos=logos.LOGOS,
+        settings={"country": country, "mode": audience,
+                  "language": language, "length": length},
+        exchanges=rows,
+        L=labels.transcript(language),
+    )
 
 
 def briefing_html(sections, messages, audience="Policymaker", country="All Europe",
@@ -268,10 +404,11 @@ def briefing_html(sections, messages, audience="Policymaker", country="All Europ
 
 
 def render_transcript(history, audience="Policymaker", country="All Europe",
-                      language="English", template_dir=TEMPLATE_DIR):
-    html = transcript_html(history, audience, country, language, template_dir)
+                      language="English", length="Standard",
+                      template_dir=TEMPLATE_DIR):
+    html = transcript_html(history, audience, country, language, length,
+                           template_dir)
     return _write_pdf(html, "idalert_transcript", template_dir) if html else None
-
 
 def render_briefing(sections, messages, audience="Policymaker", country="All Europe",
                     language="English", template_dir=TEMPLATE_DIR):
