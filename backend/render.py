@@ -418,11 +418,12 @@ def exchanges(history):
 
 
 def session_ref(history):
-    """A short stable name for one conversation.
+    """A fallback name for a conversation that arrived without its session id.
 
-    The same conversation exported twice gets the same reference, which is
-    the point: it is what someone quotes when they come back about a document
-    weeks later. The request carries no session id to use instead.
+    Only a fingerprint of the text, so it changes the moment another question
+    is asked and is no use for finding anything. The real session id is what
+    the logs are keyed by, so transcript_html prefers it and falls back here
+    only for a request that predates the frontend sending it.
     """
     joined = "\n".join(f"{m.get('role', '')}:{m.get('content', '')}"
                        for m in history)
@@ -436,7 +437,7 @@ def _lang_code(language):
 
 
 def transcript_html(history, audience="Policymaker", country="All Europe",
-                    language="English", length="Standard",
+                    language="English", length="Standard", session_id="",
                     template_dir=TEMPLATE_DIR):
     rows = exchanges(history)
     if not rows:
@@ -445,7 +446,7 @@ def transcript_html(history, audience="Policymaker", country="All Europe",
     return _env(template_dir).get_template("transcript.html").render(
         lang=_lang_code(language),
         date=f"{now.day} {now:%B %Y}",
-        session_ref=session_ref(history),
+        session_ref=session_id or session_ref(history),
         contact=CONTACT_EMAIL,
         logos=logos.LOGOS,
         settings={"country": country, "mode": audience,
@@ -467,12 +468,11 @@ def briefing_html(sections, messages, audience="Policymaker", country="All Europ
             .replace("{{UNCERTAINTIES}}", as_paragraphs(sections.uncertainties))
             .replace("{{SOURCES}}", sources_html(messages)))
 
-
 def render_transcript(history, audience="Policymaker", country="All Europe",
-                      language="English", length="Standard",
+                      language="English", length="Standard", session_id="",
                       template_dir=TEMPLATE_DIR):
     html = transcript_html(history, audience, country, language, length,
-                           template_dir)
+                           session_id, template_dir)
     return _write_pdf(html, "idalert_transcript", template_dir) if html else None
 
 def render_briefing(sections, messages, audience="Policymaker", country="All Europe",
