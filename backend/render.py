@@ -257,28 +257,79 @@ def _write_pdf(html, stem, template_dir):
 REFERENCE_HEADING = re.compile(
     r"(?im)^[ \t]*#{0,4}[ \t]*\**[ \t]*references?[ \t]*:?[ \t]*\**[ \t]*$")
 
+# The answer reaching this module is already HTML: pipeline.py wraps it in
+# paragraphs and attribution.py marks each sentence with where it came from,
+# so the colour a reader sees in the app is provenance, not decoration. The
+# transcript keeps it. Anything outside this list is dropped rather than
+# trusted, because part of the markup was written by the model.
+ALLOWED_TAGS = {"p": set(), "br": set(), "ul": set(), "ol": set(), "li": set(),
+                "strong": {"class"}, "b": set(), "em": {"class"}, "i": set(),
+                "span": {"class"}}
+ALLOWED_CLASSES = {"highlight", "web-highlight", "ecdc-highlight", "disease-term"}
+TAG = re.compile(r"<(/?)([a-zA-Z][a-zA-Z0-9]*)([^>]*)>")
+CLASS_ATTR = re.compile(r'class\s*=\s*"([^"]*)"')
+IS_HTML = re.compile(r"(?i)</?(?:p|span|strong|em|br|ul|ol|li)\b")
+
+
+def sanitise(markup):
+    """Keep the tags and classes the answer is allowed to carry, escape the rest.
+
+    Whitelisting rather than stripping, because the highlight spans are the
+    only record of which sentence came from the evidence base, which from the
+    web and which from surveillance data. Stripping them, which is what this
+    module used to do, threw that away and left the reader unable to tell.
+    """
+    out, pos = [], 0
+    for match in TAG.finditer(markup):
+        out.append(str(escape(markup[pos:match.start()])))
+        pos = match.end()
+        closing, name, attrs = match.group(1), match.group(2).lower(), match.group(3)
+        if name not in ALLOWED_TAGS:
+            continue
+        if closing:
+            out.append(f"</{name}>")
+        elif name == "br":
+            out.append("<br>")
+        else:
+            kept = ""
+            if "class" in ALLOWED_TAGS[name]:
+                found = CLASS_ATTR.search(attrs)
+                if found:
+                    names = [c for c in found.group(1).split() if c in ALLOWED_CLASSES]
+                    if names:
+                        kept = ' class="' + " ".join(names) + '"'
+            out.append(f"<{name}{kept}>")
+    out.append(str(escape(markup[pos:])))
+    return "".join(out)
 
 def inline(text):
-    """**bold** and *italics*, and nothing else the model wrote becomes markup.
+    """One line of answer text, however it arrived.
 
-    Escaped first, so the only tags in the result are the two this function
-    put there. Species names arrive from the model as *Aedes albopictus* and
-    a policy document is the one place that italic actually matters.
+    Already HTML, which is the normal case, so it is whitelisted. Plain text,
+    which is what the older sessions in a saved history hold, so *italics* and
+    **bold** are honoured and everything else is escaped.
     """
-    out = str(escape(text or ""))
+    text = text or ""
+    if IS_HTML.search(text):
+        return Markup(sanitise(text))
+    out = str(escape(text))
     out = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", out)
     return Markup(re.sub(r"\*([^*\n]+)\*", r"<em>\1</em>", out))
 
 
 def rich(text):
-    """A model response as paragraphs and bullet lists.
+    """A whole response, however it arrived.
 
-    A blank line starts a paragraph. A block whose every line opens with a
-    dash becomes a list, because a block with one stray dash in it is prose
-    about a range, not a list.
+    Already HTML, so it is whitelisted and the highlighting survives. Plain
+    text, so a blank line starts a paragraph and a block whose every line
+    opens with a dash becomes a list, because a block with one stray dash in
+    it is prose about a range, not a list.
     """
+    text = text or ""
+    if IS_HTML.search(text):
+        return Markup(sanitise(text))
     out = []
-    for block in re.split(r"\n\s*\n", (text or "").strip()):
+    for block in re.split(r"\n\s*\n", text.strip()):
         lines = [line.strip() for line in block.splitlines() if line.strip()]
         if lines and all(line.startswith(("- ", "\u2022 ")) for line in lines):
             out.append("<ul>" + "".join(f"<li>{inline(line[2:])}</li>"
@@ -302,18 +353,32 @@ def _env(template_dir):
     env.filters["css_str"] = css_str
     return env
 
-
 def split_references(text):
-    """Separate a response from the reference list the model closed it with.
+    """Separate a response from the reference list it closes with.
 
     The transcript sets the two differently, so they cannot stay in one blob.
-    corpus.split_references does this for the source documents, but it is
-    tuned to their headings; this only has to recognise what prompts.py asks
-    the model for, which is a line reading References and nothing else.
+    By the time an answer reaches here the list is a final paragraph reading
+    References followed by one line break per entry, so the split is on that
+    paragraph rather than on the blank line attribution.py looks for upstream.
+    Plain text is handled too, for a history saved before any of this.
     """
-    match = REFERENCE_HEADING.search(text or "")
+    text = text or ""
+    if re.search(r"(?i)<p[\s>]", text):
+        blocks = re.split(r"(?i)(?=<p[\s>])", text)
+        for i, block in enumerate(blocks):
+            if not re.match(r"(?i)\s*references?\b",
+                            re.sub(r"<[^>]+>", " ", block).strip()):
+                continue
+            inner = re.sub(r"(?is)^\s*<p[^>]*>\s*(?:<[^>]+>\s*)*references?\s*:?\s*",
+                           "", block)
+            inner = re.sub(r"(?is)</p>\s*$", "", inner)
+            items = [re.sub(r"^\s*(?:[-\u2022*]|\d{1,2}[.)])\s*", "", piece).strip()
+                     for piece in re.split(r"(?i)<br\s*/?>", inner)]
+            return "".join(blocks[:i]).strip(), [item for item in items if item]
+        return text.strip(), []
+    match = REFERENCE_HEADING.search(text)
     if not match:
-        return (text or "").strip(), []
+        return text.strip(), []
     body = text[:match.start()].strip()
     items = [re.sub(r"^\s*(?:[-\u2022*]|\d{1,2}[.)])\s+", "", line).strip()
              for line in text[match.end():].splitlines() if line.strip()]
