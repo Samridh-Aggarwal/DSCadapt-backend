@@ -247,10 +247,64 @@ class Briefing:
 
 # --- PDF ---------------------------------------------------------------------
 
-def _write_pdf(html, stem, template_dir):
+BAND_MARGIN_TOP = 30          # the template's own value, see .band there
+BAND_SELECTOR = ".band"
+
+
+def _boxes(box):
+    """Every box in a rendered page, depth first."""
+    for child in getattr(box, "children", []):
+        yield child
+        yield from _boxes(child)
+
+
+def _slack(page):
+    """How much unused height is left on this page, in CSS pixels.
+
+    The page box knows where its usable area ends and the body box knows where
+    the text actually stopped, so the difference is the gap under the content.
+    Both are WeasyPrint internals rather than documented API, which is the
+    reason weasyprint is pinned in requirements.txt; a version bump has to be
+    checked against this.
+    """
+    box = page._page_box
+    bodies = [b for b in _boxes(box) if getattr(b, "element_tag", None) == "body"]
+    if not bodies:
+        return 0
+    body = bodies[0]
+    return (box.content_box_y() + box.height) - (body.content_box_y() + body.height)
+
+
+def _write_pdf(html, stem, template_dir, drop_band=False):
+    """Write the PDF, optionally dropping the closing band to the page foot.
+
+    CSS cannot do this. There is no selector for the last page, and in-flow
+    content is not allowed to paint inside a page margin, so the band can
+    neither be targeted at the end nor pushed into the margin. Reserving the
+    margin on every page works but shortens every page and costs a page of its
+    own. Measuring is the way out: render once, see what room is left on the
+    last page, then render again with the band's top margin set to it.
+
+    The second render is skipped when there is nothing to gain, and thrown
+    away if it spills onto another page, so the worst case is the layout that
+    would have been produced anyway.
+    """
     import weasyprint
     path = Path(tempfile.gettempdir()) / f"{stem}_{datetime.now():%Y%m%d_%H%M%S}.pdf"
-    weasyprint.HTML(string=html, base_url=str(template_dir)).write_pdf(str(path))
+    document = weasyprint.HTML(string=html, base_url=str(template_dir)).render()
+    if drop_band:
+        gap = int(_slack(document.pages[-1]))
+        if gap > 0:
+            # Injected into the document rather than passed as a stylesheet:
+            # a stylesheet argument loses the cascade to the template's own
+            # rule, even with !important, and silently does nothing.
+            rule = "<style>%s { margin-top: %dpx; }</style></head>" % (
+                BAND_SELECTOR, BAND_MARGIN_TOP + gap)
+            dropped = weasyprint.HTML(string=html.replace("</head>", rule, 1),
+                                      base_url=str(template_dir)).render()
+            if len(dropped.pages) == len(document.pages):
+                document = dropped
+    document.write_pdf(str(path))
     return str(path)
 
 
@@ -473,7 +527,7 @@ def render_transcript(history, audience="Policymaker", country="All Europe",
                       template_dir=TEMPLATE_DIR):
     html = transcript_html(history, audience, country, language, length,
                            session_id, template_dir)
-    return _write_pdf(html, "idalert_transcript", template_dir) if html else None
+    return _write_pdf(html, "idalert_transcript", template_dir, drop_band=True) if html else None
 
 def render_briefing(sections, messages, audience="Policymaker", country="All Europe",
                     language="English", template_dir=TEMPLATE_DIR):
