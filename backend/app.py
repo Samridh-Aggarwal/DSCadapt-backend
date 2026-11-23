@@ -65,12 +65,13 @@ class AskRequest(BaseModel):
     session_id: str = ""
     history: list = []
 
-
 class DocumentRequest(BaseModel):
     history: list
     audience: str = "Policymaker"
     country: str = "All Europe"
     language: str = "English"
+    length: str = "Standard"
+    session_id: str = ""
 
 class EvaluateRequest(BaseModel):
     text: str
@@ -245,7 +246,7 @@ def create_app(services=None):
     def transcript(req: DocumentRequest, request: Request, x_api_key: str = Header(None)):
         guard(request, x_api_key)
         try:
-            path = render.render_transcript(req.history, req.audience, req.country, req.language)
+            path = render.render_transcript(req.history, req.audience, req.country, req.language, req.length, req.session_id)
         except Exception as err:
             print(f"[TRANSCRIPT] {err}")
             raise HTTPException(500, "The transcript could not be generated.")
