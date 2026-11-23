@@ -82,15 +82,6 @@
     padding-bottom: 40px;
   }
 }
-/* The closing band bleeds off the bottom edge, which means living in the page
-   margin rather than the text flow. A margin can only be reserved per page,
-   and CSS has no last-page selector, so the band gets a named page of its own
-   and the About block goes with it. The cost is one page per transcript. */
-@page back {
-  margin-bottom: 232px;
-  @bottom-right { content: none; }
-  @bottom-center { content: element(band); width: 172mm; vertical-align: bottom; }
-}
 @page :first {
   margin-top: 0;
   @top-center { content: none; }
@@ -150,8 +141,11 @@ h1 { max-width: 560px; font-size: 38px; line-height: 1.12; font-weight: 700; let
 .about { margin-top: 36px; break-inside: avoid; }
 .about h2 { font-size: 18px; line-height: 24px; }
 .about .disclaimer { margin-top: 8px; font-size: 14px; line-height: 21px; }
-.about { page: back; }
-.band { position: running(band); margin: 0 -19mm; padding: 20px 19mm 40px; background: #061038; break-inside: avoid;
+/* The band sits at the end of the text, not in the page margin: in-flow
+   content cannot paint into a margin, and reserving one costs every page.
+   render.py measures what is left on the last page and sets margin-top to
+   exactly that, so the band lands at the foot of the page it was already on. */
+.band { margin: 30px -19mm 0; padding: 20px 19mm 40px; background: #061038; break-inside: avoid;
         font-size: 12px; line-height: 18px; color: #B9CCDB; }
 .band .logos { height: 43px; white-space: nowrap; }
 .band .logos > * { display: inline-block; vertical-align: middle; margin-right: 20px; }
