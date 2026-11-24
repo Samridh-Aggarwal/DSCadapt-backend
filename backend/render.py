@@ -247,8 +247,85 @@ class Briefing:
 
 # --- PDF ---------------------------------------------------------------------
 
-BAND_MARGIN_TOP = 30          # the template's own value, see .band there
-BAND_SELECTOR = ".band"
+# Applied to the last page only. Giving up the bottom margin lets the band,
+# which is ordinary content in the flow, reach the paper edge; in-flow content
+# may not paint inside a margin, so the margin has to go rather than be
+# painted into. The page number goes with it: there is nowhere left to put it,
+# and every other page keeps its own. @page :nth() is the only way to reach
+# the last page, CSS having no :last, and which page that is cannot be known
+# until the document has been laid out once.
+LAST_PAGE_OPEN = """<style>
+@page :nth(%d) { margin-bottom: 0; @bottom-right { content: none; } }
+</style></head>"""
+
+# The push is a transparent border, not a margin. A margin at the top of a
+# page fragment is discarded by the fragmentation rules, so on the runs where
+# the band happens to start the last page a margin does nothing at all. A
+# border survives, and background-clip keeps the navy off it.
+BAND_DROP = """<style>
+@page :nth(%d) { margin-bottom: 0; @bottom-right { content: none; } }
+.band { border-top: %dpx solid transparent; background-clip: padding-box; }
+</style></head>"""
+
+
+def _boxes(box):
+    """Every box in a rendered page, depth first."""
+    for child in getattr(box, "children", []):
+        yield child
+        yield from _boxes(child)
+
+
+def _slack(page):
+    """How much unused height is left on this page, in CSS pixels.
+
+    The page box knows where its usable area ends and the body box knows where
+    the text actually stopped, so the difference is the gap under the content.
+    Both are WeasyPrint internals rather than documented API, which is the
+    reason weasyprint is pinned in requirements.txt; a version bump has to be
+    checked against this.
+    """
+    box = page._page_box
+    bodies = [b for b in _boxes(box) if getattr(b, "element_tag", None) == "body"]
+    if not bodies:
+        return 0
+    body = bodies[0]
+    return (box.content_box_y() + box.height) - (body.content_box_y() + body.height)
+
+
+def _write_pdf(html, stem, template_dir, band_to_foot=False):
+    """Write the PDF, optionally bleeding the closing band off the bottom edge.
+
+    Left alone the band stops wherever the text stopped, with a field of white
+    under it. CSS cannot fix that on its own: there is no selector for the
+    last page, and in-flow content may not paint inside a page margin. So the
+    document is laid out first to find out how many pages it has, the last
+    page is told to give up its bottom margin, and the band is pushed down by
+    whatever room is then left on it.
+
+    Three passes, because each answer depends on the one before: the page
+    count decides which page to open up, and opening it up decides how much
+    room there is to push into. The band stays in the flow throughout, which
+    is what keeps the page count from moving underneath the rule. Any pass
+    that changes the count is discarded and the document comes out as it
+    would have anyway.
+    """
+    import weasyprint
+    path = Path(tempfile.gettempdir()) / f"{stem}_{datetime.now():%Y%m%d_%H%M%S}.pdf"
+
+    def render_with(rule):
+        return weasyprint.HTML(string=html.replace("</head>", rule, 1),
+                               base_url=str(template_dir)).render()
+
+    document = weasyprint.HTML(string=html, base_url=str(template_dir)).render()
+    if band_to_foot:
+        last = len(document.pages)
+        opened = render_with(LAST_PAGE_OPEN % last)
+        if len(opened.pages) == last:
+            gap = int(_slack(opened.pages[-1]))
+            dropped = render_with(BAND_DROP % (last, max(0, gap)))
+            document = dropped if len(dropped.pages) == last else opened
+    document.write_pdf(str(path))
+    return str(path)
 
 
 def _boxes(box):
@@ -527,7 +604,7 @@ def render_transcript(history, audience="Policymaker", country="All Europe",
                       template_dir=TEMPLATE_DIR):
     html = transcript_html(history, audience, country, language, length,
                            session_id, template_dir)
-    return _write_pdf(html, "idalert_transcript", template_dir, drop_band=True) if html else None
+    return _write_pdf(html, "idalert_transcript", template_dir, band_to_foot=True) if html else None
 
 def render_briefing(sections, messages, audience="Policymaker", country="All Europe",
                     language="English", template_dir=TEMPLATE_DIR):
