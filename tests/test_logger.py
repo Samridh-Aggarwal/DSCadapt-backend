@@ -403,12 +403,22 @@ def test_redirects_do_not_count_towards_a_briefing():
     assert render.Briefing(BriefingChat(DRAFT)).build(refusals) is None
 
 
-def test_the_briefing_html_carries_all_four_sections():
+def test_the_briefing_page_is_built_from_the_retrieved_mechanisms():
+    """The prose is not on the page yet; the structure is, and it comes from
+    the ontology rather than from anything a model wrote."""
     sections = render.parse_sections(AUDITED)
     template_dir = Path(ROOT / "backend" / "templates")
-    if not (template_dir / "briefing.html").exists():
+    if not (template_dir / "briefing_v2.html").exists():
         pytest.skip("templates not in this working tree")
-    html = render.briefing_html(sections, MESSAGES, template_dir=template_dir)
-    for text in ["The session looked at wetlands", "Heat management", "Culex breeding",
-                 "Surveillance was not examined"]:
-        assert text in html
+    messages = MESSAGES + [{"role": "assistant", "content": "", "route": "domain",
+                            "sources": [{"type": "evidence",
+                                         "title": "Ecological disruption",
+                                         "origin": "Evidence base \u00b7 1.6. Flood Protection"}]}]
+    items = render.briefing_items(messages)
+    assert [i["name"] for i in items] == ["Ecological disruption"]
+    assert items[0]["type"] == "trade-off"
+    assert items[0]["measure_type"] == "Flood protection"
+    assert items[0]["glance"].startswith("Can increase")
+    html = render.briefing_html(sections, messages, template_dir=template_dir)
+    assert "Ecological disruption" in html
+    assert "Flood protection" in html
