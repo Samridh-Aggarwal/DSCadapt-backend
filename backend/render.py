@@ -423,6 +423,7 @@ def _env(template_dir):
     env = Environment(loader=FileSystemLoader(str(template_dir)),
                       autoescape=select_autoescape(["html"]))
     env.filters["inline"] = inline
+    env.filters["italics"] = inline      # the briefing template's name for it
     env.filters["rich"] = rich
     env.filters["css_str"] = css_str
     return env
