@@ -24,6 +24,7 @@ from markupsafe import Markup, escape
 
 import labels
 import logos
+import ontology
 import prompts
 import translate
 
@@ -531,17 +532,108 @@ def transcript_html(history, audience="Policymaker", country="All Europe",
     )
 
 
+MEASURE_PREFIX = re.compile(r"^\d+(?:\.\d+)*\.?\s*")
+
+
+def _measure_of(source):
+    """The ontology's name for the pathway document a chunk came from.
+
+    build_sources writes the document as "Evidence base . 1.6. Flood
+    Protection", so the file number and the panel's own prefix come off and
+    what is left is matched against the ontology rather than trusted, because
+    the two spell the same measure with different capitals.
+    """
+    raw = MEASURE_PREFIX.sub("", (source.get("origin") or "").split("\u00b7")[-1].strip())
+    for measure in ontology.MEASURES:
+        if measure["name"].lower() == raw.lower():
+            return measure["name"]
+    return raw
+
+
+def _glance(kind, groups):
+    """The one-line risk statement under a name in At a glance.
+
+    Composed from the mechanism's direction and the disease categories it
+    reaches, so it cannot disagree with the row underneath it.
+    """
+    if not groups:
+        return ""
+    words = [re.sub(r"\s*\(.*\)", "", g).replace(" diseases", "").strip().lower()
+             for g in groups]
+    joined = " and ".join(words) if len(words) < 3 else ", ".join(words[:-1]) + " and " + words[-1]
+    verb = "Can decrease" if kind == "co-benefit" else "Can increase"
+    return f"{verb} {joined} disease risk"
+
+
+def briefing_items(messages):
+    """The co-benefits and trade-offs this session actually retrieved.
+
+    Every retrieved chunk is one mechanism inside one measure's document, so
+    which items belong in the briefing was already decided by the retrieval;
+    nothing here is chosen by a model. The ontology supplies the rest of the
+    row: whether the mechanism is a co-benefit or a trade-off, and which
+    disease categories it reaches.
+
+    diseases is left empty on purpose. The template prints "None named in the
+    session" for an empty list, which is true, where listing the ontology's
+    diseases for the category would claim the session discussed them.
+    """
+    seen, rows = set(), []
+    for message in messages:
+        for source in message.get("sources") or []:
+            if source.get("type") != "evidence":
+                continue
+            name = (source.get("title") or "").strip()
+            kind = ontology.MECHANISM_TYPE.get(name)
+            if not name or not kind or name in seen:
+                continue
+            seen.add(name)
+            groups = ontology.MECHANISM_GROUPS.get(name, [])
+            rows.append({"type": kind, "name": name,
+                         "measure_type": _measure_of(source),
+                         "glance": _glance(kind, [g for g, _ in groups]),
+                         "disease_groups": [{"name": g, "sub": sub} for g, sub in groups],
+                         "diseases": [], "explanation": ""})
+    return rows
+
+
 def briefing_html(sections, messages, audience="Policymaker", country="All Europe",
-                  language="English", template_dir=TEMPLATE_DIR):
-    template = (Path(template_dir) / "briefing.html").read_text(encoding="utf-8")
-    return (template
-            .replace("{{META}}", meta_line(country, audience, language))
-            .replace("{{QUESTIONS}}", questions_html(messages))
-            .replace("{{SUMMARY}}", as_paragraphs(sections.summary))
-            .replace("{{COBENEFITS}}", as_paragraphs(sections.cobenefits))
-            .replace("{{TRADEOFFS}}", as_paragraphs(sections.tradeoffs))
-            .replace("{{UNCERTAINTIES}}", as_paragraphs(sections.uncertainties))
-            .replace("{{SOURCES}}", sources_html(messages)))
+                  language="English", length="Standard", session_id="",
+                  template_dir=TEMPLATE_DIR):
+    """The briefing page.
+
+    The prose the model wrote is not on it yet. Everything structural is:
+    which mechanisms the session retrieved, whether each is a co-benefit or a
+    trade-off, the measure it belongs to and the disease categories it
+    reaches, all from the ontology. The explanation under each one is the
+    piece still to come, and an empty string is a visible gap rather than a
+    wrong sentence.
+    """
+    items = briefing_items(messages)
+    measures = [i["measure_type"] for i in items if i["measure_type"]]
+    now = datetime.now()
+    return _env(template_dir).get_template("briefing_v2.html").render(
+        lang=_lang_code(language),
+        length=(length or "Standard").lower(),
+        date=f"{now.day} {now:%B %Y}",
+        year=now.year,
+        session_ref=session_id or session_ref(messages),
+        contact=CONTACT_EMAIL,
+        logos=logos.LOGOS,
+        title=measures[0] if measures else "Session briefing",
+        context={"measure": measures[0] if measures else "",
+                 "aim": "", "location": country},
+        key_messages=[],
+        items=items,
+        examples=[],
+        local_context=[],
+        references=[],
+        evidence_entries=[{"title": s.get("title", ""), "section": s.get("origin", "")}
+                          for m in messages for s in (m.get("sources") or [])
+                          if s.get("type") == "evidence"],
+        also_retrieved="",
+        L=labels.briefing(language),
+    )
 
 def render_transcript(history, audience="Policymaker", country="All Europe",
                       language="English", length="Standard", session_id="",
@@ -551,6 +643,8 @@ def render_transcript(history, audience="Policymaker", country="All Europe",
     return _write_pdf(html, "idalert_transcript", template_dir, band_to_foot=True) if html else None
 
 def render_briefing(sections, messages, audience="Policymaker", country="All Europe",
-                    language="English", template_dir=TEMPLATE_DIR):
-    html = briefing_html(sections, messages, audience, country, language, template_dir)
-    return _write_pdf(html, "idalert_briefing", template_dir)
+                    language="English", length="Standard", session_id="",
+                    template_dir=TEMPLATE_DIR):
+    html = briefing_html(sections, messages, audience, country, language, length,
+                         session_id, template_dir)
+    return _write_pdf(html, "idalert_briefing", template_dir, band_to_foot=True)
