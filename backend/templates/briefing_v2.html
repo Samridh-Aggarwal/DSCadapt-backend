@@ -1,0 +1,371 @@
+<!doctype html>
+{#-
+  DSCAdapt session briefing: Jinja2 template for WeasyPrint (tested with 63.1).
+
+  RENDERING (Python)
+      from jinja2 import Environment, FileSystemLoader, select_autoescape
+      from markupsafe import Markup, escape
+      from weasyprint import HTML
+      import re
+
+      def italics(text):   # escape model text, then *Genus species* -> <em>Genus species</em>
+          return Markup(re.sub(r"\*([^*\n]+)\*", r"<em>\1</em>", str(escape(text or ""))))
+      def css_str(text):   # quote a label for CSS content: (page numbers)
+          return Markup('"' + str(text).replace("\\", "\\\\").replace('"', '\\"') + '"')
+
+      env = Environment(loader=FileSystemLoader(TEMPLATE_DIR), autoescape=select_autoescape(["html"]))
+      env.filters["italics"] = italics
+      env.filters["css_str"] = css_str
+      html = env.get_template("DSCAdapt_briefing_template.html").render(**data)
+      HTML(string=html, base_url=TEMPLATE_DIR).write_pdf("briefing.pdf")
+
+  FILES EXPECTED NEXT TO THIS TEMPLATE
+      {{ logos.dsc }}, {{ logos.lse }}, {{ logos.cmcc }}, {{ logos.idalert }}
+      {{ logos.ukri }}               UKRI square only (no wordmark), shown on a thin white tile
+      fonts/SourceSans3.ttf, fonts/SourceSans3-Italic.ttf, fonts/SourceSerif4.ttf, fonts/SourceSerif4-Italic.ttf
+      (variable fonts from Google Fonts: Source Sans 3 and Source Serif 4; they cover Latin, Greek and Cyrillic)
+      The EU emblem is inline SVG below.
+
+  DATA
+      lang, length ("brief" | "standard" | "detailed"), date, year, session_ref, contact, title
+      context: {measure, aim, location}
+      key_messages: [{lead, text}]                                   detailed only
+      items: [{type: "co-benefit" | "trade-off",
+               name,              co-benefit or trade-off as named in the pathway table
+               glance,            full line for At a glance, e.g. "Can decrease water-borne disease risk"
+               measure_type,      measure as named in the pathway table
+               disease_groups: [{name, sub?}],
+               diseases: [..],    only diseases named in the session; empty -> "None named in the session"
+               explanation}]      the session's text
+      examples: [{place, summary, refs?}]                            optional
+      local_context: [{topic, text}]                                 optional
+      references: [..], evidence_entries: [{title, section}], also_retrieved
+      L: every fixed label the reader sees (headings, column labels, disclaimer, funding statement,
+         "Page ... of ..."); pass a translated L plus the matching lang for other languages.
+      Model text is escaped; species names written in *asterisks* become italics. Ask the model for
+      no other markup.
+
+  LENGTH
+      brief     no key messages, no At a glance; pathways follow the context box; the closing band
+                follows the text so the briefing can stay within two pages
+      standard  At a glance; pathways start a new page; sources on their own page with the band at the foot
+      detailed  key messages and At a glance; otherwise as standard
+-#}
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<title>{{ title }} · DSCAdapt {{ L.briefing }}</title>
+<style>
+
+/* ---------- pages ---------- */
+@page {
+  size: A4;
+  margin: 26mm 19mm 18mm 19mm;
+  @top-center {
+    content: element(runhead);
+    width: 172mm;
+    vertical-align: bottom;
+    padding-bottom: 24px;
+  }
+  @bottom-right {
+    content: {{ L.page|css_str }} " " counter(page) " " {{ L.of|css_str }} " " counter(pages);
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 12px;
+    color: #56616F;
+    vertical-align: bottom;
+    padding-bottom: 40px;
+  }
+}
+/* page 1: navy masthead bleeding off the top edge, no running head */
+@page :first {
+  margin-top: 0;
+  @top-center { content: none; }
+}
+
+/* ---------- base ---------- */
+html { font-family: "Source Sans 3", "Noto Sans", Arial, sans-serif; color: #17223A; }
+body { margin: 0; }
+h1, h2, h3, p, ul, ol, dl, dd { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+.serif { font-family: "Source Serif 4", "Noto Serif", Georgia, serif; }
+h2 { font-size: 22px; line-height: 28px; font-weight: 700; }
+h3 { font-size: 18px; line-height: 24px; font-weight: 600; }
+.muted { color: #56616F; }
+
+/* ---------- running head (pages 2+) ---------- */
+.runhead { position: running(runhead); display: flex; justify-content: space-between; align-items: baseline;
+           padding-bottom: 12px; border-bottom: 1px solid #DCE4EA; font-size: 13px; line-height: 18px; color: #56616F; }
+.runhead .brand { font-size: 15px; line-height: 20px; font-weight: 700; color: #061038; margin-right: 10px; }
+
+/* ---------- page 1 ---------- */
+.masthead { height: 116px; box-sizing: border-box; margin: 0 -19mm; padding: 40px 19mm 0; background: #061038;
+            display: flex; justify-content: space-between; align-items: flex-start; }
+.masthead img { display: block; height: 52px; width: auto; }
+.masthead .meta { text-align: right; color: #B9CCDB; }
+.masthead .doc-type { font-size: 22px; line-height: 26px; font-weight: 700; color: #FFFFFF; }
+.masthead .date { margin-top: 2px; font-size: 14px; line-height: 18px; }
+.masthead .ref { margin-top: 2px; font-size: 13px; line-height: 16px; }
+
+.title-block { padding-top: 32px; }
+h1 { max-width: 560px; font-size: 38px; line-height: 1.12; font-weight: 700; letter-spacing: -0.01em; }
+.subtitle { margin-top: 6px; font-size: 19px; line-height: 26px; color: #56616F; }
+
+.context { margin-top: 24px; padding: 16px 20px; border-radius: 6px; background: #F4F7FA;
+           display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 24px; }
+.context dt { font-size: 13px; line-height: 18px; font-weight: 600; color: #56616F; }
+.context dd { margin-top: 2px; font-size: 16px; line-height: 22px; }
+
+.key-messages { margin-top: 24px; padding: 20px 24px 22px; border-radius: 6px; background: #F4F7FA; break-inside: avoid; }
+.key-messages h2 { margin-bottom: 12px; }
+.key-messages li { position: relative; padding-left: 18px; font-size: 16px; line-height: 24px; }
+.key-messages li + li { margin-top: 12px; }
+.key-messages li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 1px; background: #5694BB; }
+.key-messages strong { font-weight: 600; }
+
+.glance { margin-top: 30px; break-inside: avoid; }
+.glance h2 { margin-bottom: 14px; }
+.glance-cols { display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; }
+.glance-head { padding-bottom: 6px; font-size: 14px; line-height: 20px; font-weight: 700; }
+.glance-head svg { display: inline-block; vertical-align: -1px; margin-right: 6px; }
+.glance-head.co { border-bottom: 2px solid #5694BB; color: #2C6182; }
+.glance-head.tr { border-bottom: 2px solid #B07D1E; color: #7A6840; }
+.glance-item { padding: 10px 0; border-bottom: 1px solid #E8EDF2; }
+.glance-item .name { font-size: 16px; line-height: 22px; font-weight: 600; }
+.glance-item .risk { margin-top: 2px; font-size: 14px; line-height: 19px; color: #56616F; }
+
+/* ---------- co-benefits and trade-offs ---------- */
+.pathways { margin-top: 30px; }
+.pathways.new-page { margin-top: 0; break-before: page; }
+.items { margin-top: 16px; }
+.item { padding-top: 16px; border-top: 1px solid #DCE4EA; break-inside: avoid; }
+.item + .item { margin-top: 20px; }
+.kind { display: inline-block; margin-right: 10px; font-size: 13px; line-height: 18px; font-weight: 700; white-space: nowrap; }
+.kind svg { display: inline-block; vertical-align: -1px; margin-right: 5px; width: 10px; height: 10px; }
+.co .kind, .lbl.dir.co { color: #2C6182; }
+.tr .kind, .lbl.dir.tr { color: #7A6840; }
+
+.strip { margin-top: 10px; display: grid; grid-template-columns: 0.85fr 14px 1.5fr 14px 1.45fr 14px 1.6fr;
+         column-gap: 6px; row-gap: 2px; align-items: start; }
+.strip .lbl { font-size: 12px; line-height: 16px; font-weight: 600; color: #56616F; }
+.strip .cell { padding: 6px 0; font-size: 13px; line-height: 17px; }
+.strip .cell span { display: block; }
+.strip .hl { padding: 6px 9px; border-radius: 5px; font-size: 13px; line-height: 17px; font-weight: 600; }
+.co .hl { background: #E3EFF6; color: #2C6182; }
+.tr .hl { background: #F8F0E3; color: #7A6840; }
+.strip .arrow { margin-top: 7px; display: block; }
+.explain { margin-top: 10px; font-size: 16px; line-height: 24px; }
+
+/* ---------- examples and local context (optional) ---------- */
+.examples, .local { margin-top: 32px; }
+.example { margin-top: 16px; padding-top: 14px; border-top: 1px solid #DCE4EA; break-inside: avoid; }
+.example + .example { margin-top: 20px; }
+.example .summary { margin-top: 6px; font-size: 16px; line-height: 24px; }
+.example .refs { margin-top: 6px; font-size: 13px; line-height: 18px; color: #56616F; }
+.local dl { margin-top: 12px; border-bottom: 1px solid #E8EDF2; }
+.local .row { display: grid; grid-template-columns: 180px 1fr; column-gap: 16px; padding: 10px 0; border-top: 1px solid #E8EDF2; break-inside: avoid; }
+.local dt { font-size: 14px; line-height: 24px; font-weight: 600; color: #56616F; }
+.local dd { font-size: 16px; line-height: 24px; }
+
+/* ---------- back matter ---------- */
+/* The sources start a new page unless the briefing is brief, which keeps a
+   short one inside two pages. The band is ordinary content at the end of the
+   text; render.py bleeds it off the bottom edge of whatever page it lands on. */
+.back { break-before: page; }
+.back.inline { break-before: auto; margin-top: 32px; }
+.back h3 { margin: 14px 0 8px; font-size: 14px; line-height: 20px; font-weight: 700; color: #56616F; }
+.back .entries { margin-top: 18px; }
+.refs-list li { font-size: 14px; line-height: 20px; }
+.refs-list li + li, .entries-list li + li { margin-top: 6px; }
+.entries-list li span { display: block; }
+.entries-list .t { font-size: 14px; line-height: 19px; }
+.entries-list .s { font-size: 13px; line-height: 17px; color: #56616F; }
+.also { margin-top: 10px; font-size: 13px; line-height: 18px; color: #56616F; }
+.about { margin-top: 30px; break-inside: avoid; }
+.about h2 { font-size: 18px; line-height: 24px; }
+.about .disclaimer { margin-top: 8px; font-size: 14px; line-height: 21px; }
+.about .cite { margin-top: 8px; font-size: 13px; line-height: 18px; color: #56616F; }
+.about .cite strong { font-weight: 700; color: #17223A; margin-right: 6px; }
+
+.band { margin: 30px -19mm 0; padding: 20px 19mm 40px; background: #061038; break-inside: avoid;
+        font-size: 12px; line-height: 18px; color: #B9CCDB; }
+.band .logos { height: 43px; white-space: nowrap; }
+.band .logos > * { display: inline-block; vertical-align: middle; margin-right: 20px; }
+.band .lse { height: 40px; width: 40px; }
+.band .cmcc { height: 32px; width: auto; }
+.band .logos > :last-child { margin-right: 0; }
+.band .chip { padding: 5px 9px; border-radius: 6px; background: #FFFFFF; }
+.band .chip img { display: block; height: 28px; width: auto; }
+.band .chip.square { padding: 5px; border-radius: 4px; }
+.band .chip.square img { height: 30px; width: 30px; }
+.band .eu > * { display: inline-block; vertical-align: middle; }
+.band .eu svg { margin-right: 8px; }
+.band .eu-text { font-family: Arial, "Helvetica Neue", sans-serif; font-size: 14px; line-height: 17px; color: #FFFFFF; }
+.band .eu-text span { display: block; }
+.band .funding { margin-top: 12px; }
+.band .bottom { margin-top: 12px; }
+</style>
+</head>
+<body>
+
+{%- set PLUS = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 2v8M2 6h8"/></svg>' %}
+{%- set MINUS = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8"/></svg>' %}
+{%- set ARROW = '<svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#8A93A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 7h9M8 4l3 3-3 3"/></svg>' %}
+
+<!-- page 1 ============================================================ -->
+<header class="masthead">
+  <img src="{{ logos.dsc }}" alt="DSCAdapt: Disease-Smart Climate Adaptation Tool">
+  <div class="meta">
+    <div class="doc-type">{{ L.briefing }}</div>
+    <div class="date">{{ date }}</div>
+    <div class="ref">{{ L.ref }} {{ session_ref }}</div>
+  </div>
+</header>
+
+<!-- running head: shown on every page after the first -->
+<div class="runhead">
+  <div><span class="brand">DSCAdapt</span>{{ L.briefing }}, {{ date }}</div>
+  <div>{{ title }}</div>
+</div>
+
+<section class="title-block">
+  <h1>{{ title }}</h1>
+  <p class="subtitle">{{ L.subtitle }}</p>
+</section>
+
+<dl class="context">
+  <div><dt>{{ L.measure }}</dt><dd>{{ context.measure }}</dd></div>
+  <div><dt>{{ L.aim }}</dt><dd>{{ context.aim }}</dd></div>
+  <div><dt>{{ L.location }}</dt><dd>{{ context.location }}</dd></div>
+</dl>
+
+{%- if length == 'detailed' and key_messages %}
+<section class="key-messages">
+  <h2>{{ L.key_messages }}</h2>
+  <ul class="serif">
+    {%- for km in key_messages %}
+    <li><strong>{{ km.lead }}</strong> {{ km.text|italics }}</li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
+
+{%- if length in ('standard', 'detailed') %}
+{%- set cos = items|selectattr('type', 'equalto', 'co-benefit')|list %}
+{%- set trs = items|selectattr('type', 'equalto', 'trade-off')|list %}
+<section class="glance">
+  <h2>{{ L.at_a_glance }}</h2>
+  <div class="glance-cols">
+    <div>
+      <div class="glance-head co">{{ PLUS|safe }}{{ L.co_benefits }}</div>
+      {%- for it in cos %}
+      <div class="glance-item"><div class="name">{{ it.name }}</div><div class="risk">{{ it.glance }}</div></div>
+      {%- endfor %}
+    </div>
+    <div>
+      <div class="glance-head tr">{{ MINUS|safe }}{{ L.trade_offs }}</div>
+      {%- for it in trs %}
+      <div class="glance-item"><div class="name">{{ it.name }}</div><div class="risk">{{ it.glance }}</div></div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<!-- co-benefits and trade-offs ========================================= -->
+<section class="pathways{% if length != 'brief' %} new-page{% endif %}">
+  <h2>{{ L.pathways_heading }}</h2>
+  <div class="items">
+    {%- for it in items %}
+    {%- set d = 'co' if it.type == 'co-benefit' else 'tr' %}
+    <article class="item {{ d }}">
+      <h3><span class="kind">{{ (PLUS if d == 'co' else MINUS)|safe }}{{ L.co_benefit if d == 'co' else L.trade_off }}</span>{{ it.name }}</h3>
+      <div class="strip">
+        <div class="lbl">{{ L.col_measure }}</div><div></div>
+        <div class="lbl dir {{ d }}">{{ L.co_benefit if d == 'co' else L.trade_off }}</div><div></div>
+        <div class="lbl dir {{ d }}">{{ L.can_decrease if d == 'co' else L.can_increase }}</div><div></div>
+        <div class="lbl">{{ L.diseases_discussed }}</div>
+
+        <div class="cell">{{ it.measure_type }}</div>
+        {{ ARROW|safe }}
+        <div class="hl">{{ it.name }}</div>
+        {{ ARROW|safe }}
+        <div class="cell">
+          {%- for g in it.disease_groups %}<span>{{ g.name }}</span>{% if g.sub %}<span class="muted">{{ g.sub }}</span>{% endif %}{% endfor -%}
+        </div>
+        {{ ARROW|safe }}
+        <div class="cell">
+          {%- for dz in it.diseases %}<span>{{ dz }}</span>{% else %}<span class="muted">{{ L.none_named }}</span>{% endfor -%}
+        </div>
+      </div>
+      <p class="explain serif">{{ it.explanation|italics }}</p>
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+
+{%- if examples %}
+<section class="examples">
+  <h2>{{ L.examples }}</h2>
+  {%- for ex in examples %}
+  <article class="example">
+    <h3>{{ ex.place }}</h3>
+    <p class="summary serif">{{ ex.summary|italics }}</p>
+    {%- if ex.refs %}<p class="refs">{{ ex.refs }}</p>{% endif %}
+  </article>
+  {%- endfor %}
+</section>
+{%- endif %}
+
+{%- if local_context %}
+<section class="local">
+  <h2>{{ L.local_context }}</h2>
+  <dl>
+    {%- for row in local_context %}
+    <div class="row"><dt>{{ row.topic }}</dt><dd class="serif">{{ row.text|italics }}</dd></div>
+    {%- endfor %}
+  </dl>
+</section>
+{%- endif %}
+
+<!-- back matter: starts a new page and carries the closing band ========= -->
+<section class="back{% if length == 'brief' %} inline{% endif %}">
+
+
+  <h2>{{ L.sources }}</h2>
+  <h3>{{ L.references }}</h3>
+  <ol class="refs-list">
+    {%- for r in references %}<li>{{ r|italics }}</li>{%- endfor %}
+  </ol>
+
+  <div class="entries">
+    <h3>{{ L.evidence_entries }}</h3>
+    <ol class="entries-list">
+      {%- for e in evidence_entries %}<li><span class="t">{{ e.title }}</span><span class="s">{{ e.section }}</span></li>{%- endfor %}
+    </ol>
+    {%- if also_retrieved %}<p class="also">{{ L.also_retrieved }}: {{ also_retrieved }}</p>{% endif %}
+  </div>
+
+  <section class="about">
+    <h2>{{ L.about }}</h2>
+    <p class="disclaimer serif">{{ L.disclaimer }}</p>
+    <p class="cite"><strong>{{ L.how_to_cite }}</strong>DSCAdapt ({{ year }}). {{ title }}. {{ L.briefing }}, {{ date }}. {{ L.cite_org }}. {{ session_ref }}.</p>
+  </section>
+  <div class="band">
+    <div class="logos">
+      <img class="lse" src="{{ logos.lse }}" alt="London School of Economics and Political Science">
+      <img class="cmcc" src="{{ logos.cmcc }}" alt="CMCC, Centro Euro-Mediterraneo sui Cambiamenti Climatici">
+      <div class="chip"><img src="{{ logos.idalert }}" alt="IDAlert: Infectious Disease decision-support tools and Alert systems"></div>
+      <div class="eu">
+        <svg width="58.5" height="40" viewBox="0 0 63.2 43.2" aria-hidden="true"><rect width="63.2" height="43.2" fill="#FFFFFF"/><rect x="1.6" y="1.6" width="60" height="40" fill="#003399"/><path fill="#FFCC00" d="M31.600 6.044L32.099 7.580L33.713 7.580L32.407 8.529L32.906 10.064L31.600 9.115L30.294 10.064L30.793 8.529L29.487 7.580L31.101 7.580ZM38.267 7.831L38.766 9.366L40.380 9.366L39.074 10.315L39.573 11.851L38.267 10.902L36.960 11.851L37.459 10.315L36.153 9.366L37.768 9.366ZM43.147 12.711L43.646 14.247L45.260 14.247L43.954 15.196L44.453 16.731L43.147 15.782L41.841 16.731L42.340 15.196L41.034 14.247L42.648 14.247ZM44.933 19.378L45.432 20.913L47.047 20.913L45.741 21.862L46.240 23.398L44.933 22.449L43.627 23.398L44.126 21.862L42.820 20.913L44.434 20.913ZM43.147 26.044L43.646 27.580L45.260 27.580L43.954 28.529L44.453 30.064L43.147 29.115L41.841 30.064L42.340 28.529L41.034 27.580L42.648 27.580ZM38.267 30.925L38.766 32.460L40.380 32.460L39.074 33.409L39.573 34.945L38.267 33.996L36.960 34.945L37.459 33.409L36.153 32.460L37.768 32.460ZM31.600 32.711L32.099 34.247L33.713 34.247L32.407 35.196L32.906 36.731L31.600 35.782L30.294 36.731L30.793 35.196L29.487 34.247L31.101 34.247ZM24.933 30.925L25.432 32.460L27.047 32.460L25.741 33.409L26.240 34.945L24.933 33.996L23.627 34.945L24.126 33.409L22.820 32.460L24.434 32.460ZM20.053 26.044L20.552 27.580L22.166 27.580L20.860 28.529L21.359 30.064L20.053 29.115L18.747 30.064L19.246 28.529L17.940 27.580L19.554 27.580ZM18.267 19.378L18.766 20.913L20.380 20.913L19.074 21.862L19.573 23.398L18.267 22.449L16.960 23.398L17.459 21.862L16.153 20.913L17.768 20.913ZM20.053 12.711L20.552 14.247L22.166 14.247L20.860 15.196L21.359 16.731L20.053 15.782L18.747 16.731L19.246 15.196L17.940 14.247L19.554 14.247ZM24.933 7.831L25.432 9.366L27.047 9.366L25.741 10.315L26.240 11.851L24.933 10.902L23.627 11.851L24.126 10.315L22.820 9.366L24.434 9.366Z"/></svg>
+        <div class="eu-text"><span>{{ L.funded_by_1 }}</span><span>{{ L.funded_by_2 }}</span></div>
+      </div>
+      <div class="chip square"><img src="{{ logos.ukri }}" alt="UK Research and Innovation"></div>
+    </div>
+    <p class="funding">{{ L.funding_statement }}</p>
+    <div class="bottom"><span>{{ L.contact }} {{ contact }}</span></div>
+  </div>
+
+</section>
+</body>
+</html>
