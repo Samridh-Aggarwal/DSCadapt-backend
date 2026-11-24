@@ -6,6 +6,7 @@ only reads the graph and derives the two views the rest of the backend wants:
 
     MEASURE_RISKS      measure -> [(mechanism, category)]  trade-off edges only
     CATEGORY_DISEASES  category -> [disease]               parent categories resolved
+    MECHANISM_GROUPS   mechanism -> [(category, sub)]      every edge, both directions
 
 Both used to be hardcoded dicts in app.py. They were faithful to the diagram,
 but they were a third hand-maintained copy of it alongside the CSV and the
@@ -29,6 +30,27 @@ _EDGES = _g["edges"]
 # measure id <-> canonical name
 ID_BY_MEASURE = {m["name"]: m["id"] for m in MEASURES}
 MEASURE_BY_ID = {m["id"]: m["name"] for m in MEASURES}
+
+
+def _mechanism_groups():
+    """mechanism -> [(category, sub or None)].
+
+    MEASURE_RISKS covers the trade-off edges only, because that is all the
+    surveillance gate needed. A briefing has to print the co-benefit rows too,
+    and it prints the sub-category under its parent where the diagram has one,
+    so this reads the edges straight rather than deriving from the risks.
+    """
+    subs = {child: parent for parent, child in _EDGES["category_category"]}
+    out = {}
+    for mechanism, category in _EDGES["mechanism_category"]:
+        parent = subs.get(category)
+        row = (parent, category) if parent else (category, None)
+        if row not in out.setdefault(mechanism, []):
+            out[mechanism].append(row)
+    return out
+
+
+MECHANISM_GROUPS = _mechanism_groups()
 
 
 def _direct_leaves():
