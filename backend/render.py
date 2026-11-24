@@ -532,22 +532,45 @@ def transcript_html(history, audience="Policymaker", country="All Europe",
     )
 
 
-MEASURE_PREFIX = re.compile(r"^\d+(?:\.\d+)*\.?\s*")
+# A chunk's section is the heading as the pathway document writes it, which is
+# a numbered heading and not the ontology's name for the mechanism: "1.6.5
+# Trade-off of ecological disruption" against "Ecological disruption". The two
+# are matched on a flattened key rather than kept in step by hand, because the
+# documents and the diagram are authored separately and already disagree about
+# ampersands, about "floodwater" against "flood water", and about whether a
+# trade-off is of creating a habitat or of the habitat itself.
+SECTION_NUMBER = re.compile(r"^\s*(?:\d+(?:\.\d+)*|D\d+\.\d+\s*\u00a7\s*[\d.]*)\s*")
+SECTION_KIND = re.compile(r"^(?:trade[\s-]?off|co[\s-]?benefit)s?\s+of\s+", re.I)
+SECTION_LEAD = re.compile(r"^creating\s+", re.I)
+MEASURE_ID = re.compile(r"^\s*(?:pathway\s+summary\s+)?(\d+\.\d+)")
+
+
+def _mechanism_key(text):
+    """Flatten a heading to something the ontology can be looked up by."""
+    out = (text or "").lower().replace("&", " and ")
+    out = SECTION_NUMBER.sub("", out)
+    out = SECTION_KIND.sub("", out)
+    out = SECTION_LEAD.sub("", out)
+    return re.sub(r"[^a-z0-9]", "", out)
+
+
+MECHANISM_BY_KEY = {_mechanism_key(name): name for name in ontology.MECHANISM_TYPE}
 
 
 def _measure_of(source):
-    """The ontology's name for the pathway document a chunk came from.
+    """The measure a retrieved chunk belongs to, by its number.
 
-    build_sources writes the document as "Evidence base . 1.6. Flood
-    Protection", so the file number and the panel's own prefix come off and
-    what is left is matched against the ontology rather than trusted, because
-    the two spell the same measure with different capitals.
+    Matched on the number and not the name. The documents call measure 4.1
+    "Increasing green and blue spaces" where the diagram calls it "Increase
+    green & blue spaces", measure 1.1 is misspelt in the document's own
+    filename, and 3.3 is worded differently again. The number is the one thing
+    the two agree on.
     """
-    raw = MEASURE_PREFIX.sub("", (source.get("origin") or "").split("\u00b7")[-1].strip())
-    for measure in ontology.MEASURES:
-        if measure["name"].lower() == raw.lower():
-            return measure["name"]
-    return raw
+    for text in (source.get("title") or "", (source.get("origin") or "").split("\u00b7")[-1]):
+        found = MEASURE_ID.match(text.strip())
+        if found and found.group(1) in ontology.MEASURE_BY_ID:
+            return ontology.MEASURE_BY_ID[found.group(1)]
+    return ""
 
 
 def _glance(kind, groups):
@@ -558,9 +581,10 @@ def _glance(kind, groups):
     """
     if not groups:
         return ""
-    words = [re.sub(r"\s*\(.*\)", "", g).replace(" diseases", "").strip().lower()
+    words = [re.sub(r"\s*\(.*\)", "", re.sub(r"(?i)\s+diseases?$", "", g)).strip().lower()
              for g in groups]
-    joined = " and ".join(words) if len(words) < 3 else ", ".join(words[:-1]) + " and " + words[-1]
+    joined = (" and ".join(words) if len(words) < 3
+              else ", ".join(words[:-1]) + " and " + words[-1])
     verb = "Can decrease" if kind == "co-benefit" else "Can increase"
     return f"{verb} {joined} disease risk"
 
@@ -572,7 +596,8 @@ def briefing_items(messages):
     which items belong in the briefing was already decided by the retrieval;
     nothing here is chosen by a model. The ontology supplies the rest of the
     row: whether the mechanism is a co-benefit or a trade-off, and which
-    disease categories it reaches.
+    disease categories it reaches. A chunk whose heading is not a mechanism at
+    all, a case study or a section of the scoping review, is passed over.
 
     diseases is left empty on purpose. The template prints "None named in the
     session" for an empty list, which is true, where listing the ontology's
@@ -583,9 +608,9 @@ def briefing_items(messages):
         for source in message.get("sources") or []:
             if source.get("type") != "evidence":
                 continue
-            name = (source.get("title") or "").strip()
-            kind = ontology.MECHANISM_TYPE.get(name)
-            if not name or not kind or name in seen:
+            name = MECHANISM_BY_KEY.get(_mechanism_key(source.get("title")))
+            kind = ontology.MECHANISM_TYPE.get(name) if name else None
+            if not kind or name in seen:
                 continue
             seen.add(name)
             groups = ontology.MECHANISM_GROUPS.get(name, [])
@@ -594,6 +619,25 @@ def briefing_items(messages):
                          "glance": _glance(kind, [g for g, _ in groups]),
                          "disease_groups": [{"name": g, "sub": sub} for g, sub in groups],
                          "diseases": [], "explanation": ""})
+    return rows
+
+
+def briefing_entries(messages):
+    """The evidence base entries, each listed once.
+
+    The same chunk comes back on several turns of a session, so the panel the
+    frontend shows repeats it and the page would too without this.
+    """
+    seen, rows = set(), []
+    for message in messages:
+        for source in message.get("sources") or []:
+            if source.get("type") != "evidence":
+                continue
+            row = (source.get("title", ""), source.get("origin", ""))
+            if row in seen:
+                continue
+            seen.add(row)
+            rows.append({"title": row[0], "section": row[1]})
     return rows
 
 
@@ -628,9 +672,7 @@ def briefing_html(sections, messages, audience="Policymaker", country="All Europ
         examples=[],
         local_context=[],
         references=[],
-        evidence_entries=[{"title": s.get("title", ""), "section": s.get("origin", "")}
-                          for m in messages for s in (m.get("sources") or [])
-                          if s.get("type") == "evidence"],
+        evidence_entries=briefing_entries(messages),
         also_retrieved="",
         L=labels.briefing(language),
     )
